@@ -9,7 +9,10 @@
     "start": "next start",
     "lint": "next lint",
     "payload": "payload dev",
-    "payload:build": "payload build"
+    "payload:build": "payload build",
+    "payload:migrate": "payload migrate",
+    "setup": "bash scripts/setup.sh",
+    "extract": "python3 scripts/extract_content.py"
   },
   "dependencies": {
     "next": "^15.0.0",
