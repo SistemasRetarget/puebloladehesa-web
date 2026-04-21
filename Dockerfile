@@ -24,8 +24,9 @@ RUN npm ci && npm cache clean --force
 # Copiar código fuente
 COPY . .
 
-# Crear directorio para datos persistentes
+# Crear directorios para datos persistentes
 RUN mkdir -p /app/data
+RUN mkdir -p /app/public/media
 
 # Build (con NODE_ENV=production para optimización)
 ENV NODE_ENV=production
