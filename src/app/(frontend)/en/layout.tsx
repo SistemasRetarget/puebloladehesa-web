@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import JsonLd from "@/components/JsonLd";
-import { organizationSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: { default: "La Dehesa Village · Your refuge in the city", template: "%s · La Dehesa Village" },
@@ -10,10 +8,8 @@ export const metadata: Metadata = {
 };
 
 export default function EnLayout({ children }: { children: React.ReactNode }) {
-  const wa = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
   return (
     <>
-      <JsonLd data={organizationSchema()} />
       <header className="border-b border-brand-soft bg-brand-bg/80 backdrop-blur sticky top-0 z-40">
         <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="/en" className="font-serif text-xl tracking-tight">Pueblo La Dehesa</a>
@@ -26,7 +22,7 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
           </ul>
         </nav>
       </header>
-      {children}
+      <main>{children}</main>
       <footer className="mt-24 border-t border-brand-soft">
         <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between gap-6 text-sm text-brand-muted">
           <div>
@@ -37,13 +33,9 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
             <a href="/en/contact" className="hover:text-brand-accent">Contact</a>
             <a href="/en/privacy" className="hover:text-brand-accent">Privacy</a>
           </div>
+          <p>© {new Date().getFullYear()} Pueblo La Dehesa</p>
         </div>
       </footer>
-      {wa && (
-        <a href={`https://wa.me/${wa}`} target="_blank" rel="noopener" aria-label="WhatsApp" className="fixed bottom-6 right-6 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
-          <span className="text-2xl">💬</span>
-        </a>
-      )}
     </>
   );
 }
