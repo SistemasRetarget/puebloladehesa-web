@@ -53,10 +53,31 @@ export function loadImages(): ImageEntry[] {
   }
 }
 
-export function imageForPage(pageKey: string, fallback?: string): string {
+export function pageKey(lang: "es" | "en", pagePath: string): string {
+  // images.json uses: "es_", "es_products_casa-x", "en_en", "en_en_products_casa-x"
+  const trimmed = pagePath.replace(/^\/+/, "").replace(/\/+/g, "_");
+  return `${lang}_${trimmed}`;
+}
+
+export function imageForPage(keyOrLangPath: string, fallback?: string): string {
   const imgs = loadImages();
-  const hit = imgs.find((i) => i.pages.includes(pageKey) && /\.(jpg|jpeg|png|webp)$/i.test(i.file));
-  if (hit) return `/media/${hit.file}`;
+  // Acepta claves con doble "__" legadas: normaliza
+  const candidates = new Set<string>([
+    keyOrLangPath,
+    keyOrLangPath.replace(/__+/g, "_"),
+    keyOrLangPath.replace(/_home$/, "").replace(/_+$/, "_")
+  ]);
+  const isContent = (f: string) => /\.(jpg|jpeg|png|webp)$/i.test(f) && !/logo|icon|sprite/i.test(f);
+  for (const key of candidates) {
+    const hit = imgs.find((i) => i.pages.includes(key) && isContent(i.file));
+    if (hit) return `/media/${hit.file}`;
+  }
+  // Último recurso: primera imagen que contenga el slug
+  const slug = keyOrLangPath.split("_").filter(Boolean).pop();
+  if (slug) {
+    const hit = imgs.find((i) => isContent(i.file) && i.file.toLowerCase().includes(slug.toLowerCase()));
+    if (hit) return `/media/${hit.file}`;
+  }
   return fallback || "/media/placeholder.svg";
 }
 

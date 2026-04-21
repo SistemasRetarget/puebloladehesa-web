@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { listHouses, imageForPage, extractParagraphs, loadImages } from "@/lib/content";
+import { listHouses, imageForPage, extractParagraphs, loadImages, pageKey } from "@/lib/content";
 import JsonLd from "@/components/JsonLd";
 import { accommodationSchema, breadcrumbSchema } from "@/lib/schema";
 import { t } from "@/lib/i18n";
@@ -19,10 +19,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 export default function HouseEn({ params }: { params: { slug: string } }) {
   const house = listHouses("en").find((h) => h.path.endsWith(params.slug));
   if (!house) notFound();
-  const key = `${house.lang}_${house.path.replace(/\//g, "_")}`;
+  const key = pageKey(house.lang, house.path);
   const hero = imageForPage(key);
   const paragraphs = extractParagraphs(house, 4);
-  const gallery = loadImages().filter((i) => i.pages.includes(key) && /\.(jpg|jpeg|webp)$/i.test(i.file)).slice(0, 6);
+  const gallery = loadImages().filter((i) => i.pages.includes(key) && /\.(jpg|jpeg|webp)$/i.test(i.file) && !/logo|icon|sprite/i.test(i.file)).slice(0, 6);
   const title = house.meta.title?.split("|")[0].trim() || "House";
   const wa = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
   const L = t.en;
