@@ -1,6 +1,7 @@
 export const metadata = { title: "Contacto" };
 
-export default function Contacto({ searchParams }: { searchParams: { ok?: string; error?: string } }) {
+export default async function Contacto({ searchParams }: { searchParams: Promise<{ ok?: string; error?: string }> }) {
+  const sp = await searchParams;
   const wa = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
   return (
     <div className="max-w-2xl mx-auto px-6 py-20">
@@ -8,11 +9,11 @@ export default function Contacto({ searchParams }: { searchParams: { ok?: string
       <p className="text-brand-muted mb-10">
         Escríbenos por WhatsApp o envíanos un mensaje y te responderemos pronto.
       </p>
-      {searchParams.ok && (
+      {sp.ok && (
         <div role="status" className="mb-6 p-4 bg-green-50 text-green-800 border border-green-200">Gracias, hemos recibido tu mensaje.</div>
       )}
-      {searchParams.error && (
-        <div role="alert" className="mb-6 p-4 bg-red-50 text-red-800 border border-red-200">Revisa los campos: {decodeURIComponent(searchParams.error)}</div>
+      {sp.error && (
+        <div role="alert" className="mb-6 p-4 bg-red-50 text-red-800 border border-red-200">Revisa los campos: {decodeURIComponent(sp.error)}</div>
       )}
       {wa && (
         <a href={`https://wa.me/${wa}`} target="_blank" rel="noopener" className="inline-block px-8 py-3 bg-green-500 text-white hover:bg-green-600 transition mb-8">

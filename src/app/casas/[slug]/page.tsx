@@ -10,13 +10,15 @@ export async function generateStaticParams() {
   return listHouses("es").map((h) => ({ slug: h.path.split("/").pop()! }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const h = listHouses("es").find((x) => x.path.endsWith(params.slug));
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const h = listHouses("es").find((x) => x.path.endsWith(slug));
   return { title: h?.meta.title?.split("|")[0].trim() || "Casa", description: h?.meta.description };
 }
 
-export default function CasaPage({ params }: { params: { slug: string } }) {
-  const house = listHouses("es").find((h) => h.path.endsWith(params.slug));
+export default async function CasaPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const house = listHouses("es").find((h) => h.path.endsWith(slug));
   if (!house) notFound();
   const key = pageKey(house.lang, house.path);
   const hero = imageForPage(key);
@@ -29,11 +31,11 @@ export default function CasaPage({ params }: { params: { slug: string } }) {
 
   return (
     <article>
-      <JsonLd data={accommodationSchema({ name: title, description: house.meta.description || "", slug: params.slug, image: hero })} />
+      <JsonLd data={accommodationSchema({ name: title, description: house.meta.description || "", slug: slug, image: hero })} />
       <JsonLd data={breadcrumbSchema([
         { name: "Inicio", url: "/" },
         { name: "Casas", url: "/casas" },
-        { name: title, url: `/casas/${params.slug}` }
+        { name: title, url: `/casas/${slug}` }
       ])} />
       <section className="relative aspect-[16/9] max-h-[70vh]">
         <Image src={hero} alt={title} fill priority sizes="100vw" className="object-cover" />
