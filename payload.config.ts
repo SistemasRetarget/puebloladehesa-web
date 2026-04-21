@@ -17,8 +17,22 @@ export default buildConfig({
     user: Users.slug,
     meta: {
       titleSuffix: "· Pueblo La Dehesa CMS",
-      icons: []
-    }
+      icons: [],
+      description: "Panel de administración — Pueblo La Dehesa"
+    },
+    components: {
+      views: {
+        dashboard: {
+          Component: "@/components/admin/Dashboard#default"
+        }
+      },
+      graphics: {
+        Logo: "@/components/admin/Logo#default",
+        Icon: "@/components/admin/Icon#default"
+      }
+    },
+    custom: {},
+    theme: "all"
   },
   collections: [Users, Media, Houses, Pages],
   editor: lexicalEditor({}),
