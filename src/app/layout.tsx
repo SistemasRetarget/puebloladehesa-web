@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import JsonLd from "@/components/JsonLd";
+import { organizationSchema } from "@/lib/schema";
+import Analytics from "@/components/Analytics";
+import ConsentBanner from "@/components/ConsentBanner";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
@@ -21,7 +25,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const wa = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
   return (
     <html lang="es">
+      <head>
+        <link rel="alternate" hrefLang="es" href={(process.env.NEXT_PUBLIC_SITE_URL || "") + "/"} />
+        <link rel="alternate" hrefLang="en" href={(process.env.NEXT_PUBLIC_SITE_URL || "") + "/en"} />
+        <link rel="alternate" hrefLang="x-default" href={(process.env.NEXT_PUBLIC_SITE_URL || "") + "/"} />
+      </head>
       <body>
+        <Analytics />
+        <JsonLd data={organizationSchema()} />
         <header className="border-b border-brand-soft bg-brand-bg/80 backdrop-blur sticky top-0 z-40">
           <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="/" className="font-serif text-xl tracking-tight">Pueblo La Dehesa</a>
@@ -48,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <p>© {new Date().getFullYear()} Pueblo La Dehesa</p>
           </div>
         </footer>
+        <ConsentBanner />
         {wa && (
           <a
             href={`https://wa.me/${wa}`}
