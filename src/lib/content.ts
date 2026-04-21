@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { shopifyImages } from "./shopify-images";
 
 const ROOT = path.resolve(process.cwd(), "content-extracted");
 
@@ -60,8 +61,34 @@ export function pageKey(lang: "es" | "en", pagePath: string): string {
 }
 
 export function imageForPage(keyOrLangPath: string, fallback?: string): string {
+  // Primero intentar usar imágenes de Shopify CDN (disponibles en Railway)
+  const slug = keyOrLangPath.split("_").filter(Boolean).pop()?.toLowerCase() || "";
+  
+  // Mapeo de slugs a imágenes de Shopify
+  if (slug.includes("doble-altura") || slug.includes("casa-doble")) {
+    return shopifyImages.casaDobleAltura.hero;
+  }
+  if (slug.includes("parque") || slug.includes("casa-parque")) {
+    return shopifyImages.casaParque.hero;
+  }
+  if (slug.includes("panoramica") || slug.includes("casa-panoramica")) {
+    return shopifyImages.casaPanoramica.hero;
+  }
+  if (slug.includes("suite") || slug.includes("casa-suite")) {
+    return shopifyImages.casaSuite.hero;
+  }
+  if (slug.includes("experiencias") || slug.includes("experiences")) {
+    return shopifyImages.experiencias.cabalgata;
+  }
+  if (slug.includes("nosotros") || slug.includes("about")) {
+    return shopifyImages.masterplan;
+  }
+  if (slug.includes("home") || slug === "" || keyOrLangPath === "es_" || keyOrLangPath === "en_en") {
+    return shopifyImages.hero;
+  }
+  
+  // Fallback a imágenes locales si existen
   const imgs = loadImages();
-  // Acepta claves con doble "__" legadas: normaliza
   const candidates = new Set<string>([
     keyOrLangPath,
     keyOrLangPath.replace(/__+/g, "_"),
@@ -70,15 +97,16 @@ export function imageForPage(keyOrLangPath: string, fallback?: string): string {
   const isContent = (f: string) => /\.(jpg|jpeg|png|webp)$/i.test(f) && !/logo|icon|sprite/i.test(f);
   for (const key of candidates) {
     const hit = imgs.find((i) => i.pages.includes(key) && isContent(i.file));
-    if (hit) return `/media/${hit.file}`;
+    if (hit) return hit.url; // Usar URL directa de Shopify en lugar de /media/
   }
-  // Último recurso: primera imagen que contenga el slug
-  const slug = keyOrLangPath.split("_").filter(Boolean).pop();
+  
+  // Último recurso: buscar por slug en imágenes locales
   if (slug) {
-    const hit = imgs.find((i) => isContent(i.file) && i.file.toLowerCase().includes(slug.toLowerCase()));
-    if (hit) return `/media/${hit.file}`;
+    const hit = imgs.find((i) => isContent(i.file) && i.file.toLowerCase().includes(slug));
+    if (hit) return hit.url;
   }
-  return fallback || "/media/placeholder.svg";
+  
+  return fallback || shopifyImages.hero;
 }
 
 export function extractHeadings(page: Page, max = 3): string[] {
