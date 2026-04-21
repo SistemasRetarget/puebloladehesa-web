@@ -5,7 +5,7 @@
   },
   "deploy": {
     "numReplicas": 1,
-    "startCommand": "npm start",
+    "startCommand": "sh -c 'npm start -- -p ${PORT:-3000}'",
     "restartPolicyMaxRetries": 5
   }
 }
