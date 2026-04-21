@@ -11,7 +11,6 @@ ARG NEXT_PUBLIC_SITE_URL
 ENV PAYLOAD_SECRET=${PAYLOAD_SECRET:-dev-only-secret-change-me}
 ENV DATABASE_URL=${DATABASE_URL:-file:./data/cms.db}
 ENV NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
-ENV NODE_ENV=production
 
 # Instalar dependencias del sistema para SQLite
 RUN apk add --no-cache python3 make g++
@@ -28,7 +27,8 @@ COPY . .
 # Crear directorio para datos persistentes
 RUN mkdir -p /app/data
 
-# Build
+# Build (con NODE_ENV=production para optimización)
+ENV NODE_ENV=production
 RUN npm run build
 
 # Exponer puerto (Railway usa PORT env variable)
