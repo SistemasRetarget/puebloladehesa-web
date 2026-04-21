@@ -18,3 +18,7 @@ build/
 .vercel/
 .payload/
 payload-types.ts
+
+# Contenido extraído (pesado, >250MB imágenes)
+content-extracted/images/
+content-extracted/pages/
