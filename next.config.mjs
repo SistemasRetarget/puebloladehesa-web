@@ -10,7 +10,19 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [360, 640, 828, 1080, 1440, 1920],
-    imageSizes: [64, 128, 256, 384]
+    imageSizes: [64, 128, 256, 384],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "puebloladehesa.cl",
+        pathname: "/cdn/shop/files/**"
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.shopify.com",
+        pathname: "/s/files/**"
+      }
+    ]
   },
   async headers() {
     return [
