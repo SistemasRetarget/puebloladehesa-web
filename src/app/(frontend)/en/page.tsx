@@ -57,9 +57,9 @@ export default function HomeEn() {
               Furnished house rentals integrated into the landscape, with natural light and views of the Andes. Like every town, there's a meeting point: La Casita, a space for a coffee, something delicious to eat, to work calmly or simply to cross paths with others naturally.
             </p>
           </div>
-          <div className="relative h-[500px] overflow-hidden rounded-lg">
+          <div className="relative h-[500px] overflow-hidden rounded-lg bg-brand-soft">
             <Image
-              src="https://puebloladehesa.cl/cdn/shop/files/valle.webp"
+              src="https://puebloladehesa.cl/cdn/shop/files/ubicacion.webp"
               alt="Panoramic view of the La Dehesa valley"
               fill
               className="object-cover"

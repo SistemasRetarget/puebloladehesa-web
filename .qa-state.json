@@ -41,9 +41,9 @@
     {
       "id": "casas-grid",
       "view": "casas-grid",
-      "status": "PENDING",
-      "iterations": 1,
-      "last_diff": 44.01,
+      "status": "NEEDS_FIX",
+      "iterations": 2,
+      "last_diff": 44.51,
       "notes": "",
       "url": "/",
       "scroll_y": 1400,
@@ -95,6 +95,6 @@
     }
   ],
   "current_section": "casas-grid",
-  "last_commit": "59e7e46a7b3f2c1d9e8a0b4c5d6e7f8a9b0c1d2e",
-  "last_build_at": "2026-04-25T06:33:24Z"
+  "last_commit": "4d83ceea23708f5afa5a31c5e164181da3b063af",
+  "last_build_at": "2026-04-25T06:38:00Z"
 }

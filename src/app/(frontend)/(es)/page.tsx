@@ -70,9 +70,9 @@ export default function Home() {
               Arriendo de casas amobladas integradas al paisaje, con luz natural y vistas a la cordillera. Como en todo pueblo, hay un punto de encuentro: La Casita, un espacio para un café, algo rico para comer, para trabajar con calma o simplemente cruzarse con otros de manera natural.
             </p>
           </div>
-          <div className="relative h-[500px] overflow-hidden rounded-lg">
+          <div className="relative h-[500px] overflow-hidden rounded-lg bg-brand-soft">
             <Image
-              src="https://puebloladehesa.cl/cdn/shop/files/valle.webp"
+              src="https://puebloladehesa.cl/cdn/shop/files/ubicacion.webp"
               alt="Vista panorámica del valle de La Dehesa"
               fill
               className="object-cover"
