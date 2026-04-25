@@ -42,8 +42,8 @@
       "id": "casas-grid",
       "view": "casas-grid",
       "status": "BLOCKED",
-      "iterations": 5,
-      "last_diff": 55.99,
+      "iterations": 8,
+      "last_diff": 55.98,
       "notes": "",
       "url": "/",
       "scroll_y": 1400,
@@ -95,6 +95,6 @@
     }
   ],
   "current_section": "casas-grid",
-  "last_commit": "e754e26a4544a59a12c573439b950a0922da68ab",
-  "last_build_at": "2026-04-25T16:06:30Z"
+  "last_commit": "da16cd57cacbdea550903e7a0fafc01b17554565",
+  "last_build_at": "2026-04-25T16:17:49Z"
 }

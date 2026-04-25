@@ -88,7 +88,7 @@ export default function Home() {
             Cada propiedad es un refugio único rodeado de naturaleza, diseño y comodidad
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid md:grid-cols-2 gap-8">
           {houses.map((h) => {
             const key = `${h.lang}_${h.path.replace(/\//g, "_")}`;
             const img = imageForPage(key);
@@ -97,20 +97,20 @@ export default function Home() {
               <Link
                 key={h.path}
                 href={`/casas/${slug}`}
-                className="group block rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:translate-y-[-4px]"
+                className="group block rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
               >
-                <div className="relative aspect-[4/3] overflow-hidden bg-brand-soft">
+                <div className="relative aspect-[16/10] overflow-hidden bg-brand-soft">
                   <Image
                     src={img}
                     alt={h.meta.title || "Casa"}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                   />
                 </div>
                 <div className="p-6 bg-white">
-                  <h3 className="font-serif text-2xl font-light">{h.meta.title?.split("|")[0].trim() || "Casa"}</h3>
+                  <h3 className="font-serif text-xl font-light">{h.meta.title?.split("|")[0].trim() || "Casa"}</h3>
                   <p className="mt-2 text-sm text-brand-muted line-clamp-2">
                     {h.meta.description || ""}
                   </p>
