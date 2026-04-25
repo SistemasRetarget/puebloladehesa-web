@@ -41,7 +41,7 @@
     {
       "id": "casas-grid",
       "view": "casas-grid",
-      "status": "NEEDS_FIX",
+      "status": "PENDING",
       "iterations": 2,
       "last_diff": 44.51,
       "notes": "",
