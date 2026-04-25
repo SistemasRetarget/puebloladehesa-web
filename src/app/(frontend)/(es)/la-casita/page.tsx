@@ -1,94 +1,157 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { getPage, imageForPage, extractParagraphs } from "@/lib/content";
 
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "La Casita Salón Gourmet | Pueblo La Dehesa",
-  description: "Descubre La Casita, el corazón de Pueblo La Dehesa. Un espacio para compartir, trabajar y disfrutar.",
+  description: "La Casita: el corazón de Pueblo La Dehesa. Un espacio exclusivo para nuestros huéspedes donde el café, la comida y los encuentros cotidianos completan la experiencia Pueblo.",
   openGraph: {
     title: "La Casita | Pueblo La Dehesa",
-    description: "Salón Gourmet y punto de encuentro en Pueblo La Dehesa",
+    description: "Salón Gourmet y punto de encuentro exclusivo para huéspedes",
     type: "website",
     locale: "es_CL"
   }
 };
 
 export default function LaCasita() {
-  const casitaContent = getPage("es", "la-casita");
-  const description = casitaContent
-    ? extractParagraphs(casitaContent, 1)[0]
-    : "La Casita es el corazón de Pueblo La Dehesa, un espacio diseñado para el encuentro, el trabajo y la buena mesa.";
-
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[400px] overflow-hidden -mt-20 lg:-mt-24">
+      <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-20 lg:-mt-24">
         <Image
           src="https://puebloladehesa.cl/cdn/shop/files/ubicacion.webp"
-          alt="La Casita"
+          alt="La Casita Salón Gourmet"
           fill
           priority
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
         <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
+          <p className="text-sm uppercase tracking-[0.3em] mb-4 opacity-90">Salón Gourmet</p>
           <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-light tracking-tight">
             La Casita
           </h1>
-          <p className="mt-4 text-base md:text-lg max-w-2xl opacity-95">
-            Salón Gourmet & Punto de Encuentro
+          <p className="mt-6 text-lg md:text-xl max-w-2xl opacity-95 font-light">
+            Tu refugio en Pueblo
           </p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="max-w-4xl mx-auto px-6 py-24">
-        <div className="prose prose-lg max-w-none">
-          <h2 className="font-serif text-4xl font-light mb-8">Bienvenido a La Casita</h2>
-          <p className="text-xl text-brand-muted leading-relaxed mb-8">
-            {description}
-          </p>
+      {/* Intro Section */}
+      <section className="max-w-3xl mx-auto px-6 py-24 text-center">
+        <h2 className="font-serif text-4xl md:text-5xl font-light mb-8">
+          Como en todo pueblo, existe un lugar para reunirse.
+        </h2>
+        <p className="text-lg text-brand-muted leading-relaxed">
+          En Pueblo, ese lugar es <em>La Casita</em>. Un espacio exclusivo para nuestros huéspedes,
+          donde el café, algo rico para comer y los encuentros cotidianos le dan vida al día a día
+          y completan la experiencia Pueblo.
+        </p>
+      </section>
 
-          <div className="grid md:grid-cols-2 gap-12 my-16">
-            <div>
-              <h3 className="font-serif text-2xl font-light mb-4">Para Compartir</h3>
+      {/* Three Pillars */}
+      <section className="bg-brand-soft py-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-12">
+            <div className="text-center">
+              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-accent/10">
+                <span className="text-3xl">☕</span>
+              </div>
+              <h3 className="font-serif text-2xl font-light mb-4">Un lugar de encuentro</h3>
               <p className="text-brand-muted">
-                Un espacio diseñado para que te encuentres con otros huéspedes, compartas historias y experiencias alrededor de una buena mesa.
+                Pequeños instantes que convierten lo cotidiano en especial.
+                Una taza caliente, una conversación, un lugar acogedor.
               </p>
             </div>
-            <div>
-              <h3 className="font-serif text-2xl font-light mb-4">Para Trabajar</h3>
+            <div className="text-center">
+              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-accent/10">
+                <span className="text-3xl">💻</span>
+              </div>
+              <h3 className="font-serif text-2xl font-light mb-4">Espacios de trabajo</h3>
               <p className="text-brand-muted">
-                Conexión WiFi, espacio cómodo y ambiente inspirador para trabajar en calma, alejado del ruido de la ciudad.
+                Conexión, calma y un ambiente inspirador para trabajar
+                rodeado de naturaleza y lejos del ruido de la ciudad.
               </p>
             </div>
-            <div>
-              <h3 className="font-serif text-2xl font-light mb-4">Para Disfrutar</h3>
+            <div className="text-center">
+              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-accent/10">
+                <span className="text-3xl">🌿</span>
+              </div>
+              <h3 className="font-serif text-2xl font-light mb-4">Exclusivo para huéspedes</h3>
               <p className="text-brand-muted">
-                Gastronomía local, bebidas seleccionadas y momentos inolvidables en un ambiente cálido y acogedor.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-serif text-2xl font-light mb-4">Eventos Privados</h3>
-              <p className="text-brand-muted">
-                Disponible para reuniones, celebraciones y eventos privados. Consulta nuestras opciones personalizadas.
+                Un espacio íntimo reservado para quienes se hospedan
+                en Pueblo La Dehesa. Tu segundo hogar.
               </p>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* CTA */}
-        <div className="mt-16 text-center border-t border-brand-line pt-12">
-          <h3 className="font-serif text-3xl font-light mb-4">¿Quieres conocer La Casita?</h3>
-          <p className="text-brand-muted mb-8">
-            Contáctanos para reservar tu experiencia
+      {/* Momentos Section */}
+      <section className="max-w-5xl mx-auto px-6 py-24">
+        <div className="text-center mb-16">
+          <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
+            Momentos en La Casita
+          </h2>
+          <p className="text-lg text-brand-muted max-w-2xl mx-auto">
+            Descubre sus rincones, sabores y la calidez que la hacen única.
           </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-brand-soft">
+            <Image
+              src="https://puebloladehesa.cl/cdn/shop/files/ubicacion.webp"
+              alt="La Casita - Momento 1"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-brand-soft">
+            <Image
+              src="https://puebloladehesa.cl/cdn/shop/files/ubicacion.webp"
+              alt="La Casita - Momento 2"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+        </div>
+        <p className="text-center text-xs text-brand-muted mt-6 italic">*Imágenes referenciales</p>
+      </section>
+
+      {/* Quote */}
+      <section className="bg-brand-ink text-white py-24">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <p className="font-serif text-2xl md:text-3xl font-light italic leading-relaxed">
+            "Pequeños instantes que convierten lo cotidiano en especial..."
+          </p>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="max-w-3xl mx-auto px-6 py-24 text-center">
+        <h3 className="font-serif text-3xl md:text-4xl font-light mb-6">
+          ¿Quieres vivir Pueblo?
+        </h3>
+        <p className="text-lg text-brand-muted mb-8">
+          Reserva tu estadía y disfruta La Casita como parte de tu experiencia
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href={process.env.NEXT_PUBLIC_BOOKING_URL || "https://puebloladehesa.book2dream.com/"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-brand-accent text-white px-8 py-3 rounded-lg font-semibold hover:bg-brand-accent/90 transition-colors"
+          >
+            Reservar Ahora
+          </a>
           <a
             href="/contacto"
-            className="inline-block bg-brand-accent text-white px-8 py-3 rounded-lg font-semibold hover:bg-brand-accent/90 transition-colors"
+            className="inline-block border border-brand-ink text-brand-ink px-8 py-3 rounded-lg font-semibold hover:bg-brand-ink hover:text-white transition-colors"
           >
             Contactar
           </a>
