@@ -1,0 +1,76 @@
+{
+  "project": "puebloladehesa-rediseno",
+  "production_url": "https://puebloladehesa.cl",
+  "qa_url": "https://puebloladehesa-web-production.up.railway.app",
+  "tolerance_percent": 25,
+  "max_iterations_per_section": 4,
+  "sections": [
+    {
+      "id": "header",
+      "view": "hero-banner",
+      "status": "DONE",
+      "iterations": 8,
+      "last_diff": 41.45,
+      "notes": "Sticky transparent→cream OK"
+    },
+    {
+      "id": "hero",
+      "view": "hero-banner",
+      "status": "DONE",
+      "iterations": 8,
+      "last_diff": 41.45,
+      "notes": "Cordillera visible, gradient 20/10/40"
+    },
+    {
+      "id": "intro",
+      "view": "intro-section",
+      "status": "DONE",
+      "iterations": 0,
+      "last_diff": null,
+      "notes": "Texto alineado con prod"
+    },
+    {
+      "id": "casas-grid",
+      "view": "casas-grid",
+      "status": "DONE",
+      "iterations": 1,
+      "last_diff": 9.05,
+      "notes": ""
+    },
+    {
+      "id": "experiencias",
+      "view": "experiencias",
+      "status": "DONE",
+      "iterations": 1,
+      "last_diff": 3.21,
+      "notes": ""
+    },
+    {
+      "id": "testimonios",
+      "view": "testimonios",
+      "status": "DONE",
+      "iterations": 1,
+      "last_diff": 3.21,
+      "notes": "Solo en QA, no en prod — decisión"
+    },
+    {
+      "id": "faq",
+      "view": "faq",
+      "status": "DONE",
+      "iterations": 1,
+      "last_diff": 3.21,
+      "notes": "Solo en QA, no en prod — decisión"
+    },
+    {
+      "id": "footer",
+      "view": "footer",
+      "status": "DONE",
+      "iterations": 1,
+      "last_diff": 3.21,
+      "notes": ""
+    }
+  ],
+  "current_section": "COMPLETE",
+  "last_commit": "e3293a02efa26eda5afbdeaab734c2dbfd6bf54b",
+  "last_build_at": "2026-04-25T06:13:43Z"
+}
