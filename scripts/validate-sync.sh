@@ -6,7 +6,8 @@
 set -e
 
 PROJECT_URL="https://puebloladehesa-web-production.up.railway.app"
-REQUIRED_STRINGS=("bg-black/40" "shopify-orange" "FF6B35" "00A86B")
+# Phase 1 Google Compliance markers: SEO, metadata, and security improvements
+REQUIRED_STRINGS=("LocalBusiness" "Accommodation" "Content-Security-Policy" "export const metadata")
 
 echo "════════════════════════════════════════════════════"
 echo "🔍 VALIDADOR DE SINCRONIZACIÓN 3-NIVELES"
@@ -21,7 +22,7 @@ echo "────────────────────────�
 
 MISSING_LOCAL=()
 for str in "${REQUIRED_STRINGS[@]}"; do
-    if ! grep -r "$str" src/app/globals.css src/components/layout/Header.tsx 2>/dev/null | grep -q "$str"; then
+    if ! grep -r "$str" src/lib/schema.ts middleware.ts src/app/sitemap.ts src/app/\(frontend\)/\(es\)/page.tsx 2>/dev/null | grep -q "$str"; then
         MISSING_LOCAL+=("$str")
         SYNC_OK=false
     fi
@@ -41,7 +42,7 @@ echo "────────────────────────�
 
 MISSING_GITHUB=()
 for str in "${REQUIRED_STRINGS[@]}"; do
-    if ! git show HEAD:src/app/globals.css HEAD:src/components/layout/Header.tsx 2>/dev/null | grep -q "$str"; then
+    if ! git show HEAD:src/lib/schema.ts HEAD:middleware.ts HEAD:src/app/sitemap.ts HEAD:src/app/\(frontend\)/\(es\)/page.tsx 2>/dev/null | grep -q "$str"; then
         MISSING_GITHUB+=("$str")
         SYNC_OK=false
     fi
