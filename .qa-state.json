@@ -11,7 +11,7 @@
       "status": "DONE",
       "iterations": 8,
       "last_diff": 41.45,
-      "notes": "Sticky transparent→cream OK",
+      "notes": "Dropdown hover fix applied \u2014 text-brand-ink + z-50",
       "url": "/",
       "scroll_y": 0,
       "full_page": false
@@ -66,7 +66,7 @@
       "status": "DONE",
       "iterations": 0,
       "last_diff": null,
-      "notes": "Solo en QA, no en prod — decisión",
+      "notes": "Solo en QA, no en prod \u2014 decisi\u00f3n",
       "url": "/",
       "scroll_y": 3000,
       "full_page": false
@@ -77,7 +77,7 @@
       "status": "DONE",
       "iterations": 0,
       "last_diff": null,
-      "notes": "Solo en QA, no en prod — decisión",
+      "notes": "Solo en QA, no en prod \u2014 decisi\u00f3n",
       "url": "/",
       "scroll_y": 3800,
       "full_page": false
