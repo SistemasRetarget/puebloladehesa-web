@@ -84,21 +84,9 @@ export default function Header({ locale = "es" }: HeaderProps) {
       </a>
 
       <div className="max-w-container mx-auto px-6 lg:px-10">
-        <div className="flex items-center justify-between h-20 lg:h-24">
-          {/* Logo */}
-          <Link href={locale === "en" ? "/en" : "/"} aria-label="Pueblo La Dehesa — Inicio" className="flex items-center gap-2">
-            <Image
-              src="/media/cdn_shop_files_logo-pueblo-01.svg"
-              alt="Pueblo La Dehesa"
-              width={140}
-              height={40}
-              priority
-              className="h-8 w-auto lg:h-10"
-            />
-          </Link>
-
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-8" aria-label="Navegación principal">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center h-20 lg:h-24 gap-4">
+          {/* Desktop nav (left column) */}
+          <nav className="hidden lg:flex items-center gap-7 text-white" aria-label="Navegación principal">
             {nav.map((item) => (
               <div
                 key={item.label}
@@ -131,8 +119,24 @@ export default function Header({ locale = "es" }: HeaderProps) {
             ))}
           </nav>
 
+          {/* Logo (center column) */}
+          <Link
+            href={locale === "en" ? "/en" : "/"}
+            aria-label="Pueblo La Dehesa — Inicio"
+            className="flex items-center justify-center"
+          >
+            <img
+              src="/media/cdn_shop_files_logo-pueblo-01.svg"
+              alt="Pueblo La Dehesa"
+              width={70}
+              height={56}
+              className="h-12 lg:h-14 w-auto"
+              style={{ filter: "brightness(0) invert(1)" }}
+            />
+          </Link>
+
           {/* Right side: lang + CTAs + burger */}
-          <div className="flex items-center gap-3 lg:gap-5">
+          <div className="flex items-center justify-end gap-3 lg:gap-4 text-white">
             {/* Language switcher */}
             <div className="hidden md:block relative">
               <button
@@ -169,14 +173,14 @@ export default function Header({ locale = "es" }: HeaderProps) {
               target="_blank"
               rel="noopener"
               onClick={() => pushEvent("click_reserva", { location: "header" })}
-              className="hidden md:inline-flex btn-primary text-xs"
+              className="hidden md:inline-flex items-center bg-brand-orange hover:bg-brand-orange-dark text-white text-xs uppercase tracking-widest px-6 py-3 rounded-full transition-colors"
             >
               {locale === "en" ? "Book Here" : "Reserva acá"}
             </a>
             <Link
               href={locale === "en" ? "/en/contact" : "/contacto"}
               onClick={() => pushEvent("click_contacto", { location: "header" })}
-              className="hidden lg:inline-flex btn-outline text-xs"
+              className="hidden lg:inline-flex items-center border border-white text-white hover:bg-white hover:text-brand-ink text-xs uppercase tracking-widest px-6 py-3 rounded-full transition-colors"
             >
               {locale === "en" ? "Contact" : "Contáctanos"}
             </Link>

@@ -2,9 +2,9 @@
 // Estas imágenes están alojadas en el CDN de Shopify y no se pierden
 
 export const shopifyImages = {
-  // Hero / Banner principal
-  hero: "https://puebloladehesa.cl/cdn/shop/files/baner.webp",
-  heroAlt: "https://puebloladehesa.cl/cdn/shop/files/07A0248_1.webp",
+  // Hero / Banner principal (paisaje cordillerano - panorámica desde La Dehesa)
+  hero: "https://puebloladehesa.cl/cdn/shop/files/amplios_horizontes_1.webp",
+  heroAlt: "https://puebloladehesa.cl/cdn/shop/files/baner.webp",
   
   // Masterplan / Ubicación
   masterplan: "https://puebloladehesa.cl/cdn/shop/files/Masterplan_1.webp",

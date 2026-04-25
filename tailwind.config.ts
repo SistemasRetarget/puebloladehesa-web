@@ -12,7 +12,9 @@ const config: Config = {
           line: "#e8e1d6",
           accent: "#8b7355",
           soft: "#ede7dd",
-          cream: "#f4efe7"
+          cream: "#f4efe7",
+          orange: "#E8601C",
+          "orange-dark": "#C54F13"
         }
       },
       fontFamily: {
