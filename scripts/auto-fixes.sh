@@ -196,23 +196,21 @@ main() {
       log_info "Apply mode: fixing issues..."
       echo ""
 
-      case "$issue" in
-        dropdown|all)
-          fix_dropdown_text
-          [ "$issue" != "all" ] && return 0
-          ;&
-        z-index|all)
-          fix_z_stacking
-          [ "$issue" != "all" ] && return 0
-          ;&
-        images|all)
-          fix_image_loading
-          [ "$issue" != "all" ] && return 0
-          ;&
-        contrast|all)
-          fix_color_contrast
-          ;;
-      esac
+      if [ "$issue" = "all" ] || [ "$issue" = "dropdown" ]; then
+        fix_dropdown_text
+      fi
+
+      if [ "$issue" = "all" ] || [ "$issue" = "z-index" ]; then
+        fix_z_stacking
+      fi
+
+      if [ "$issue" = "all" ] || [ "$issue" = "images" ]; then
+        fix_image_loading
+      fi
+
+      if [ "$issue" = "all" ] || [ "$issue" = "contrast" ]; then
+        fix_color_contrast
+      fi
 
       echo ""
       log_success "Auto-fixes completed"

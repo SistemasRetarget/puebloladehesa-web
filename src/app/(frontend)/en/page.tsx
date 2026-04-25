@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default function HomeEn() {
   const home = getPage("en", "home");
   const houses = listHouses("en");
-  const hero = home ? imageForPage("en__en") : "/media/placeholder.svg";
+  const hero = home ? imageForPage("en__en") : "/media//media/placeholder.svg";
   const intro = home ? extractParagraphs(home, 2)[0] : "";
   const L = t.en;
 

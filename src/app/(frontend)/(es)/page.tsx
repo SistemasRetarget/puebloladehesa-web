@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 export default function Home() {
   const home = getPage("es", "home");
   const houses = listHouses("es");
-  const heroImg = home ? imageForPage("es__home", "/media/placeholder.svg") : "/media/placeholder.svg";
+  const heroImg = home ? imageForPage("es__home", "/media//media/placeholder.svg") : "/media//media/placeholder.svg";
   const intro = home ? extractParagraphs(home, 2)[0] : "";
 
   return (

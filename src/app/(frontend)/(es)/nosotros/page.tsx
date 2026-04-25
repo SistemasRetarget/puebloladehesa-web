@@ -6,7 +6,7 @@ export const metadata = { title: "Nosotros" };
 export default function Nosotros() {
   const p = getPage("es", "/pages/nosotros");
   const paras = p ? extractParagraphs(p, 6) : [];
-  const img = p ? imageForPage(`es__pages_nosotros`) : "/media/placeholder.svg";
+  const img = p ? imageForPage(`es__pages_nosotros`) : "/media//media/placeholder.svg";
   return (
     <div>
       <section className="relative h-[50vh] min-h-[320px]">

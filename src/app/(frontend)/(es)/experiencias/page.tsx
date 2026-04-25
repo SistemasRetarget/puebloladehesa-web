@@ -6,7 +6,7 @@ export const metadata = { title: "Experiencias" };
 export default function Experiencias() {
   const p = getPage("es", "/pages/experiencias");
   const paras = p ? extractParagraphs(p, 6) : [];
-  const img = p ? imageForPage(`es__pages_experiencias`) : "/media/placeholder.svg";
+  const img = p ? imageForPage(`es__pages_experiencias`) : "/media//media/placeholder.svg";
   return (
     <div>
       <section className="relative h-[50vh] min-h-[320px]">

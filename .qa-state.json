@@ -11,7 +11,7 @@
       "status": "DONE",
       "iterations": 8,
       "last_diff": 41.45,
-      "notes": "Dropdown hover fix applied \u2014 text-brand-ink + z-50",
+      "notes": "Dropdown hover fix applied — text-brand-ink + z-50",
       "url": "/",
       "scroll_y": 0,
       "full_page": false
@@ -42,8 +42,8 @@
       "id": "casas-grid",
       "view": "casas-grid",
       "status": "BLOCKED",
-      "iterations": 4,
-      "last_diff": 56.05,
+      "iterations": 5,
+      "last_diff": 55.99,
       "notes": "",
       "url": "/",
       "scroll_y": 1400,
@@ -66,7 +66,7 @@
       "status": "DONE",
       "iterations": 0,
       "last_diff": null,
-      "notes": "Solo en QA, no en prod \u2014 decisi\u00f3n",
+      "notes": "Solo en QA, no en prod — decisión",
       "url": "/",
       "scroll_y": 3000,
       "full_page": false
@@ -77,7 +77,7 @@
       "status": "DONE",
       "iterations": 0,
       "last_diff": null,
-      "notes": "Solo en QA, no en prod \u2014 decisi\u00f3n",
+      "notes": "Solo en QA, no en prod — decisión",
       "url": "/",
       "scroll_y": 3800,
       "full_page": false
@@ -94,7 +94,7 @@
       "scroll_y": null
     }
   ],
-  "current_section": "COMPLETE",
-  "last_commit": "4bb449da93d7eba78d86cabd829f54bd806786e6",
-  "last_build_at": "2026-04-25T06:44:09Z"
+  "current_section": "casas-grid",
+  "last_commit": "e754e26a4544a59a12c573439b950a0922da68ab",
+  "last_build_at": "2026-04-25T16:06:30Z"
 }
