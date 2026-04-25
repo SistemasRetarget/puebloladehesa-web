@@ -63,7 +63,7 @@
     {
       "id": "testimonios",
       "view": "testimonios",
-      "status": "PENDING",
+      "status": "DONE",
       "iterations": 0,
       "last_diff": null,
       "notes": "Solo en QA, no en prod — decisión",
@@ -74,7 +74,7 @@
     {
       "id": "faq",
       "view": "faq",
-      "status": "PENDING",
+      "status": "DONE",
       "iterations": 0,
       "last_diff": null,
       "notes": "Solo en QA, no en prod — decisión",
@@ -94,7 +94,7 @@
       "scroll_y": null
     }
   ],
-  "current_section": "casas-grid",
+  "current_section": "experiencias",
   "last_commit": "cb98a547cf0c88bee5d72a6f3bb1f22f19b9cf76",
   "last_build_at": "2026-04-25T06:41:10Z"
 }
