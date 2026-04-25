@@ -29,7 +29,7 @@ export default function Location() {
   return (
     <>
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-20 lg:-mt-24">
-        <Image src="https://puebloladehesa.cl/cdn/shop/files/ubicacion.webp" alt="Location" fill priority sizes="100vw" className="object-cover" />
+        <Image src="/media/cdn_shop_files_07A0063.jpg" alt="Location" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
         <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
           <p className="text-sm uppercase tracking-[0.3em] mb-4 opacity-90">33.367° S, 70.530° W</p>
@@ -75,7 +75,7 @@ export default function Location() {
             </div>
           </div>
           <div className="relative h-[500px] rounded-lg overflow-hidden bg-brand-soft">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.5!2d-70.530!3d-33.367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sPueblo%20La%20Dehesa!5e0!3m2!1sen!2scl!4v1234567890" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="absolute inset-0" />
+            <iframe src="https://maps.google.com/maps?q=Santa+Blanca+550+Lo+Barnechea+Santiago&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="absolute inset-0" title="Pueblo La Dehesa Map" />
           </div>
         </div>
       </section>

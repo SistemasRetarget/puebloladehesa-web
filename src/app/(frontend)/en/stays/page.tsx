@@ -31,7 +31,14 @@ export default function StaysPrincipal() {
   return (
     <>
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-20 lg:-mt-24">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-ink via-brand-accent to-brand-ink" />
+        <Image
+          src="/media/cdn_shop_files_07A0142.jpg"
+          alt="Stays Pueblo La Dehesa"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/60" />
         <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
           <p className="text-sm uppercase tracking-[0.3em] mb-4 opacity-90">Stays</p>

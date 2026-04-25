@@ -19,7 +19,7 @@ export default function LaCasita() {
     <>
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-20 lg:-mt-24">
         <Image
-          src="https://puebloladehesa.cl/cdn/shop/files/ubicacion.webp"
+          src="/media/cdn_shop_files_07A9898.jpg"
           alt="La Casita Gourmet Hall"
           fill
           priority
@@ -98,10 +98,10 @@ export default function LaCasita() {
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-brand-soft">
-            <Image src="https://puebloladehesa.cl/cdn/shop/files/ubicacion.webp" alt="Moment 1" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover hover:scale-105 transition-transform duration-700" />
+            <Image src="/media/cdn_shop_files_pexels-kai-2055476840-29215602.jpg" alt="Gathering" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover hover:scale-105 transition-transform duration-700" />
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-brand-soft">
-            <Image src="https://puebloladehesa.cl/cdn/shop/files/ubicacion.webp" alt="Moment 2" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover hover:scale-105 transition-transform duration-700" />
+            <Image src="/media/cdn_shop_files_pexels-nicola-barts-7936960.jpg" alt="Flavors" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover hover:scale-105 transition-transform duration-700" />
           </div>
         </div>
         <p className="text-center text-xs text-brand-muted mt-6 italic">*Reference images</p>

@@ -20,7 +20,7 @@ export default function LaCasita() {
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-20 lg:-mt-24">
         <Image
-          src="https://puebloladehesa.cl/cdn/shop/files/ubicacion.webp"
+          src="/media/cdn_shop_files_07A9898.jpg"
           alt="La Casita Salón Gourmet"
           fill
           priority
@@ -103,8 +103,8 @@ export default function LaCasita() {
         <div className="grid md:grid-cols-2 gap-6">
           <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-brand-soft">
             <Image
-              src="https://puebloladehesa.cl/cdn/shop/files/ubicacion.webp"
-              alt="La Casita - Momento 1"
+              src="/media/cdn_shop_files_pexels-kai-2055476840-29215602.jpg"
+              alt="La Casita - Encuentros"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover hover:scale-105 transition-transform duration-700"
@@ -112,8 +112,8 @@ export default function LaCasita() {
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-brand-soft">
             <Image
-              src="https://puebloladehesa.cl/cdn/shop/files/ubicacion.webp"
-              alt="La Casita - Momento 2"
+              src="/media/cdn_shop_files_pexels-nicola-barts-7936960.jpg"
+              alt="La Casita - Sabores"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover hover:scale-105 transition-transform duration-700"

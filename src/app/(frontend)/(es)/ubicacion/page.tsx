@@ -71,7 +71,7 @@ export default function Ubicacion() {
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-20 lg:-mt-24">
         <Image
-          src="https://puebloladehesa.cl/cdn/shop/files/ubicacion.webp"
+          src="/media/cdn_shop_files_07A0063.jpg"
           alt="Ubicación Pueblo La Dehesa"
           fill
           priority
@@ -151,7 +151,7 @@ export default function Ubicacion() {
 
           <div className="relative h-[500px] rounded-lg overflow-hidden bg-brand-soft">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.5!2d-70.530!3d-33.367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sPueblo%20La%20Dehesa!5e0!3m2!1ses!2scl!4v1234567890"
+              src="https://maps.google.com/maps?q=Santa+Blanca+550+Lo+Barnechea+Santiago&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -159,6 +159,7 @@ export default function Ubicacion() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="absolute inset-0"
+              title="Mapa Pueblo La Dehesa"
             />
           </div>
         </div>
