@@ -57,7 +57,7 @@ export default function EstadiasPrincipal() {
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-20 lg:-mt-24">
         <Image
-          src="/media/cdn_shop_files_07A0142.jpg"
+          src="https://puebloladehesa.cl/cdn/shop/files/07A0142.jpg"
           alt="Estadías Pueblo La Dehesa"
           fill
           priority
