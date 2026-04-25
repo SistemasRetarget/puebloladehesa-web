@@ -50,7 +50,7 @@ export default function Home() {
           </p>
           <Link
             href="/casas"
-            className="mt-8 inline-block px-8 py-3 bg-white text-brand-ink hover:bg-brand-soft transition"
+            className="mt-10 inline-block px-8 py-4 btn-primary"
           >
             Conocer las casas
           </Link>
@@ -63,9 +63,14 @@ export default function Home() {
         </section>
       )}
 
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="font-serif text-4xl mb-12 text-center">Nuestras casas</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <div className="text-center mb-16">
+          <h2 className="font-serif text-5xl md:text-6xl mb-4 font-light">Nuestras casas</h2>
+          <p className="text-brand-muted text-lg max-w-2xl mx-auto">
+            Cada propiedad es un refugio único rodeado de naturaleza, diseño y comodidad
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-10">
           {houses.map((h) => {
             const key = `${h.lang}_${h.path.replace(/\//g, "_")}`;
             const img = imageForPage(key);
@@ -74,7 +79,7 @@ export default function Home() {
               <Link
                 key={h.path}
                 href={`/casas/${slug}`}
-                className="group block"
+                className="group block rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:translate-y-[-4px]"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-brand-soft">
                   <Image
@@ -82,27 +87,35 @@ export default function Home() {
                     alt={h.meta.title || "Casa"}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
-                <h3 className="mt-4 font-serif text-2xl">{h.meta.title?.split("|")[0].trim() || "Casa"}</h3>
-                <p className="mt-1 text-sm text-brand-muted line-clamp-2">
-                  {h.meta.description || ""}
-                </p>
+                <div className="p-6 bg-white">
+                  <h3 className="font-serif text-2xl font-light">{h.meta.title?.split("|")[0].trim() || "Casa"}</h3>
+                  <p className="mt-2 text-sm text-brand-muted line-clamp-2">
+                    {h.meta.description || ""}
+                  </p>
+                  <div className="mt-4 inline-flex text-xs font-semibold text-brand-accent uppercase tracking-wider">
+                    Ver más →
+                  </div>
+                </div>
               </Link>
             );
           })}
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 py-20 bg-brand-soft/30 rounded-2xl my-20">
+      <section className="max-w-6xl mx-auto px-6 py-24 my-20 border-t border-brand-line">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-serif text-4xl mb-4">Experiencias</h2>
-          <p className="text-brand-muted mb-8">
-            Bienestar, naturaleza y comunidad cerca de todo y envuelto en silencio.
+          <h2 className="font-serif text-5xl md:text-6xl mb-6 font-light">Experiencias</h2>
+          <p className="text-brand-muted text-lg mb-12 leading-relaxed">
+            Bienestar, naturaleza y comunidad. Descubre actividades y servicios exclusivos cerca de todo, envuelto en silencio y privacidad.
           </p>
-          <Link href="/experiencias" className="underline underline-offset-4 hover:text-brand-accent">
-            Ver experiencias →
+          <Link
+            href="/experiencias"
+            className="inline-flex px-8 py-4 btn-primary"
+          >
+            Explorar experiencias
           </Link>
         </div>
       </section>

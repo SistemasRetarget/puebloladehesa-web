@@ -39,27 +39,47 @@ export default function HomeEn() {
         <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
           <h1 className="font-serif text-5xl md:text-7xl font-light tracking-tight">{L.hero_title}</h1>
           <p className="mt-4 text-lg md:text-xl max-w-xl opacity-90">{L.hero_sub}</p>
-          <Link href="/en/houses" className="mt-8 inline-block px-8 py-3 bg-white text-brand-ink hover:bg-brand-soft transition">{L.cta_houses}</Link>
+          <Link href="/en/houses" className="mt-10 inline-block px-8 py-4 btn-primary">{L.cta_houses}</Link>
         </div>
       </section>
       {intro && <section className="max-w-3xl mx-auto px-6 py-20 text-center"><p className="text-xl leading-relaxed text-brand-muted">{intro}</p></section>}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="font-serif text-4xl mb-12 text-center">{L.our_houses}</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <div className="text-center mb-16">
+          <h2 className="font-serif text-5xl md:text-6xl mb-4 font-light">{L.our_houses}</h2>
+          <p className="text-brand-muted text-lg max-w-2xl mx-auto">Each property is a unique refuge surrounded by nature, design and comfort</p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-10">
           {houses.map((h) => {
             const key = `${h.lang}_${h.path.replace(/\//g, "_")}`;
             const img = imageForPage(key);
             const slug = h.path.split("/").pop();
             return (
-              <Link key={h.path} href={`/en/houses/${slug}`} className="group block">
+              <Link key={h.path} href={`/en/houses/${slug}`} className="group block rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:translate-y-[-4px]">
                 <div className="relative aspect-[4/3] overflow-hidden bg-brand-soft">
-                  <Image src={img} alt={h.meta.title || "House"} fill sizes="(max-width:768px)100vw,50vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <Image src={img} alt={h.meta.title || "House"} fill sizes="(max-width:768px)100vw,50vw" className="object-cover group-hover:scale-110 transition-transform duration-700" />
                 </div>
-                <h3 className="mt-4 font-serif text-2xl">{h.meta.title?.split("|")[0].trim()}</h3>
-                <p className="mt-1 text-sm text-brand-muted line-clamp-2">{h.meta.description}</p>
+                <div className="p-6 bg-white">
+                  <h3 className="font-serif text-2xl font-light">{h.meta.title?.split("|")[0].trim()}</h3>
+                  <p className="mt-2 text-sm text-brand-muted line-clamp-2">{h.meta.description}</p>
+                  <div className="mt-4 inline-flex text-xs font-semibold text-brand-accent uppercase tracking-wider">Learn more →</div>
+                </div>
               </Link>
             );
           })}
+        </div>
+      </section>
+      <section className="max-w-6xl mx-auto px-6 py-24 my-20 border-t border-brand-line">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="font-serif text-5xl md:text-6xl mb-6 font-light">Experiences</h2>
+          <p className="text-brand-muted text-lg mb-12 leading-relaxed">
+            Wellness, nature and community. Discover exclusive activities and services, surrounded by silence and privacy.
+          </p>
+          <Link
+            href="/en/experiences"
+            className="inline-flex px-8 py-4 btn-primary"
+          >
+            Explore experiences
+          </Link>
         </div>
       </section>
     </>
