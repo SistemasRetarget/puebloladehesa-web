@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="relative h-[85vh] min-h-[500px] overflow-hidden">
+      <section className="relative h-[90vh] min-h-[600px] overflow-hidden">
         <Image
           src={heroImg}
           alt="Pueblo La Dehesa"
@@ -42,8 +42,8 @@ export default function Home() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/40" />
+        <div className="relative h-full flex flex-col items-center justify-end text-white text-center px-6 pb-24 lg:pb-32">
           <h1 className="font-serif text-5xl md:text-7xl font-light tracking-tight">
             Tu refugio en la ciudad
           </h1>
