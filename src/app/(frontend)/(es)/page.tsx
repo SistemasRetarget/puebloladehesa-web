@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getPage, listHouses, imageForPage, extractParagraphs } from "@/lib/content";
+import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
 
 export const revalidate = 3600;
 
@@ -88,6 +90,7 @@ export default function Home() {
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
                   />
                 </div>
                 <div className="p-6 bg-white">
@@ -105,6 +108,8 @@ export default function Home() {
         </div>
       </section>
 
+      <Testimonials locale="es" />
+
       <section className="max-w-6xl mx-auto px-6 py-24 my-20 border-t border-brand-line">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="font-serif text-5xl md:text-6xl mb-6 font-light">Experiencias</h2>
@@ -119,6 +124,8 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      <FAQ locale="es" />
     </>
   );
 }
