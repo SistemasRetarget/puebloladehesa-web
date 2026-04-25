@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getPage, listHouses, imageForPage, extractParagraphs } from "@/lib/content";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
 import Features from "@/components/sections/Features";
+// import Testimonials from "@/components/Testimonials";
+// import FAQ from "@/components/FAQ";
 
 export const revalidate = 3600;
 
@@ -124,7 +124,8 @@ export default function Home() {
         </div>
       </section>
 
-      <Testimonials locale="es" />
+      {/* Testimonials section hidden - not in production */}
+      {/* <Testimonials locale="es" /> */}
 
       <section className="max-w-6xl mx-auto px-6 py-24 my-20 border-t border-brand-line">
         <div className="text-center max-w-2xl mx-auto">
@@ -141,7 +142,8 @@ export default function Home() {
         </div>
       </section>
 
-      <FAQ locale="es" />
+      {/* FAQ section hidden - not in production */}
+      {/* <FAQ locale="es" /> */}
     </>
   );
 }

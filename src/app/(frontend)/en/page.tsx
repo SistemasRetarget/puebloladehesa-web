@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { listHouses, imageForPage, extractParagraphs, getPage } from "@/lib/content";
 import { t } from "@/lib/i18n";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
 import Features from "@/components/sections/Features";
+// import Testimonials from "@/components/Testimonials";
+// import FAQ from "@/components/FAQ";
 
 export const revalidate = 3600;
 
@@ -94,7 +94,8 @@ export default function HomeEn() {
         </div>
       </section>
 
-      <Testimonials locale="en" />
+      {/* Testimonials section hidden - not in production */}
+      {/* <Testimonials locale="en" /> */}
 
       <section className="max-w-6xl mx-auto px-6 py-24 my-20 border-t border-brand-line">
         <div className="text-center max-w-2xl mx-auto">
@@ -111,7 +112,8 @@ export default function HomeEn() {
         </div>
       </section>
 
-      <FAQ locale="en" />
+      {/* FAQ section hidden - not in production */}
+      {/* <FAQ locale="en" /> */}
     </>
   );
 }
