@@ -72,7 +72,7 @@ export default function Home() {
           </div>
           <div className="relative h-[500px] overflow-hidden rounded-lg">
             <Image
-              src="https://puebloladehesa.cl/cdn/shop/files/valle-panorama.webp?v=1"
+              src="https://puebloladehesa.cl/cdn/shop/files/valle.webp"
               alt="Vista panorámica del valle de La Dehesa"
               fill
               className="object-cover"
