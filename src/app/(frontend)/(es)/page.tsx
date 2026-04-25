@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="relative h-[90vh] min-h-[600px] overflow-hidden">
+      <section className="relative h-[90vh] min-h-[600px] overflow-hidden -mt-20 lg:-mt-24">
         <Image
           src={heroImg}
           alt="Pueblo La Dehesa"
