@@ -8,6 +8,12 @@ export default function ConsentBanner() {
   const [decision, setDecision] = useState<Consent | null>(null);
 
   useEffect(() => {
+    // Permitir ocultar banner para screenshots automáticos / validación visual
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("screenshot")) {
+      setDecision("denied");
+      return;
+    }
     const saved = localStorage.getItem(KEY) as Consent | null;
     if (saved) {
       setDecision(saved);
