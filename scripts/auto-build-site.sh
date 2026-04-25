@@ -68,12 +68,9 @@ wait_for_build() {
 
 # -- Capture screenshot via playwright ----------------------------------------
 capture() {
-  local url="$1" out="$2"
-  npx -y playwright@latest screenshot \
-    --viewport-size=1280,900 \
-    --wait-for-timeout=2500 \
-    "$url" "$out" >/dev/null 2>&1 \
-    || { log "❌ screenshot failed: $url"; return 1; }
+  local url="$1" out="$2" sy="${3:-null}" fp="${4:-0}"
+  node "$ROOT/scripts/capture-section.mjs" "$url" "$out" 1280 900 "$sy" "$fp" >/dev/null 2>&1 \
+    || { log "❌ screenshot failed: $url (sy=$sy fp=$fp)"; return 1; }
 }
 
 # -- Compute diff with ImageMagick --------------------------------------------
@@ -108,14 +105,16 @@ process_section() {
 
   log "═══ Sección: $id (view=$view, iter=$iter/$max) ═══"
 
-  # Capture prod if reference missing
-  if [ ! -f "$ref" ]; then
-    log "  📸 Capturando referencia desde producción…"
-    capture "$prod_url/" "$ref"
-  fi
-  # Always capture QA
+  local section_url section_sy section_fp
+  section_url=$(state ".sections[] | select(.id==\"$id\") | .url // \"/\"")
+  section_sy=$(state ".sections[] | select(.id==\"$id\") | (.scroll_y // null) | tostring")
+  section_fp=$(state ".sections[] | select(.id==\"$id\") | (if .full_page then 1 else 0 end)")
+
+  # Always capture (force fresh) — strict mode
+  log "  📸 Capturando referencia (prod) sy=$section_sy fp=$section_fp …"
+  capture "${prod_url}${section_url}" "$ref" "$section_sy" "$section_fp"
   log "  📸 Capturando QA actual…"
-  capture "$qa_url/" "$act"
+  capture "${qa_url}${section_url}" "$act" "$section_sy" "$section_fp"
 
   # Compare
   local pct; pct=$(diff_percent "$ref" "$act" "$dif")

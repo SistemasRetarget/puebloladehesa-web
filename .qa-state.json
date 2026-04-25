@@ -11,7 +11,10 @@
       "status": "DONE",
       "iterations": 8,
       "last_diff": 41.45,
-      "notes": "Sticky transparent→cream OK"
+      "notes": "Sticky transparent→cream OK",
+      "url": "/",
+      "scroll_y": 0,
+      "full_page": false
     },
     {
       "id": "hero",
@@ -19,7 +22,10 @@
       "status": "DONE",
       "iterations": 8,
       "last_diff": 41.45,
-      "notes": "Cordillera visible, gradient 20/10/40"
+      "notes": "Cordillera visible, gradient 20/10/40",
+      "url": "/",
+      "scroll_y": 0,
+      "full_page": false
     },
     {
       "id": "intro",
@@ -27,50 +33,68 @@
       "status": "DONE",
       "iterations": 0,
       "last_diff": null,
-      "notes": "Texto alineado con prod"
+      "notes": "Texto alineado con prod",
+      "url": "/",
+      "scroll_y": 900,
+      "full_page": false
     },
     {
       "id": "casas-grid",
       "view": "casas-grid",
-      "status": "DONE",
-      "iterations": 1,
-      "last_diff": 9.05,
-      "notes": ""
+      "status": "NEEDS_FIX",
+      "iterations": 2,
+      "last_diff": 68.49,
+      "notes": "",
+      "url": "/",
+      "scroll_y": 1400,
+      "full_page": false
     },
     {
       "id": "experiencias",
       "view": "experiencias",
-      "status": "DONE",
-      "iterations": 1,
-      "last_diff": 3.21,
-      "notes": ""
+      "status": "PENDING",
+      "iterations": 0,
+      "last_diff": null,
+      "notes": "",
+      "url": "/",
+      "scroll_y": 2400,
+      "full_page": false
     },
     {
       "id": "testimonios",
       "view": "testimonios",
-      "status": "DONE",
-      "iterations": 1,
-      "last_diff": 3.21,
-      "notes": "Solo en QA, no en prod — decisión"
+      "status": "PENDING",
+      "iterations": 0,
+      "last_diff": null,
+      "notes": "Solo en QA, no en prod — decisión",
+      "url": "/",
+      "scroll_y": 3000,
+      "full_page": false
     },
     {
       "id": "faq",
       "view": "faq",
-      "status": "DONE",
-      "iterations": 1,
-      "last_diff": 3.21,
-      "notes": "Solo en QA, no en prod — decisión"
+      "status": "PENDING",
+      "iterations": 0,
+      "last_diff": null,
+      "notes": "Solo en QA, no en prod — decisión",
+      "url": "/",
+      "scroll_y": 3800,
+      "full_page": false
     },
     {
       "id": "footer",
       "view": "footer",
-      "status": "DONE",
-      "iterations": 1,
-      "last_diff": 3.21,
-      "notes": ""
+      "status": "PENDING",
+      "iterations": 0,
+      "last_diff": null,
+      "notes": "",
+      "url": "/",
+      "full_page": true,
+      "scroll_y": null
     }
   ],
-  "current_section": "COMPLETE",
-  "last_commit": "e3293a02efa26eda5afbdeaab734c2dbfd6bf54b",
-  "last_build_at": "2026-04-25T06:13:43Z"
+  "current_section": "casas-grid",
+  "last_commit": "a45b2b19a673cf2d607d643354eb349d35241520",
+  "last_build_at": "2026-04-25T06:19:18Z"
 }

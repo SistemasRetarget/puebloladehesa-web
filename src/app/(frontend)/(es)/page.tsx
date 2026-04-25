@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getPage, listHouses, imageForPage, extractParagraphs } from "@/lib/content";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
+import Features from "@/components/sections/Features";
 
 export const revalidate = 3600;
 
@@ -58,6 +59,15 @@ export default function Home() {
           <p className="text-xl leading-relaxed text-brand-muted">{intro}</p>
         </section>
       )}
+
+      <Features locale="es" />
+
+      <section className="max-w-3xl mx-auto px-6 py-16 text-center">
+        <h2 className="font-serif text-3xl md:text-4xl mb-4 font-light">Un lugar para quedarte el tiempo que necesites</h2>
+        <p className="text-brand-muted leading-relaxed">
+          Arriendo de casas amobladas integradas al paisaje, con luz natural y vistas a la cordillera. Como en todo pueblo, hay un punto de encuentro: La Casita, un espacio para un café, algo rico para comer, para trabajar con calma o simplemente cruzarse con otros de manera natural.
+        </p>
+      </section>
 
       <section className="max-w-6xl mx-auto px-6 py-24">
         <div className="text-center mb-16">
