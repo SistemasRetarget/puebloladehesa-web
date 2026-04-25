@@ -70,8 +70,8 @@ export default function Features({ locale = "es" }: Props) {
     <section className="w-full py-0 overflow-hidden">
       <div className="grid grid-cols-2 md:grid-cols-5 gap-0">
         {items.map((f) => (
-          <div key={f.title} className="flex flex-col">
-            <div className="relative w-full h-[300px] overflow-hidden bg-brand-soft">
+          <div key={f.title} className="flex flex-col h-full">
+            <div className="relative w-full h-[400px] overflow-hidden bg-brand-soft">
               <Image
                 src={f.img}
                 alt={f.title}
@@ -80,9 +80,9 @@ export default function Features({ locale = "es" }: Props) {
                 className="object-cover"
               />
             </div>
-            <div className="p-6 bg-white flex flex-col flex-1">
-              <h3 className="font-serif text-base uppercase tracking-wide font-light mb-2">{f.title}</h3>
-              <p className="text-sm text-brand-muted leading-snug">{f.text}</p>
+            <div className="p-8 bg-white flex flex-col flex-1 justify-center">
+              <h3 className="font-serif text-sm uppercase tracking-widest font-light mb-3 leading-tight">{f.title}</h3>
+              <p className="text-xs text-brand-muted leading-relaxed">{f.text}</p>
             </div>
           </div>
         ))}
