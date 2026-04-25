@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { listHouses, imageForPage } from "@/lib/content";
 
 export const revalidate = 3600;
-export const metadata = { title: "Houses" };
+export const metadata: Metadata = {
+  title: "Our Houses | Pueblo La Dehesa",
+  description: "Explore our furnished houses in La Dehesa. Flexible stays in properties of different formats with design and comfort.",
+  keywords: "furnished houses La Dehesa, short-term rental, available properties",
+  openGraph: {
+    title: "Our Houses | Pueblo La Dehesa",
+    description: "Explore furnished houses in La Dehesa with flexible stays.",
+    type: "website",
+    locale: "en_US",
+    url: "https://puebloladehesa.cl/en/houses"
+  }
+};
 
 export default function Houses() {
   const houses = listHouses("en");

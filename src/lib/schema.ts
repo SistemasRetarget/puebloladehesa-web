@@ -5,7 +5,27 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "LodgingBusiness",
+    "@type": "Organization",
+    name: "Pueblo La Dehesa",
+    url: SITE,
+    description:
+      "Casas amobladas para estadías flexibles en La Dehesa, rodeadas de naturaleza, diseño y calma.",
+    logo: `${SITE}/logo.png`,
+    image: `${SITE}/media/placeholder.svg`,
+    sameAs: [] as string[],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ? `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}` : undefined,
+      contactType: "Customer Support",
+      availableLanguage: ["es", "en"]
+    }
+  };
+}
+
+export function localBusinessSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
     name: "Pueblo La Dehesa",
     url: SITE,
     description:
@@ -14,13 +34,25 @@ export function organizationSchema() {
       "@type": "PostalAddress",
       addressLocality: "La Dehesa",
       addressRegion: "Región Metropolitana",
-      addressCountry: "CL"
+      addressCountry: "CL",
+      postalCode: "7590000"
     },
-    geo: { "@type": "GeoCoordinates", latitude: -33.3573, longitude: -70.5306 },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -33.3573,
+      longitude: -70.5306
+    },
     image: `${SITE}/media/placeholder.svg`,
     priceRange: "$$$",
     telephone: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ? `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}` : undefined,
-    sameAs: [] as string[]
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        opens: "09:00",
+        closes: "22:00"
+      }
+    ]
   };
 }
 
@@ -29,19 +61,43 @@ export function accommodationSchema(opts: {
   description: string;
   slug: string;
   image: string;
+  lang?: string;
 }) {
+  const urlLang = opts.lang === "en" ? "/en" : "";
+  const typeUrl = opts.lang === "en" ? `${SITE}/en/houses/${opts.slug}` : `${SITE}/casas/${opts.slug}`;
+
   return {
     "@context": "https://schema.org",
     "@type": "Accommodation",
     name: opts.name,
     description: opts.description,
     image: `${SITE}${opts.image}`,
-    url: `${SITE}/casas/${opts.slug}`,
+    url: typeUrl,
+    priceRange: "$$$",
+    checkInTime: "15:00",
+    checkOutTime: "11:00",
+    petsAllowed: true,
     containedInPlace: {
       "@type": "Place",
-      name: "Pueblo La Dehesa",
-      address: { "@type": "PostalAddress", addressLocality: "La Dehesa", addressCountry: "CL" }
-    }
+      name: "La Dehesa",
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: -33.3573,
+        longitude: -70.5306
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "La Dehesa",
+        addressRegion: "Región Metropolitana",
+        addressCountry: "CL",
+        postalCode: "7590000"
+      }
+    },
+    amenityFeature: [
+      { "@type": "AmendmentFeature", name: "WiFi" },
+      { "@type": "AmendmentFeature", name: "Kitchen" },
+      { "@type": "AmendmentFeature", name: "Parking" }
+    ]
   };
 }
 

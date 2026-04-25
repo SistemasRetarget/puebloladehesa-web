@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { listHouses, imageForPage, extractParagraphs, loadImages, pageKey } from "@/lib/content";
@@ -13,7 +14,29 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const h = listHouses("es").find((x) => x.path.endsWith(slug));
-  return { title: h?.meta.title?.split("|")[0].trim() || "Casa", description: h?.meta.description };
+  const title = h?.meta.title?.split("|")[0].trim() || "Casa";
+  const description = h?.meta.description || "Casa amoblada en La Dehesa";
+  const image = imageForPage(`es_${h?.path.replace(/\//g, "_")}`);
+
+  return {
+    title: `${title} | Pueblo La Dehesa`,
+    description,
+    keywords: `${title}, casa amoblada La Dehesa, arrendamiento`,
+    openGraph: {
+      title: `${title} | Pueblo La Dehesa`,
+      description,
+      type: "website",
+      locale: "es_CL",
+      url: `https://puebloladehesa.cl/casas/${slug}`,
+      images: [{ url: image, alt: title }]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Pueblo La Dehesa`,
+      description,
+      images: [image]
+    }
+  } as Metadata;
 }
 
 export default async function CasaPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -31,7 +54,7 @@ export default async function CasaPage({ params }: { params: Promise<{ slug: str
 
   return (
     <article>
-      <JsonLd data={accommodationSchema({ name: title, description: house.meta.description || "", slug: slug, image: hero })} />
+      <JsonLd data={accommodationSchema({ name: title, description: house.meta.description || "", slug: slug, image: hero, lang: "es" })} />
       <JsonLd data={breadcrumbSchema([
         { name: "Inicio", url: "/" },
         { name: "Casas", url: "/casas" },

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { listHouses, imageForPage, extractParagraphs, loadImages, pageKey } from "@/lib/content";
@@ -14,7 +15,29 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const h = listHouses("en").find((x) => x.path.endsWith(slug));
-  return { title: h?.meta.title?.split("|")[0].trim() || "House", description: h?.meta.description };
+  const title = h?.meta.title?.split("|")[0].trim() || "House";
+  const description = h?.meta.description || "Furnished home in La Dehesa";
+  const image = imageForPage(`en_${h?.path.replace(/\//g, "_")}`);
+
+  return {
+    title: `${title} | Pueblo La Dehesa`,
+    description,
+    keywords: `${title}, furnished house La Dehesa, rental`,
+    openGraph: {
+      title: `${title} | Pueblo La Dehesa`,
+      description,
+      type: "website",
+      locale: "en_US",
+      url: `https://puebloladehesa.cl/en/houses/${slug}`,
+      images: [{ url: image, alt: title }]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Pueblo La Dehesa`,
+      description,
+      images: [image]
+    }
+  } as Metadata;
 }
 
 export default async function HouseEn({ params }: { params: Promise<{ slug: string }> }) {
@@ -31,7 +54,7 @@ export default async function HouseEn({ params }: { params: Promise<{ slug: stri
 
   return (
     <article>
-      <JsonLd data={accommodationSchema({ name: title, description: house.meta.description || "", slug: slug, image: hero })} />
+      <JsonLd data={accommodationSchema({ name: title, description: house.meta.description || "", slug: slug, image: hero, lang: "en" })} />
       <JsonLd data={breadcrumbSchema([{ name: "Home", url: "/en" }, { name: "Houses", url: "/en/houses" }, { name: title, url: `/en/houses/${slug}` }])} />
       <section className="relative aspect-[16/9] max-h-[70vh]">
         <Image src={hero} alt={title} fill priority sizes="100vw" className="object-cover" />

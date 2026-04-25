@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { listHouses, imageForPage } from "@/lib/content";
 
 export const revalidate = 3600;
-export const metadata = { title: "Casas" };
+export const metadata: Metadata = {
+  title: "Nuestras Casas | Pueblo La Dehesa",
+  description: "Explora nuestras casas amobladas en La Dehesa. Estadías flexibles en propiedades de distintos formatos con diseño y comodidad.",
+  keywords: "casas amobladas La Dehesa, arrendamiento corto plazo, propiedades disponibles",
+  openGraph: {
+    title: "Nuestras Casas | Pueblo La Dehesa",
+    description: "Explora casas amobladas en La Dehesa con estadías flexibles.",
+    type: "website",
+    locale: "es_CL",
+    url: "https://puebloladehesa.cl/casas"
+  }
+};
 
 export default function CasasPage() {
   const houses = listHouses("es");

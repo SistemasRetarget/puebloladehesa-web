@@ -1,8 +1,27 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getPage, listHouses, imageForPage, extractParagraphs } from "@/lib/content";
 
 export const revalidate = 3600;
+
+export const metadata: Metadata = {
+  title: "Pueblo La Dehesa | Casas de Lujo en La Dehesa, Santiago",
+  description: "Descubre casas rodeadas de naturaleza en La Dehesa. Diseño, calma y refugio en la ciudad. Conoce nuestras propiedades exclusivas.",
+  keywords: "casas La Dehesa, propiedades Santiago, casas lujo, arrendamiento casas",
+  openGraph: {
+    title: "Pueblo La Dehesa | Casas de Lujo en La Dehesa",
+    description: "Casas rodeadas de naturaleza, diseño y calma en La Dehesa.",
+    type: "website",
+    locale: "es_CL",
+    url: "https://puebloladehesa.cl"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pueblo La Dehesa | Casas de Lujo en La Dehesa",
+    description: "Casas rodeadas de naturaleza, diseño y calma en La Dehesa."
+  }
+};
 
 export default function Home() {
   const home = getPage("es", "home");

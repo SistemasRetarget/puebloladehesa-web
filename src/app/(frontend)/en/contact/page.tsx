@@ -1,6 +1,18 @@
+import type { Metadata } from "next";
 import { t } from "@/lib/i18n";
 
-export const metadata = { title: "Contact" };
+export const metadata: Metadata = {
+  title: "Contact | Pueblo La Dehesa",
+  description: "Contact us via WhatsApp or send us a message. We're here to answer your questions about our homes in La Dehesa.",
+  keywords: "contact Pueblo La Dehesa, WhatsApp, property inquiries",
+  openGraph: {
+    title: "Contact | Pueblo La Dehesa",
+    description: "Get in touch with us for more information about our properties.",
+    type: "website",
+    locale: "en_US",
+    url: "https://puebloladehesa.cl/en/contact"
+  }
+};
 
 export default function Contact() {
   const wa = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;

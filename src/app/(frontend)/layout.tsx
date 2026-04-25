@@ -3,7 +3,7 @@ import Analytics from "@/components/Analytics";
 import MetaPixel from "@/components/MetaPixel";
 import ConsentBanner from "@/components/ConsentBanner";
 import JsonLd from "@/components/JsonLd";
-import { organizationSchema } from "@/lib/schema";
+import { organizationSchema, localBusinessSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: {
@@ -26,6 +26,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
       <Analytics />
       <MetaPixel />
       <JsonLd data={organizationSchema()} />
+      <JsonLd data={localBusinessSchema()} />
       {children}
       <ConsentBanner />
     </>
