@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function ErrorPage({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6">
@@ -26,12 +28,12 @@ export default function ErrorPage({ error, reset }: { error: Error & { digest?: 
           >
             Reintentar
           </button>
-          <a
+          <Link
             href="/"
             className="px-8 py-3 border-2 border-brand-ink text-brand-ink hover:bg-brand-soft transition duration-300 font-medium"
           >
             Volver al inicio
-          </a>
+          </Link>
         </div>
 
         {error.digest && (

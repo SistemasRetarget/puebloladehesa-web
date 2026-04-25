@@ -63,7 +63,6 @@ export function accommodationSchema(opts: {
   image: string;
   lang?: string;
 }) {
-  const urlLang = opts.lang === "en" ? "/en" : "";
   const typeUrl = opts.lang === "en" ? `${SITE}/en/houses/${opts.slug}` : `${SITE}/casas/${opts.slug}`;
 
   return {

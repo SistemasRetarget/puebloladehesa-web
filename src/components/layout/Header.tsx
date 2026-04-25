@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 
 type HeaderProps = {
@@ -125,6 +124,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
             aria-label="Pueblo La Dehesa — Inicio"
             className="flex items-center justify-center"
           >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/logo-pueblo.svg"
               alt="Pueblo La Dehesa"
