@@ -126,7 +126,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
             className="flex items-center justify-center"
           >
             <img
-              src="/media/cdn_shop_files_logo-pueblo-01.svg"
+              src="/logo-pueblo.svg"
               alt="Pueblo La Dehesa"
               width={70}
               height={56}

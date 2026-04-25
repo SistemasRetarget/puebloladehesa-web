@@ -40,22 +40,16 @@ export default function Home() {
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-top"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/40" />
-        <div className="relative h-full flex flex-col items-center justify-end text-white text-center px-6 pb-24 lg:pb-32">
-          <h1 className="font-serif text-5xl md:text-7xl font-light tracking-tight">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
+        <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-light tracking-tight">
             Tu refugio en la ciudad
           </h1>
-          <p className="mt-4 text-lg md:text-xl max-w-xl opacity-90">
-            Casas rodeadas de naturaleza, diseño y calma en La Dehesa.
+          <p className="mt-4 text-base md:text-lg max-w-2xl opacity-95">
+            Arriendo de casas amobladas inmersas en la naturaleza con vistas a la cordillera y al valle de la Dehesa.
           </p>
-          <Link
-            href="/casas"
-            className="mt-10 inline-block px-8 py-4 btn-primary"
-          >
-            Conocer las casas
-          </Link>
         </div>
       </section>
 
