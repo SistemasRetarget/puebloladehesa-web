@@ -5,6 +5,7 @@ import { listHouses, imageForPage, extractParagraphs, getPage } from "@/lib/cont
 import { t } from "@/lib/i18n";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
+import Features from "@/components/sections/Features";
 
 export const revalidate = 3600;
 
@@ -45,6 +46,28 @@ export default function HomeEn() {
         </div>
       </section>
       {intro && <section className="max-w-3xl mx-auto px-6 py-20 text-center"><p className="text-xl leading-relaxed text-brand-muted">{intro}</p></section>}
+
+      <Features locale="en" />
+
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="font-serif text-4xl md:text-5xl mb-6 font-light">A place to stay as long as you need</h2>
+            <p className="text-brand-muted leading-relaxed text-lg">
+              Furnished house rentals integrated into the landscape, with natural light and views of the Andes. Like every town, there's a meeting point: La Casita, a space for a coffee, something delicious to eat, to work calmly or simply to cross paths with others naturally.
+            </p>
+          </div>
+          <div className="relative h-[500px] overflow-hidden rounded-lg">
+            <Image
+              src="https://puebloladehesa.cl/cdn/shop/files/valle-panorama.webp?v=1"
+              alt="Panoramic view of the La Dehesa valley"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="max-w-6xl mx-auto px-6 py-24">
         <div className="text-center mb-16">
           <h2 className="font-serif text-5xl md:text-6xl mb-4 font-light">{L.our_houses}</h2>

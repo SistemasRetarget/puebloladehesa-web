@@ -62,11 +62,23 @@ export default function Home() {
 
       <Features locale="es" />
 
-      <section className="max-w-3xl mx-auto px-6 py-16 text-center">
-        <h2 className="font-serif text-3xl md:text-4xl mb-4 font-light">Un lugar para quedarte el tiempo que necesites</h2>
-        <p className="text-brand-muted leading-relaxed">
-          Arriendo de casas amobladas integradas al paisaje, con luz natural y vistas a la cordillera. Como en todo pueblo, hay un punto de encuentro: La Casita, un espacio para un café, algo rico para comer, para trabajar con calma o simplemente cruzarse con otros de manera natural.
-        </p>
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="font-serif text-4xl md:text-5xl mb-6 font-light">Un lugar para quedarte el tiempo que necesites</h2>
+            <p className="text-brand-muted leading-relaxed text-lg">
+              Arriendo de casas amobladas integradas al paisaje, con luz natural y vistas a la cordillera. Como en todo pueblo, hay un punto de encuentro: La Casita, un espacio para un café, algo rico para comer, para trabajar con calma o simplemente cruzarse con otros de manera natural.
+            </p>
+          </div>
+          <div className="relative h-[500px] overflow-hidden rounded-lg">
+            <Image
+              src="https://puebloladehesa.cl/cdn/shop/files/valle-panorama.webp?v=1"
+              alt="Vista panorámica del valle de La Dehesa"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
       </section>
 
       <section className="max-w-6xl mx-auto px-6 py-24">

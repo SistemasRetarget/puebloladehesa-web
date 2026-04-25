@@ -67,11 +67,11 @@ type Props = { locale?: "es" | "en" };
 export default function Features({ locale = "es" }: Props) {
   const items = locale === "en" ? FEATURES_EN : FEATURES_ES;
   return (
-    <section className="max-w-container mx-auto px-6 lg:px-10 py-16">
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+    <section className="w-full py-0 overflow-hidden">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-0">
         {items.map((f) => (
-          <div key={f.title} className="text-center">
-            <div className="relative w-full aspect-[4/3] mb-4 overflow-hidden rounded-md bg-brand-soft">
+          <div key={f.title} className="flex flex-col">
+            <div className="relative w-full h-[300px] overflow-hidden bg-brand-soft">
               <Image
                 src={f.img}
                 alt={f.title}
@@ -80,8 +80,10 @@ export default function Features({ locale = "es" }: Props) {
                 className="object-cover"
               />
             </div>
-            <h3 className="font-serif text-lg mb-1">{f.title}</h3>
-            <p className="text-sm text-brand-muted leading-snug">{f.text}</p>
+            <div className="p-6 bg-white flex flex-col flex-1">
+              <h3 className="font-serif text-base uppercase tracking-wide font-light mb-2">{f.title}</h3>
+              <p className="text-sm text-brand-muted leading-snug">{f.text}</p>
+            </div>
           </div>
         ))}
       </div>
