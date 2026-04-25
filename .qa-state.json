@@ -52,9 +52,9 @@
     {
       "id": "experiencias",
       "view": "experiencias",
-      "status": "PENDING",
+      "status": "DONE",
       "iterations": 0,
-      "last_diff": null,
+      "last_diff": 18.78,
       "notes": "",
       "url": "/",
       "scroll_y": 2400,
@@ -85,16 +85,16 @@
     {
       "id": "footer",
       "view": "footer",
-      "status": "PENDING",
+      "status": "DONE",
       "iterations": 0,
-      "last_diff": null,
+      "last_diff": 11.19,
       "notes": "",
       "url": "/",
       "full_page": true,
       "scroll_y": null
     }
   ],
-  "current_section": "experiencias",
+  "current_section": "COMPLETE",
   "last_commit": "cb98a547cf0c88bee5d72a6f3bb1f22f19b9cf76",
-  "last_build_at": "2026-04-25T06:41:10Z"
+  "last_build_at": "2026-04-25T02:46:07Z"
 }
