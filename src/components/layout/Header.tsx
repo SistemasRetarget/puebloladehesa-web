@@ -101,13 +101,13 @@ export default function Header({ locale = "es" }: HeaderProps) {
                   {item.label}
                 </Link>
                 {item.children && openSubmenu === item.label && (
-                  <div className="absolute top-full left-0 pt-2">
+                  <div className="absolute top-full left-0 pt-2 z-50">
                     <div className="bg-white shadow-lg border border-brand-line min-w-[220px] py-2">
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block px-5 py-2 text-sm hover:bg-brand-soft transition-colors"
+                          className="block px-5 py-2 text-sm text-brand-ink hover:bg-brand-soft transition-colors"
                         >
                           {child.label}
                         </Link>
@@ -148,17 +148,17 @@ export default function Header({ locale = "es" }: HeaderProps) {
                 {locale === "en" ? "English" : "Español"}
               </button>
               {langOpen && (
-                <div className="absolute top-full right-0 bg-white shadow-lg border border-brand-line min-w-[140px] py-1">
+                <div className="absolute top-full right-0 bg-white shadow-lg border border-brand-line min-w-[140px] py-1 z-50">
                   <Link
                     href="/"
-                    className="block px-4 py-2 text-sm hover:bg-brand-soft"
+                    className="block px-4 py-2 text-sm text-brand-ink hover:bg-brand-soft"
                     onClick={() => setLangOpen(false)}
                   >
                     Español
                   </Link>
                   <Link
                     href="/en"
-                    className="block px-4 py-2 text-sm hover:bg-brand-soft"
+                    className="block px-4 py-2 text-sm text-brand-ink hover:bg-brand-soft"
                     onClick={() => setLangOpen(false)}
                   >
                     English
