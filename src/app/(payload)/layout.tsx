@@ -8,7 +8,8 @@ import { importMap } from "./admin/importMap.js";
 
 type Args = { children: React.ReactNode };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// Payload CMS requires serverFunction to accept any type of args
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- Payload CMS server function signature requirement
 async function serverFunction(args: any) {
   "use server";
   return handleServerFunctions({ ...args, config, importMap });

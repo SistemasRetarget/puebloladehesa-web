@@ -8,6 +8,7 @@ export default function Analytics() {
 
   return (
     <>
+      {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
       <Script id="consent-mode-default" strategy="beforeInteractive">
         {`
           window.dataLayer = window.dataLayer || [];

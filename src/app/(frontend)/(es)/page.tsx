@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { getPage, listHouses, imageForPage, extractParagraphs } from "@/lib/content";
 
 export const revalidate = 3600;
@@ -28,12 +29,12 @@ export default function Home() {
           <p className="mt-4 text-lg md:text-xl max-w-xl opacity-90">
             Casas rodeadas de naturaleza, diseño y calma en La Dehesa.
           </p>
-          <a
+          <Link
             href="/casas"
             className="mt-8 inline-block px-8 py-3 bg-white text-brand-ink hover:bg-brand-soft transition"
           >
             Conocer las casas
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -51,7 +52,7 @@ export default function Home() {
             const img = imageForPage(key);
             const slug = h.path.split("/").pop();
             return (
-              <a
+              <Link
                 key={h.path}
                 href={`/casas/${slug}`}
                 className="group block"
@@ -69,7 +70,7 @@ export default function Home() {
                 <p className="mt-1 text-sm text-brand-muted line-clamp-2">
                   {h.meta.description || ""}
                 </p>
-              </a>
+              </Link>
             );
           })}
         </div>
@@ -81,9 +82,9 @@ export default function Home() {
           <p className="text-brand-muted mb-8">
             Bienestar, naturaleza y comunidad cerca de todo y envuelto en silencio.
           </p>
-          <a href="/experiencias" className="underline underline-offset-4 hover:text-brand-accent">
+          <Link href="/experiencias" className="underline underline-offset-4 hover:text-brand-accent">
             Ver experiencias →
-          </a>
+          </Link>
         </div>
       </section>
     </>
