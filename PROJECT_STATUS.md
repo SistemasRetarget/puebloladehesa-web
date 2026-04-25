@@ -5,12 +5,25 @@
 
 ---
 
-## 🎯 Sección en desarrollo: **Hero Banner**
+## 🎯 Sección en desarrollo: **Header + Hero Banner**
 
-**Asignado:** Claude (Opus) — HANDOFF desde Cascade
-**Última actualización:** 2026-04-25 01:46 UTC-04
-**Commit actual:** `63c65d4`
+**Asignado:** Claude (Opus)
+**Última actualización:** 2026-04-25 02:06 UTC-04
+**Commit actual:** `f46e326`
 **Deploy:** ✅ Live → https://puebloladehesa-web-production.up.railway.app
+
+### Feedback del usuario (2026-04-25 02:00):
+- ❌ No se veía logo ni texto del menu (filter blanco invisible en algunos casos)
+- ✅ Header debe ser sticky: transparente arriba → fondo crema al scroll (NO negro)
+- 📌 Pragmático: estructura+legibilidad, NO pixel-perfect
+- 📌 Lección registrada en MCP (`lessons-log`)
+
+### Iteración 8 — `f46e326`
+- Header bg-transparent+white sobre hero
+- bg-brand-bg (crema) + brand-ink text al scroll
+- Logo filter condicional (invert blanco arriba, color natural al scroll)
+- Contact button alterna border/text según scrolled
+- Gradiente hero ya alineado (20/10/40)
 
 ---
 
@@ -18,10 +31,10 @@
 
 | Sección | Estado | Diff % | Notas |
 |---|---|---|---|
-| **Header / Nav** | 🔄 En progreso | - | Logo centrado, pill buttons, nav izquierda |
-| **Hero Banner** | 🔄 Iteración 5/4 | 36.85% | Esperando build `63c65d4` para validar |
-| **Intro paragraph** | ⏸️ Pendiente | - | - |
-| **Casas (grid)** | ⏸️ Pendiente | - | - |
+| **Header / Nav** | ✅ Estructura OK | n/a | Sticky transparent→cream, logo+nav visibles (`f46e326`) |
+| **Hero Banner** | ✅ Estructura OK | 41% | Cordillera visible, título centrado, gradiente alineado |
+| **Intro paragraph** | ✅ Texto alineado | n/a | Mismo texto que prod ("Arriendo de casas amobladas...") |
+| **Casas (grid)** | ⚠️ URL diferente | n/a | Prod usa `/estadias`, QA usa `/casas` — decisión pendiente |
 | **Testimonios** | ⏸️ Pendiente | - | - |
 | **FAQ** | ⏸️ Pendiente | - | - |
 | **Footer** | ⏸️ Pendiente | - | - |
