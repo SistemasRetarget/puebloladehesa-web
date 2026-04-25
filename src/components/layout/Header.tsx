@@ -72,7 +72,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
   return (
     <header
       className={`sticky top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-black/40 backdrop-blur-md border-b border-white/10" : "bg-transparent"
+        scrolled ? "bg-brand-bg border-b border-brand-line text-brand-ink" : "bg-transparent text-white"
       }`}
     >
       {/* Skip link */}
@@ -86,7 +86,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
       <div className="max-w-container mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-[1fr_auto_1fr] items-center h-20 lg:h-24 gap-4">
           {/* Desktop nav (left column) */}
-          <nav className="hidden lg:flex items-center gap-7 text-white" aria-label="Navegación principal">
+          <nav className="hidden lg:flex items-center gap-7" aria-label="Navegación principal">
             {nav.map((item) => (
               <div
                 key={item.label}
@@ -130,13 +130,13 @@ export default function Header({ locale = "es" }: HeaderProps) {
               alt="Pueblo La Dehesa"
               width={70}
               height={56}
-              className="h-12 lg:h-14 w-auto"
-              style={{ filter: "brightness(0) invert(1)" }}
+              className="h-12 lg:h-14 w-auto transition-[filter] duration-300"
+              style={{ filter: scrolled ? "none" : "brightness(0) invert(1)" }}
             />
           </Link>
 
           {/* Right side: lang + CTAs + burger */}
-          <div className="flex items-center justify-end gap-3 lg:gap-4 text-white">
+          <div className="flex items-center justify-end gap-3 lg:gap-4">
             {/* Language switcher */}
             <div className="hidden md:block relative">
               <button
@@ -180,7 +180,11 @@ export default function Header({ locale = "es" }: HeaderProps) {
             <Link
               href={locale === "en" ? "/en/contact" : "/contacto"}
               onClick={() => pushEvent("click_contacto", { location: "header" })}
-              className="hidden lg:inline-flex items-center border border-white text-white hover:bg-white hover:text-brand-ink text-xs uppercase tracking-widest px-6 py-3 rounded-full transition-colors"
+              className={`hidden lg:inline-flex items-center text-xs uppercase tracking-widest px-6 py-3 rounded-full transition-colors border ${
+                scrolled
+                  ? "border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-white"
+                  : "border-white text-white hover:bg-white hover:text-brand-ink"
+              }`}
             >
               {locale === "en" ? "Contact" : "Contáctanos"}
             </Link>
