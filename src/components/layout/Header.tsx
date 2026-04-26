@@ -128,9 +128,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
             <img
               src="/logo-pueblo.svg"
               alt="Pueblo La Dehesa"
-              width={70}
-              height={56}
-              className="h-12 lg:h-14 w-auto transition-[filter] duration-300"
+              className="h-12 lg:h-14 w-auto flex-shrink-0 transition-[filter] duration-300"
               style={{ filter: scrolled ? "none" : "brightness(0) invert(1)" }}
             />
           </Link>
