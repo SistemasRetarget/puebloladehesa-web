@@ -6,12 +6,16 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Ubicación | Pueblo La Dehesa",
   description: "Pueblo La Dehesa: cerca de todo, en un entorno de silencio. Ubicado en un sector residencial de La Dehesa con excelente conectividad y entorno natural privilegiado.",
+  alternates: { canonical: "/ubicacion" },
   openGraph: {
     title: "Ubicación | Pueblo La Dehesa",
     description: "33.367° S, 70.530° O — En el corazón del valle de La Dehesa",
     type: "website",
-    locale: "es_CL"
-  }
+    locale: "es_CL",
+    url: "/ubicacion",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Pueblo La Dehesa — Ubicación" }]
+  },
+  twitter: { card: "summary_large_image", images: ["/og-image.jpg"] }
 };
 
 const NEARBY_PLACES = [

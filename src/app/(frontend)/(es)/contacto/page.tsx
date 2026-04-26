@@ -4,13 +4,16 @@ export const metadata: Metadata = {
   title: "Contacto | Pueblo La Dehesa",
   description: "Contáctanos por WhatsApp o envíanos un mensaje. Estamos aquí para responder tus preguntas sobre nuestras casas en La Dehesa.",
   keywords: "contacto Pueblo La Dehesa, WhatsApp, consultas propiedades",
+  alternates: { canonical: "/contacto" },
   openGraph: {
     title: "Contacto | Pueblo La Dehesa",
     description: "Ponte en contacto con nosotros para más información sobre nuestras propiedades.",
     type: "website",
     locale: "es_CL",
-    url: "https://puebloladehesa.cl/contacto"
-  }
+    url: "/contacto",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Pueblo La Dehesa — Contacto" }]
+  },
+  twitter: { card: "summary_large_image", images: ["/og-image.jpg"] }
 };
 
 export default async function Contacto({ searchParams }: { searchParams: Promise<{ ok?: string; error?: string }> }) {

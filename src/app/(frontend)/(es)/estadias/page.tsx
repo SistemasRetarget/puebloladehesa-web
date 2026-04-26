@@ -8,12 +8,16 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Estadías | Pueblo La Dehesa",
   description: "Estadías flexibles en espacios pensados para descansar y sentirse en casa. Tu propio espacio con vista a la montaña, rodeado de jardines y un gran parque.",
+  alternates: { canonical: "/estadias" },
   openGraph: {
     title: "Estadías | Pueblo La Dehesa",
     description: "Casas amobladas con vista a la cordillera. 4 tipologías para hasta 4 personas.",
     type: "website",
-    locale: "es_CL"
-  }
+    locale: "es_CL",
+    url: "/estadias",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Pueblo La Dehesa — Estadías" }]
+  },
+  twitter: { card: "summary_large_image", images: ["/og-image.jpg"] }
 };
 
 const SERVICIOS = [

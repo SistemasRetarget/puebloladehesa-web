@@ -1,7 +1,23 @@
+import type { Metadata } from "next";
 import { getPage, extractParagraphs, imageForPage } from "@/lib/content";
 import Image from "next/image";
 
-export const metadata = { title: "Experiencias" };
+export const metadata: Metadata = {
+  title: "Experiencias | Pueblo La Dehesa",
+  description:
+    "Descubre las experiencias que ofrece Pueblo La Dehesa: gastronomía, naturaleza, cultura y bienestar en el corazón de La Dehesa.",
+  alternates: { canonical: "/experiencias" },
+  openGraph: {
+    title: "Experiencias | Pueblo La Dehesa",
+    description:
+      "Gastronomía, naturaleza y bienestar en el corazón de La Dehesa.",
+    type: "website",
+    locale: "es_CL",
+    url: "/experiencias",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Pueblo La Dehesa — Experiencias" }]
+  },
+  twitter: { card: "summary_large_image", images: ["/og-image.jpg"] }
+};
 
 export default function Experiencias() {
   const p = getPage("es", "/pages/experiencias");

@@ -6,12 +6,16 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "La Casita Salón Gourmet | Pueblo La Dehesa",
   description: "La Casita: el corazón de Pueblo La Dehesa. Un espacio exclusivo para nuestros huéspedes donde el café, la comida y los encuentros cotidianos completan la experiencia Pueblo.",
+  alternates: { canonical: "/la-casita" },
   openGraph: {
     title: "La Casita | Pueblo La Dehesa",
     description: "Salón Gourmet y punto de encuentro exclusivo para huéspedes",
     type: "website",
-    locale: "es_CL"
-  }
+    locale: "es_CL",
+    url: "/la-casita",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Pueblo La Dehesa — La Casita Salón Gourmet" }]
+  },
+  twitter: { card: "summary_large_image", images: ["/og-image.jpg"] }
 };
 
 export default function LaCasita() {
