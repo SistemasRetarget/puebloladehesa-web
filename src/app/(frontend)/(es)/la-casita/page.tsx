@@ -127,7 +127,7 @@ export default function LaCasita() {
           </div>
           <div className="relative aspect-square overflow-hidden rounded-lg bg-brand-soft">
             <Image
-              src="https://puebloladehesa.cl/cdn/shop/files/IMG_0011_1.webp"
+              src="https://puebloladehesa.cl/cdn/shop/files/07A1819.jpg"
               alt="Encuentros en La Casita"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
@@ -137,7 +137,7 @@ export default function LaCasita() {
           </div>
           <div className="relative aspect-square overflow-hidden rounded-lg bg-brand-soft">
             <Image
-              src="https://puebloladehesa.cl/cdn/shop/files/IMG_0153_1.webp"
+              src="https://puebloladehesa.cl/cdn/shop/files/145dd5ee93df3618d3d6929b49ad7334.jpg"
               alt="Café en La Casita"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
@@ -147,7 +147,7 @@ export default function LaCasita() {
           </div>
           <div className="relative aspect-square overflow-hidden rounded-lg bg-brand-soft">
             <Image
-              src="https://puebloladehesa.cl/cdn/shop/files/IMG_0239_1.webp"
+              src="https://puebloladehesa.cl/cdn/shop/files/Image_18_dic_2025_21_56_59.png"
               alt="Momentos compartidos"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
@@ -157,7 +157,7 @@ export default function LaCasita() {
           </div>
           <div className="relative aspect-square overflow-hidden rounded-lg bg-brand-soft">
             <Image
-              src="https://puebloladehesa.cl/cdn/shop/files/IMG_3510_1.webp"
+              src="https://puebloladehesa.cl/cdn/shop/files/Terraza_La_Casita.png"
               alt="Detalles de La Casita"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
