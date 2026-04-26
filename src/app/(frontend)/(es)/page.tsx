@@ -35,13 +35,10 @@ export default function Home() {
   return (
     <>
       <section className="relative h-[90vh] min-h-[600px] overflow-hidden -mt-20 lg:-mt-24">
-        <Image
+        <img
           src={heroImg}
           alt="Pueblo La Dehesa"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/40" />
         <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
