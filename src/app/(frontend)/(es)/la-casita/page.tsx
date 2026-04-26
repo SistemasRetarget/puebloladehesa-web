@@ -23,13 +23,10 @@ export default function LaCasita() {
     <>
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-20 lg:-mt-24">
-        <Image
+        <img
           src="https://puebloladehesa.cl/cdn/shop/files/07A9898.jpg"
           alt="La Casita Salón Gourmet"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
         <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
