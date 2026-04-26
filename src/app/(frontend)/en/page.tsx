@@ -59,7 +59,7 @@ export default function HomeEn() {
           </div>
           <div className="relative h-[400px] overflow-hidden rounded-lg bg-gradient-to-br from-brand-soft to-gray-200 hidden md:block">
             <Image
-              src="https://puebloladehesa.cl/cdn/shop/files/ubicacion.webp"
+              src="https://puebloladehesa.cl/cdn/shop/files/Locacion_AEREA_1_1_38dd9d39-992c-4897-9b6f-cd9711ae23fb.webp"
               alt="Panoramic view of the La Dehesa valley"
               fill
               className="object-cover opacity-90"
