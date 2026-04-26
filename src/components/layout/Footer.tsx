@@ -68,8 +68,8 @@ export default function Footer({ locale = "es" }: FooterProps) {
         { label: "Privacy Policy", href: "/en/privacy" }
       ]
     : [
-        { label: "Términos y condiciones", href: "/terminos-y-condiciones" },
-        { label: "Políticas de privacidad", href: "/politicas-de-privacidad" }
+        { label: "Términos y condiciones", href: "/legal/terminos-y-condiciones" },
+        { label: "Políticas de privacidad", href: "/legal/politicas-de-privacidad" }
       ];
 
   return (

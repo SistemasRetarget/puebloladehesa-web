@@ -24,6 +24,32 @@ const nextConfig = {
       }
     ]
   },
+  async redirects() {
+    return [
+      // Shopify product URLs -> clean casa URLs
+      { source: "/products/casa-doble-altura", destination: "/casas/casa-doble-altura", permanent: true },
+      { source: "/products/casa-parque",       destination: "/casas/casa-parque",       permanent: true },
+      { source: "/products/casa-panoramica",   destination: "/casas/casa-panoramica",   permanent: true },
+      { source: "/products/casa-suite",        destination: "/casas/casa-suite",        permanent: true },
+      // Shopify pages -> clean URLs
+      { source: "/pages/contact",                       destination: "/contacto",                                   permanent: true },
+      { source: "/pages/nosotros",                      destination: "/nosotros",                                   permanent: true },
+      { source: "/pages/experiencias",                  destination: "/experiencias",                               permanent: true },
+      { source: "/pages/la-casita",                     destination: "/la-casita",                                  permanent: true },
+      { source: "/pages/ubicacion",                     destination: "/ubicacion",                                  permanent: true },
+      { source: "/pages/terminos-y-condiciones",        destination: "/legal/terminos-y-condiciones",               permanent: true },
+      { source: "/pages/politicas-de-privacidad",       destination: "/legal/politicas-de-privacidad",              permanent: true },
+      // SEO landings (until built) -> /estadias as best alternative
+      { source: "/pages/arriendo-departamento-amoblado", destination: "/estadias", permanent: true },
+      { source: "/pages/arriendo-por-temporada",         destination: "/estadias", permanent: true },
+      { source: "/pages/arriendo-mensual",               destination: "/estadias", permanent: true },
+      // Generic content pages (not built yet) -> home for now (revisit when built)
+      { source: "/pages/tu-lugar",            destination: "/", permanent: false },
+      { source: "/pages/espacio-panoramica",  destination: "/", permanent: false },
+      { source: "/pages/pueblito",            destination: "/", permanent: false },
+      { source: "/pages/guia-huespedes",      destination: "/", permanent: false }
+    ];
+  },
   async headers() {
     return [
       {

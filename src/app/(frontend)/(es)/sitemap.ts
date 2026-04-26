@@ -3,7 +3,19 @@ import { listHouses } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-  const es = ["/", "/casas", "/experiencias", "/nosotros", "/contacto", ...listHouses("es").map((h) => `/casas/${h.path.split("/").pop()}`)];
+  const es = [
+    "/",
+    "/casas",
+    "/estadias",
+    "/experiencias",
+    "/la-casita",
+    "/nosotros",
+    "/ubicacion",
+    "/contacto",
+    "/legal/terminos-y-condiciones",
+    "/legal/politicas-de-privacidad",
+    ...listHouses("es").map((h) => `/casas/${h.path.split("/").pop()}`)
+  ];
   const en = ["/en", "/en/houses", "/en/experiences", "/en/about", "/en/contact", ...listHouses("en").map((h) => `/en/houses/${h.path.split("/").pop()}`)];
   return [...es, ...en].map((p) => ({
     url: `${base}${p}`,

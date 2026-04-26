@@ -26,8 +26,13 @@ cd "$PROJECT_ROOT"
 
 SECTION="${SECTION:-}"
 MODE="${MODE:-full}"  # full, section, incremental
-MAX_ITERATIONS="${MAX_ITERATIONS:-4}"
-TOLERANCE="${TOLERANCE:-25}"
+# 2026-04-25: cap subido a 999 — iteramos hasta convergencia o tokens.
+# Early-stop por convergencia: si 3 iteraciones consecutivas el diff no baja
+# >= MIN_DIFF_DELTA puntos, se marca BLOCKED y se avanza.
+MAX_ITERATIONS="${MAX_ITERATIONS:-999}"
+MIN_DIFF_DELTA="${MIN_DIFF_DELTA:-1.0}"   # mejora mínima por iteración (en %)
+STAGNATION_LIMIT="${STAGNATION_LIMIT:-3}" # iteraciones sin mejora antes de abandonar
+TOLERANCE="${TOLERANCE:-2}"               # ANTES 25 — recalibrado para señal real
 RAILWAY_TIMEOUT="${RAILWAY_TIMEOUT:-240}"  # 4 min
 RAILWAY_URL="https://puebloladehesa-web-production.up.railway.app"
 PROD_URL="https://puebloladehesa.cl"
