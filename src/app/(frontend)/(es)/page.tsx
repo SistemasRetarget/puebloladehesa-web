@@ -54,12 +54,19 @@ export default function Home() {
         </div>
       </section>
 
-      {intro && (
-        <section className="max-w-3xl mx-auto px-6 py-20 text-center">
-          <p className="text-xl leading-relaxed text-brand-muted">{intro}</p>
-        </section>
-      )}
+      {/* SECTION 2: Rich text — narrativa de marca (matches prod section 3) */}
+      <section className="py-section bg-brand-soft">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-brand-ink leading-tight">
+            Pueblo nace de la idea de volver a lo esencial.
+          </h2>
+          <p className="mt-6 text-brand-muted leading-relaxed text-lg">
+            Un lugar donde la naturaleza, el diseño y la calma se cruzan para crear un nuevo sentido de habitar la ciudad. Aquí cada casa se piensa como un refugio integrado al entorno, con la cordillera como horizonte y el ritmo del valle como telón de fondo.
+          </p>
+        </div>
+      </section>
 
+      {/* SECTION 3: Tres Pilares (Features) — matches prod section 4 */}
       <Features locale="es" />
 
       <section className="max-w-7xl mx-auto px-6 py-24">
@@ -124,8 +131,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials section hidden - not in production */}
-      {/* <Testimonials locale="es" /> */}
+      {/* SECTION 6: Promo bar Estadías flexibles — matches prod section 8 */}
+      <section className="py-section bg-brand-ink text-white">
+        <div className="max-w-container mx-auto px-6 lg:px-10">
+          <div className="grid md:grid-cols-[1fr_auto] gap-8 items-center">
+            <div>
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light">Estadías flexibles</h2>
+              <p className="mt-3 text-white/80 text-lg max-w-2xl">
+                Reserva para nuestras estadías de corto, mediano y largo plazo.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link href="/estadias" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-brand-accent text-white font-medium hover:bg-brand-accent/90 transition-colors">
+                Reservar
+              </Link>
+              <Link href="/contacto" className="inline-flex items-center justify-center px-8 py-4 rounded-full border border-white/40 text-white font-medium hover:bg-white/10 transition-colors">
+                Contáctanos
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="max-w-6xl mx-auto px-6 py-24 my-20 border-t border-brand-line">
         <div className="text-center max-w-2xl mx-auto">
@@ -142,8 +168,61 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ section hidden - not in production */}
-      {/* <FAQ locale="es" /> */}
+      {/* SECTION 8: Quote / pull quote — matches prod section 10 */}
+      <section className="py-section bg-brand-soft">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <p className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-brand-ink leading-tight">
+            La vida de pueblo que hoy buscamos, con naturaleza y calma, sin salir de la ciudad.
+          </p>
+        </div>
+      </section>
+
+      {/* SECTION 9: Inline contact form — matches prod section 11 */}
+      <section className="py-section">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <h2 className="font-serif text-4xl md:text-5xl font-light text-brand-ink">Estamos aquí para ayudarte</h2>
+            <p className="mt-3 text-brand-muted leading-relaxed">
+              Si quieres conocer más detalles o coordinar una visita, escríbenos.
+            </p>
+          </div>
+          <form action="/api/contact" method="POST" className="grid gap-4">
+            <div className="grid md:grid-cols-2 gap-4">
+              <input name="name" required placeholder="Nombre" className="w-full px-4 py-3 border border-brand-line rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent" />
+              <input name="email" type="email" required placeholder="Correo electrónico" className="w-full px-4 py-3 border border-brand-line rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent" />
+            </div>
+            <input name="phone" type="tel" placeholder="Teléfono" className="w-full px-4 py-3 border border-brand-line rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent" />
+            <textarea name="message" required rows={4} placeholder="Mensaje" className="w-full px-4 py-3 border border-brand-line rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent" />
+            <button type="submit" className="justify-self-start px-8 py-4 rounded-full bg-brand-accent text-white font-medium hover:bg-brand-accent/90 transition-colors">
+              Enviar mensaje
+            </button>
+          </form>
+        </div>
+      </section>
+
+      {/* SECTION 10: Feature bar — matches prod section 12 */}
+      <section className="py-section-sm border-t border-brand-line bg-brand-bg">
+        <div className="max-w-container mx-auto px-6 lg:px-10">
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <li>
+              <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">Reserva</p>
+              <p className="font-serif text-lg text-brand-ink">Arriendos por semanas o meses</p>
+            </li>
+            <li>
+              <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">Entorno</p>
+              <p className="font-serif text-lg text-brand-ink">Barrio seguro y silencioso</p>
+            </li>
+            <li>
+              <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">Paisaje</p>
+              <p className="font-serif text-lg text-brand-ink">Vistas a la cordillera</p>
+            </li>
+            <li>
+              <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">Calidad de vida</p>
+              <p className="font-serif text-lg text-brand-ink">Aire limpio y naturaleza</p>
+            </li>
+          </ul>
+        </div>
+      </section>
     </>
   );
 }
