@@ -93,8 +93,8 @@ export default function LaCasita() {
         </div>
       </section>
 
-      {/* Momentos Section */}
-      <section className="max-w-5xl mx-auto px-6 py-24">
+      {/* Momentos Section — 6 imágenes en grid 2x3 */}
+      <section className="max-w-6xl mx-auto px-6 py-24">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
             Momentos en La Casita
@@ -104,23 +104,65 @@ export default function LaCasita() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-brand-soft">
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="relative aspect-square overflow-hidden rounded-lg bg-brand-soft">
             <Image
               src="https://puebloladehesa.cl/cdn/shop/files/pexels-kai-2055476840-29215602.jpg"
-              alt="La Casita - Encuentros"
+              alt="Desayuno en La Casita"
               fill
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover hover:scale-105 transition-transform duration-700"
+              priority
             />
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-brand-soft">
+          <div className="relative aspect-square overflow-hidden rounded-lg bg-brand-soft">
             <Image
               src="https://puebloladehesa.cl/cdn/shop/files/pexels-nicola-barts-7936960.jpg"
-              alt="La Casita - Sabores"
+              alt="Huevos al desayuno"
               fill
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover hover:scale-105 transition-transform duration-700"
+              priority
+            />
+          </div>
+          <div className="relative aspect-square overflow-hidden rounded-lg bg-brand-soft">
+            <Image
+              src="https://puebloladehesa.cl/cdn/shop/files/IMG_0011_1.webp"
+              alt="Encuentros en La Casita"
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <div className="relative aspect-square overflow-hidden rounded-lg bg-brand-soft">
+            <Image
+              src="https://puebloladehesa.cl/cdn/shop/files/IMG_0153_1.webp"
+              alt="Café en La Casita"
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <div className="relative aspect-square overflow-hidden rounded-lg bg-brand-soft">
+            <Image
+              src="https://puebloladehesa.cl/cdn/shop/files/IMG_0239_1.webp"
+              alt="Momentos compartidos"
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <div className="relative aspect-square overflow-hidden rounded-lg bg-brand-soft">
+            <Image
+              src="https://puebloladehesa.cl/cdn/shop/files/IMG_3510_1.webp"
+              alt="Detalles de La Casita"
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover hover:scale-105 transition-transform duration-700"
+              loading="lazy"
             />
           </div>
         </div>
