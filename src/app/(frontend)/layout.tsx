@@ -5,9 +5,7 @@ import ConsentBanner from "@/components/ConsentBanner";
 import JsonLd from "@/components/JsonLd";
 import { organizationSchema, localBusinessSchema } from "@/lib/schema";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.NODE_ENV === "production" ? "https://puebloladehesa.cl" : "http://localhost:3000");
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://puebloladehesa.cl";
 
 export const metadata: Metadata = {
   title: {

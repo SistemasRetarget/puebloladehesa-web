@@ -2,9 +2,7 @@ import type { MetadataRoute } from "next";
 import { listHouses } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base =
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    (process.env.NODE_ENV === "production" ? "https://puebloladehesa.cl" : "http://localhost:3000");
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://puebloladehesa.cl";
   const es = [
     "/",
     "/casas",

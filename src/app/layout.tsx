@@ -24,15 +24,9 @@ export const viewport: Viewport = {
   initialScale: 1
 };
 
-// Resolver dominio canónico:
-// 1) NEXT_PUBLIC_SITE_URL (preferido)
-// 2) Si estamos en producción y la env no está, usar el dominio público (NUNCA localhost en build de prod)
-// 3) Solo localhost en dev local
-const SITE_URL = (() => {
-  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
-  if (process.env.NODE_ENV === "production") return "https://puebloladehesa.cl";
-  return "http://localhost:3000";
-})();
+// Canonical domain — always falls back to prod URL when env var is missing.
+// Localhost only used when explicitly set via NEXT_PUBLIC_SITE_URL=http://localhost:3000
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://puebloladehesa.cl";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
