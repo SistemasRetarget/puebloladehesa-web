@@ -85,6 +85,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SECTION 5: La Casita slideshow */}
+      <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+        <img
+          src="https://puebloladehesa.cl/cdn/shop/files/07A9898.jpg"
+          alt="La Casita Salón Gourmet"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
+        <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
+          <p className="text-sm uppercase tracking-[0.3em] mb-4 opacity-90">Salón Gourmet</p>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light tracking-tight">
+            La Casita
+          </h2>
+          <p className="mt-6 text-lg md:text-xl max-w-2xl opacity-95 font-light">
+            Tu refugio en Pueblo
+          </p>
+        </div>
+      </section>
+
       <section className="max-w-6xl mx-auto px-6 py-24">
         <div className="text-center mb-16">
           <h2 className="font-serif text-5xl md:text-6xl mb-4 font-light">Nuestras casas</h2>
