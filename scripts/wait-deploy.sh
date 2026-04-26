@@ -11,9 +11,11 @@
 # Cascade puede leer este archivo en cualquier momento sin bloquear.
 
 set -e
-MARKER="${1:-https://puebloladehesa-web-production.up.railway.app/legal/terminos-y-condiciones}"
-EXPECTED_SHA="${2:-$(git rev-parse --short HEAD 2>/dev/null || echo '')}"
-MAX="${3:-300}"
+MARKER="${1:-https://puebloladehesa-web-production.up.railway.app/}"
+# CONTENT_MATCH: si se pasa, el deploy se considera 'ready' solo si el HTML lo contiene.
+CONTENT_MATCH="${2:-}"
+EXPECTED_SHA="${3:-$(git rev-parse --short HEAD 2>/dev/null || echo '')}"
+MAX="${4:-300}"
 OUT="$(dirname "$0")/../.qa/deploy-status.json"
 mkdir -p "$(dirname "$OUT")"
 
@@ -27,11 +29,14 @@ while true; do
     exit 1
   fi
 
+  RESP=$(/usr/bin/curl -sS -m 10 "$MARKER?v=$NOW" 2>/dev/null || echo "")
   CODE=$(/usr/bin/curl -sS -o /dev/null -w "%{http_code}" -m 8 "$MARKER?v=$NOW" || echo "000")
 
   if [ "$CODE" = "200" ]; then
-    echo "{\"state\":\"ready\",\"elapsed\":$ELAPSED,\"sha\":\"$EXPECTED_SHA\",\"marker\":\"$MARKER\",\"ts\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" > "$OUT"
-    exit 0
+    if [ -z "$CONTENT_MATCH" ] || echo "$RESP" | grep -qF "$CONTENT_MATCH"; then
+      echo "{\"state\":\"ready\",\"elapsed\":$ELAPSED,\"sha\":\"$EXPECTED_SHA\",\"marker\":\"$MARKER\",\"match\":\"$CONTENT_MATCH\",\"ts\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" > "$OUT"
+      exit 0
+    fi
   fi
 
   echo "{\"state\":\"waiting\",\"elapsed\":$ELAPSED,\"http\":$CODE,\"marker\":\"$MARKER\"}" > "$OUT"
