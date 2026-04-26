@@ -95,7 +95,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
               >
                 <Link
                   href={item.href}
-                  className="link-hover text-sm tracking-wide py-2 text-white"
+                  className={`link-hover text-sm tracking-wide py-2 ${scrolled ? "text-brand-ink" : "text-white"}`}
                 >
                   {item.label}
                 </Link>
