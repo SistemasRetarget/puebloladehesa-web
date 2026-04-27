@@ -3,11 +3,11 @@
 
 export const shopifyImages = {
   // Hero / Banner principal (paisaje cordillerano - panorámica desde La Dehesa)
-  hero: "https://puebloladehesa.cl/cdn/shop/files/amplios_horizontes_1.webp",
-  heroAlt: "https://puebloladehesa.cl/cdn/shop/files/baner.webp",
+  hero: "/amplios_horizontes_1.webp",
+  heroAlt: "/baner.webp",
   
   // Masterplan / Ubicación
-  masterplan: "https://puebloladehesa.cl/cdn/shop/files/Masterplan_1.webp",
+  masterplan: "/Masterplan_1.webp",
   ubicacionAerea: "https://puebloladehesa.cl/cdn/shop/files/Locacion_AEREA_1_1_38dd9d39-992c-4897-9b6f-cd9711ae23fb.webp",
   ampliosHorizontes: "https://puebloladehesa.cl/cdn/shop/files/amplios_horizontes_1.webp",
   
