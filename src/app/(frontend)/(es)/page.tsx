@@ -29,14 +29,14 @@ export const metadata: Metadata = {
 export default function Home() {
   const home = getPage("es", "home");
   const houses = listHouses("es");
-  const heroImg = home ? imageForPage("es__home", "/media//media/placeholder.svg") : "/media//media/placeholder.svg";
+  
   const intro = home ? extractParagraphs(home, 2)[0] : "";
 
   return (
     <>
       <section className="relative h-[90vh] min-h-[600px] overflow-hidden -mt-20 lg:-mt-24">
         <img
-          src={heroImg}
+          src="/amplios_horizontes_1.webp"
           alt="Pueblo La Dehesa"
           className="absolute inset-0 w-full h-full object-cover"
         />
