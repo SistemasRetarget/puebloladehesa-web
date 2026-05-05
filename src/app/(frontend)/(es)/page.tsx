@@ -29,7 +29,6 @@ export const metadata: Metadata = {
 export default function Home() {
   const home = getPage("es", "home");
   const houses = listHouses("es");
-  
   const intro = home ? extractParagraphs(home, 2)[0] : "";
 
   return (
