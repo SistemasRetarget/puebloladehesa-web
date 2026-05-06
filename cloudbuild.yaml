@@ -1,9 +1,21 @@
 steps:
+  # Pull imagen anterior como caché (falla silencioso en primer build)
+  - name: 'gcr.io/cloud-builders/docker'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        docker pull europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puebloladehesa/puebloladehesa-web:latest || true
+
+  # Build con cache-from + tag latest para próximo build
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
+      - '--cache-from=europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puebloladehesa/puebloladehesa-web:latest'
       - '-t'
       - 'europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puebloladehesa/puebloladehesa-web:$COMMIT_SHA'
+      - '-t'
+      - 'europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puebloladehesa/puebloladehesa-web:latest'
       - '--build-arg'
       - 'PAYLOAD_SECRET=$_PAYLOAD_SECRET'
       - '--build-arg'
@@ -12,10 +24,12 @@ steps:
       - 'NEXT_PUBLIC_SITE_URL=https://puebloladehesa-web-270024878418.europe-west1.run.app'
       - '.'
 
+  # Push ambos tags
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puebloladehesa/puebloladehesa-web:$COMMIT_SHA'
+      - '--all-tags'
+      - 'europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puebloladehesa/puebloladehesa-web'
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
