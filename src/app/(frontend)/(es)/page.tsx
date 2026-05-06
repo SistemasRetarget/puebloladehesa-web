@@ -40,12 +40,12 @@ export default function Home() {
           alt="Pueblo La Dehesa"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
         <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-light tracking-tight">
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light tracking-tight">
             Tu refugio en la ciudad
           </h1>
-          <p className="mt-4 text-base md:text-lg max-w-2xl opacity-95">
+          <p className="mt-4 text-sm md:text-base max-w-xl opacity-90">
             Arriendo de casas amobladas inmersas en la naturaleza con vistas a la cordillera y al valle de la Dehesa.
           </p>
         </div>

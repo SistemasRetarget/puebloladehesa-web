@@ -19,7 +19,7 @@ export default function Hero({ title, subtitle, image, imageAlt = "" }: Props) {
         className="object-cover"
         fetchPriority="high"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
       <div className="relative h-full flex flex-col items-center justify-end text-white text-center px-6 pb-24 lg:pb-32">
         <h1 className="font-serif text-display-lg font-light max-w-4xl">
           {title}
