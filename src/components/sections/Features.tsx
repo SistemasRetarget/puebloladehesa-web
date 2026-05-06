@@ -68,7 +68,7 @@ export default function Features({ locale = "es" }: Props) {
   const items = locale === "en" ? FEATURES_EN : FEATURES_ES;
   return (
     <section className="w-full py-0 overflow-hidden">
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-0">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
         {items.map((f) => (
           <div key={f.title} className="flex flex-col h-full">
             <div className="relative w-full h-[400px] overflow-hidden bg-brand-soft">
