@@ -90,14 +90,14 @@ export default function Header({ locale = "es" }: HeaderProps) {
         Ir al contenido
       </a>
 
-      {/* Top language bar — desktop only, above nav */}
-      <div className="hidden lg:flex justify-end px-10">
+      {/* Language selector — absolutely positioned so it doesn't add to header height */}
+      <div className="hidden lg:block absolute top-3 right-10 z-10">
         <div className="relative">
           <button
             onClick={() => setLangOpen(!langOpen)}
             aria-expanded={langOpen}
             aria-haspopup="true"
-            className={`text-[10px] uppercase tracking-widest flex items-center gap-1 hover:opacity-70 transition-opacity py-1 ${isLight ? "text-brand-muted" : "text-white/70"}`}
+            className={`text-[10px] uppercase tracking-widest flex items-center gap-1 hover:opacity-70 transition-opacity ${isLight ? "text-brand-muted" : "text-white/70"}`}
           >
             {locale === "en" ? "English" : "Español"}
             <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor"><path d="M5 7L1 3h8L5 7z"/></svg>
@@ -124,13 +124,18 @@ export default function Header({ locale = "es" }: HeaderProps) {
               >
                 <Link
                   href={item.href}
-                  className={`link-hover text-sm tracking-wide py-2 ${isLight ? "text-brand-ink" : "text-white"}`}
+                  className={`link-hover text-sm tracking-wide py-2 inline-flex items-center gap-1 ${isLight ? "text-brand-ink" : "text-white"}`}
                 >
                   {item.label}
+                  {item.children && (
+                    <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor" className="opacity-60 mt-px flex-shrink-0">
+                      <path d="M5 7L1 3h8L5 7z"/>
+                    </svg>
+                  )}
                 </Link>
                 {item.children && openSubmenu === item.label && (
-                  <div className="absolute top-full left-0 pt-2 z-50">
-                    <div className="bg-white shadow-lg border border-brand-line min-w-[260px] py-2">
+                  <div className="absolute top-full left-0 pt-2 z-50 animate-[fadeIn_0.3s_ease]">
+                    <div className="bg-white shadow-lg border border-brand-line min-w-[220px] py-2">
                       {item.children.map((child, idx) => (
                         child.isHeader ? (
                           <div
@@ -166,7 +171,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
             <img
               src="/logo-pueblo.svg"
               alt="Pueblo La Dehesa"
-              className="h-14 lg:h-16 w-auto flex-shrink-0 transition-[filter] duration-300"
+              className="h-16 lg:h-24 w-auto flex-shrink-0 transition-[filter] duration-[600ms]"
               style={{ filter: isLight ? "none" : "brightness(0) invert(1)" }}
             />
           </Link>
