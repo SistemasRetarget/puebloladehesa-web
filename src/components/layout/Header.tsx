@@ -16,16 +16,10 @@ const NAV_ES: NavItem[] = [
     label: "Estadías",
     href: "/estadias",
     children: [
-      { label: "— Tipologías", href: "/estadias", isHeader: true },
       { label: "Casa Doble Altura", href: "/casas/casa-doble-altura" },
       { label: "Casa Parque", href: "/casas/casa-parque" },
       { label: "Casa Panorámica", href: "/casas/casa-panoramica" },
       { label: "Casa Suite", href: "/casas/casa-suite" },
-      { label: "— Modalidades", href: "/estadias", isHeader: true },
-      { label: "Arriendo por Temporada", href: "/temporada" },
-      { label: "Arriendo Mensual", href: "/mensual" },
-      { label: "Departamento Amoblado", href: "/departamento-amoblado" },
-      { label: "Pueblito (alt. Hotel)", href: "/pueblito" },
       { label: "Ver todo", href: "/estadias" }
     ]
   },
@@ -43,7 +37,7 @@ const NAV_EN: NavItem[] = [
       { label: "Double Height House", href: "/en/houses/double-height" },
       { label: "Park House", href: "/en/houses/park" },
       { label: "Panoramic House", href: "/en/houses/panoramic" },
-      { label: "Suite House", href: "/en/houses/suite" },
+      { label: "Studio House", href: "/en/houses/suite" },
       { label: "View all", href: "/en/stays" }
     ]
   },
