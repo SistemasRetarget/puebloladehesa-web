@@ -97,13 +97,13 @@ export default function Header({ locale = "es" }: HeaderProps) {
       </a>
 
       {/* Top language bar — desktop only, above nav */}
-      <div className="hidden lg:flex justify-end px-10 pt-2">
+      <div className="hidden lg:flex justify-end px-10">
         <div className="relative">
           <button
             onClick={() => setLangOpen(!langOpen)}
             aria-expanded={langOpen}
             aria-haspopup="true"
-            className={`text-[10px] uppercase tracking-widest flex items-center gap-1 hover:opacity-70 transition-opacity ${isLight ? "text-brand-muted" : "text-white/70"}`}
+            className={`text-[10px] uppercase tracking-widest flex items-center gap-1 hover:opacity-70 transition-opacity py-1 ${isLight ? "text-brand-muted" : "text-white/70"}`}
           >
             {locale === "en" ? "English" : "Español"}
             <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor"><path d="M5 7L1 3h8L5 7z"/></svg>
