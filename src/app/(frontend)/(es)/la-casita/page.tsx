@@ -57,9 +57,6 @@ export default function LaCasita() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center">
-              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-accent/10">
-                <span className="text-3xl">☕</span>
-              </div>
               <h3 className="font-serif text-2xl font-light mb-4">Un lugar de encuentro</h3>
               <p className="text-brand-muted">
                 Pequeños instantes que convierten lo cotidiano en especial.
@@ -67,9 +64,6 @@ export default function LaCasita() {
               </p>
             </div>
             <div className="text-center">
-              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-accent/10">
-                <span className="text-3xl">💻</span>
-              </div>
               <h3 className="font-serif text-2xl font-light mb-4">Espacios de trabajo</h3>
               <p className="text-brand-muted">
                 Conexión, calma y un ambiente inspirador para trabajar
@@ -77,9 +71,6 @@ export default function LaCasita() {
               </p>
             </div>
             <div className="text-center">
-              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-accent/10">
-                <span className="text-3xl">🌿</span>
-              </div>
               <h3 className="font-serif text-2xl font-light mb-4">Exclusivo para huéspedes</h3>
               <p className="text-brand-muted">
                 Un espacio íntimo reservado para quienes se hospedan

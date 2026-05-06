@@ -22,50 +22,47 @@ const NEARBY_PLACES = [
   {
     title: "Acceso Costanera Norte",
     description: "Conectividad rápida con el resto de Santiago",
-    icon: "🛣️",
-    time: "5 min"
+    time: "4 minutos"
   },
   {
     title: "Centros comerciales y restaurantes",
     description: "El Golf, Nueva Las Condes",
-    icon: "🛍️",
-    time: "10 min"
+    time: "5 minutos"
   },
   {
     title: "Barrios de oficinas",
     description: "El Golf, Nueva Las Condes",
-    icon: "🏢",
-    time: "10 min"
+    time: "15-18 minutos"
   },
   {
     title: "Colegios",
     description: "Newland, Santiago College, Nido de Águilas",
-    icon: "🎓",
-    time: "3 a 10 min"
+    time: "De 3 a 10 minutos"
+  },
+  {
+    title: "Aeropuerto",
+    description: "Arturo Merino Benítez",
+    time: "24 minutos"
   },
   {
     title: "Parques y Cerros",
     description: "Cerro Manquehue, Manquehuito, El Durazno",
-    icon: "⛰️",
-    time: "5 min"
+    time: "13 minutos"
   },
   {
     title: "Plazas y pumtrack",
     description: "Espacios para deporte y recreación",
-    icon: "🌳",
-    time: "5 min"
+    time: "3 minutos"
   },
   {
     title: "Centros de esquí",
     description: "Valle Nevado, La Parva, El Colorado",
-    icon: "⛷️",
-    time: "1.5 hrs"
+    time: "60 minutos"
   },
   {
     title: "Helipuerto cercano",
     description: "Experiencias en helicóptero para nuestros huéspedes",
-    icon: "🚁",
-    time: "4 min"
+    time: "4 minutos"
   }
 ];
 
@@ -181,15 +178,18 @@ export default function Ubicacion() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {NEARBY_PLACES.map((place) => (
-              <div key={place.title} className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-4xl mb-4">{place.icon}</div>
-                <h3 className="font-semibold text-brand-ink mb-2">{place.title}</h3>
-                <p className="text-sm text-brand-muted mb-3">{place.description}</p>
-                <p className="text-xs font-semibold text-brand-accent uppercase tracking-wider">
-                  {place.time}
-                </p>
+              <div key={place.title} className="bg-white rounded-lg p-6 border border-brand-line">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="font-medium text-brand-ink mb-1">{place.title}</h3>
+                    <p className="text-sm text-brand-muted">{place.description}</p>
+                  </div>
+                  <span className="text-sm font-semibold text-brand-accent whitespace-nowrap shrink-0">
+                    {place.time}
+                  </span>
+                </div>
               </div>
             ))}
           </div>

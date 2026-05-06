@@ -108,8 +108,12 @@ header button {
   color: white;
 }
 
-header .link-hover::after {
+header.bg-transparent .link-hover::after {
   background: white;
+}
+
+header.bg-brand-bg .link-hover::after {
+  background: var(--brand-accent);
 }
 
 @media (prefers-reduced-motion: reduce) {

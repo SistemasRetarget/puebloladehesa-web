@@ -19,27 +19,27 @@ export const metadata: Metadata = {
 };
 
 const ACTIVIDADES_NATURALEZA = [
-  { name: "Caminatas guiadas", icon: "🥾" },
-  { name: "Trekking", icon: "🏔️" },
-  { name: "Paseos en helicóptero", icon: "🚁" },
-  { name: "Cabalgatas", icon: "🐎" },
-  { name: "Salidas al valle", icon: "🌄" },
+  "Caminatas guiadas",
+  "Trekking",
+  "Paseos en helicóptero",
+  "Cabalgatas",
+  "Salidas al valle",
 ];
 
 const ACTIVIDADES_PAUSA = [
-  { name: "Clases de yoga", icon: "🧘" },
-  { name: "Meditación", icon: "🙏" },
-  { name: "Talleres de relajación", icon: "✨" },
-  { name: "Lectura en el parque", icon: "📖" },
-  { name: "Contemplación", icon: "🌿" },
+  "Clases de yoga",
+  "Meditación",
+  "Talleres de relajación",
+  "Lectura en el parque",
+  "Contemplación",
 ];
 
 const ACTIVIDADES_COMUNIDAD = [
-  { name: "Café en La Casita", icon: "☕" },
-  { name: "Activaciones culturales", icon: "🎨" },
-  { name: "Exposiciones", icon: "🖼️" },
-  { name: "Encuentros con marcas", icon: "🤝" },
-  { name: "Eventos privados", icon: "🥂" },
+  "Café en La Casita",
+  "Activaciones culturales",
+  "Exposiciones",
+  "Encuentros con marcas",
+  "Eventos privados",
 ];
 
 export default function Experiencias() {
@@ -111,8 +111,8 @@ export default function Experiencias() {
               </p>
               <ul className="grid grid-cols-2 gap-3">
                 {ACTIVIDADES_NATURALEZA.map((a) => (
-                  <li key={a.name} className="flex items-center gap-2 text-sm text-brand-muted">
-                    <span>{a.icon}</span> {a.name}
+                  <li key={a} className="flex items-center gap-2 text-sm text-brand-muted">
+                    <span className="text-brand-accent">—</span> {a}
                   </li>
                 ))}
               </ul>
@@ -141,8 +141,8 @@ export default function Experiencias() {
             </p>
             <ul className="grid grid-cols-2 gap-3">
               {ACTIVIDADES_PAUSA.map((a) => (
-                <li key={a.name} className="flex items-center gap-2 text-sm text-brand-muted">
-                  <span>{a.icon}</span> {a.name}
+                <li key={a} className="flex items-center gap-2 text-sm text-brand-muted">
+                  <span className="text-brand-accent">—</span> {a}
                 </li>
               ))}
             </ul>
@@ -190,8 +190,8 @@ export default function Experiencias() {
               </p>
               <ul className="grid grid-cols-2 gap-3">
                 {ACTIVIDADES_COMUNIDAD.map((a) => (
-                  <li key={a.name} className="flex items-center gap-2 text-sm text-brand-muted">
-                    <span>{a.icon}</span> {a.name}
+                  <li key={a} className="flex items-center gap-2 text-sm text-brand-muted">
+                    <span className="text-brand-accent">—</span> {a}
                   </li>
                 ))}
               </ul>

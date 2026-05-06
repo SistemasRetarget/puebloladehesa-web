@@ -18,29 +18,6 @@ export const metadata: Metadata = {
   },
 };
 
-const TESTIMONIALS = [
-  {
-    quote: "Propusimos una arquitectura elevada… para que el lugar, la luz y la cordillera dialoguen.",
-    author: "Equipo de Arquitectura",
-    role: "Diseño",
-  },
-  {
-    quote: "Elegimos especies nativas y flores, diseñando un verde que se recorre, se vive y se cuida, acompañado por la cordillera.",
-    author: "Equipo de Paisajismo",
-    role: "Paisaje",
-  },
-  {
-    quote: "Pensamos interiores cálidos, nobles y simples. Espacios que se sienten bien y dan ganas de habitar.",
-    author: "Juan Ignacio Court",
-    role: "Interiorismo",
-  },
-  {
-    quote: "Acompañamos cada estadía con atención y cariño, para que desde el primer día se sientan en casa.",
-    author: "Maureen Morrison",
-    role: "Experiencia Pueblo",
-    image: "https://puebloladehesa.cl/cdn/shop/files/Maureen_Morrison_2025-12-18_at_20.34.05.jpg",
-  },
-];
 
 const INSPIRACION = [
   {
@@ -107,6 +84,9 @@ export default function Nosotros() {
           <p className="font-serif text-2xl md:text-3xl lg:text-4xl font-light leading-tight italic">
             "Propusimos una arquitectura elevada... para que el lugar, la luz y la cordillera dialoguen"
           </p>
+          <p className="mt-6 text-sm uppercase tracking-widest text-brand-muted">
+            Martin Lira — arquitecto
+          </p>
         </div>
       </section>
 
@@ -155,6 +135,9 @@ export default function Nosotros() {
             "Elegimos especies nativas y flores, diseñando un verde que se recorre, se vive y se cuida,
             acompañado por la cordillera"
           </p>
+          <p className="mt-6 text-sm uppercase tracking-widest text-brand-muted">
+            Inés Couve — paisajista
+          </p>
         </div>
       </section>
 
@@ -168,7 +151,6 @@ export default function Nosotros() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {INSPIRACION.map((p) => (
             <div key={p.title} className="text-center">
-              <div className="text-5xl mb-6">{p.icon}</div>
               <h3 className="font-serif text-xl font-light mb-3">{p.title}</h3>
               <p className="text-sm text-brand-muted leading-relaxed">{p.text}</p>
             </div>
@@ -188,87 +170,15 @@ export default function Nosotros() {
         </div>
       </section>
 
-      {/* Arquitectura + Comunidad — 1 sola sección con 2 bloques (match PROD section count) */}
-      <section className="py-24">
-        <div className="max-w-5xl mx-auto px-6 space-y-20">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
-                Arquitectura que dialoga con el entorno
-              </h2>
-              <p className="text-brand-muted leading-relaxed text-lg">
-                Cada casa fue pensada para integrarse al paisaje, abrir vistas hacia la cordillera
-                y permitir que la luz natural marque el ritmo del día. Los volúmenes elevados
-                respetan los árboles y dejan que el verde permee los espacios comunes.
-              </p>
-            </div>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-lg order-first md:order-last">
-              <Image
-                src="https://puebloladehesa.cl/cdn/shop/files/07A0209.png"
-                alt="Arquitectura Pueblo La Dehesa"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
-              <Image
-                src="https://puebloladehesa.cl/cdn/shop/files/07A9367_e8ee6dc7-4908-4583-8fc6-1a5c051fc60f.jpg"
-                alt="Comunidad Pueblo"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
-                Una comunidad que se cuida
-              </h2>
-              <p className="text-brand-muted leading-relaxed text-lg">
-                La vida en Pueblo se construye en lo cotidiano: el café compartido en La Casita,
-                las caminatas al atardecer, los encuentros espontáneos en los parques. Cuidamos
-                cada detalle del entorno para que el día a día se sienta natural y conectado.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Equipo testimonials */}
-      <section className="max-w-6xl mx-auto px-6 py-24">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-light mb-4">
-            Las voces detrás de Pueblo
-          </h2>
-        </div>
-        <div className="grid md:grid-cols-2 gap-8">
-          {TESTIMONIALS.map((t, i) => {
-            const tImg = (t as { image?: string }).image;
-            return (
-              <div key={i} className="bg-white border border-brand-line rounded-lg p-8 flex gap-6 items-start">
-                {tImg && (
-                  <div className="relative w-28 h-28 flex-shrink-0 overflow-hidden rounded-md">
-                    <Image
-                      src={tImg}
-                      alt={t.author}
-                      fill
-                      sizes="112px"
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-                <div className="flex-1">
-                  <p className="font-serif text-lg font-light italic leading-relaxed mb-6">
-                    “{t.quote}”
-                  </p>
-                  <p className="text-sm font-semibold text-brand-ink">{t.author}</p>
-                  <p className="text-xs uppercase tracking-widest text-brand-muted mt-1">{t.role}</p>
-                </div>
-              </div>
-            );
-          })}
+      {/* Quote Maureen Morrison */}
+      <section className=”bg-brand-soft py-24”>
+        <div className=”max-w-4xl mx-auto px-6 text-center”>
+          <p className=”font-serif text-2xl md:text-3xl lg:text-4xl font-light leading-tight italic”>
+            “Acompañamos cada estadía con atención y cariño, para que desde el primer día se sientan en casa”
+          </p>
+          <p className=”mt-6 text-sm uppercase tracking-widest text-brand-muted”>
+            Maureen Morrison — Experiencia Pueblo
+          </p>
         </div>
       </section>
 
