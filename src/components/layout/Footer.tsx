@@ -82,11 +82,11 @@ export default function Footer({ locale = "es" }: FooterProps) {
             {/* Logo + dirección */}
             <div className="lg:col-span-4">
               <Image
-                src="/media/cdn_shop_files_logo-pueblo-01.svg"
+                src="/logofooter.webp"
                 alt="Pueblo La Dehesa"
-                width={160}
-                height={50}
-                className="h-10 w-auto mb-6"
+                width={320}
+                height={32}
+                className="h-8 w-auto mb-6"
               />
               <p className="text-sm text-brand-muted leading-relaxed">
                 Santa Blanca 550, Lo Barnechea,<br />
