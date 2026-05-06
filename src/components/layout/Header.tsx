@@ -84,7 +84,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
     <header
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`sticky top-0 z-50 transition-colors duration-300 ${
+      className={`sticky top-0 z-50 transition-colors duration-[600ms] ${
         isLight ? "bg-brand-bg border-b border-brand-line text-brand-ink" : "bg-transparent text-white"
       }`}
     >
