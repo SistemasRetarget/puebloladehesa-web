@@ -78,9 +78,10 @@ export default function Header({ locale = "es" }: HeaderProps) {
     <header
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`sticky top-0 z-50 transition-[background-color,border-color,color] duration-[1200ms] ease-in ${
+      className={`sticky top-0 z-50 ${
         isLight ? "bg-brand-bg border-b border-brand-line text-brand-ink" : "bg-transparent text-white"
       }`}
+      style={{ transition: 'background-color 1.8s ease-out, border-color 1.8s ease-out, color 1.8s ease-out' }}
     >
       {/* Skip link */}
       <a
@@ -112,7 +113,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
       </div>
 
       <div className="max-w-container mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center h-28 gap-4">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center h-32 gap-4">
           {/* Desktop nav (left column) */}
           <nav className="hidden lg:flex items-center gap-7" aria-label="Navegación principal">
             {nav.map((item) => (
