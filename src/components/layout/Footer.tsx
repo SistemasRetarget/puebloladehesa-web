@@ -9,7 +9,7 @@ type FooterProps = {
 };
 
 export default function Footer({ locale = "es" }: FooterProps) {
-  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contacto@puebloladehesa.cl";
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contacto@puebloladehesa.com";
   const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "56984148269";
   const address = process.env.NEXT_PUBLIC_ADDRESS || "Av. Santa Blanca 550, Lo Barnechea, Chile";
   const ig = process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/puebloladehesa/";
@@ -98,8 +98,20 @@ export default function Footer({ locale = "es" }: FooterProps) {
                   +{whatsapp.slice(0, 2)} {whatsapp.slice(2, 3)} {whatsapp.slice(3, 7)} {whatsapp.slice(7)}
                 </a>
               </p>
-              {/* Redes sociales */}
+              {/* Redes sociales — orden prod: Facebook primero, luego Instagram */}
               <div className="mt-6 flex gap-3">
+                <a
+                  href={fb}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Facebook"
+                  onClick={() => pushEvent("click_social", { network: "facebook" })}
+                  className="p-2 hover:text-brand-accent transition-colors"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M13 22v-8h3l.5-4H13V7.5c0-1.1.3-2 2-2h2V2c-.4 0-1.8-.1-3.3-.1C10.4 1.9 9 4 9 7v3H6v4h3v8h4z"/>
+                  </svg>
+                </a>
                 <a
                   href={ig}
                   target="_blank"
@@ -114,24 +126,12 @@ export default function Footer({ locale = "es" }: FooterProps) {
                     <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
                   </svg>
                 </a>
-                <a
-                  href={fb}
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="Facebook"
-                  onClick={() => pushEvent("click_social", { network: "facebook" })}
-                  className="p-2 hover:text-brand-accent transition-colors"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M13 22v-8h3l.5-4H13V7.5c0-1.1.3-2 2-2h2V2c-.4 0-1.8-.1-3.3-.1C10.4 1.9 9 4 9 7v3H6v4h3v8h4z"/>
-                  </svg>
-                </a>
               </div>
             </div>
 
             {/* Explora */}
             <div className="lg:col-span-2">
-              <h4 className="text-sm font-medium mb-4">{locale === "en" ? "Explore" : "Explora"}</h4>
+              <h4 className="text-xs uppercase tracking-widest font-medium mb-4">{locale === "en" ? "Explore" : "Explora"}</h4>
               <ul className="space-y-2 text-sm text-brand-muted">
                 {exploreLinks.map((l) => (
                   <li key={l.href}>
@@ -143,7 +143,7 @@ export default function Footer({ locale = "es" }: FooterProps) {
 
             {/* Legal */}
             <div className="lg:col-span-2">
-              <h4 className="text-sm font-medium mb-4">{locale === "en" ? "Legal" : "Legal"}</h4>
+              <h4 className="text-xs uppercase tracking-widest font-medium mb-4">{locale === "en" ? "Legal" : "Legal"}</h4>
               <ul className="space-y-2 text-sm text-brand-muted">
                 {legalLinks.map((l) => (
                   <li key={l.href}>
@@ -160,20 +160,20 @@ export default function Footer({ locale = "es" }: FooterProps) {
                   ? "Join our newsletter and be the first to know"
                   : "Únete a nuestro newsletter y sé el primero en enterarte de todo"}
               </h4>
-              <form onSubmit={submitNewsletter} className="flex gap-2">
+              <form onSubmit={submitNewsletter} className="flex items-end border-b border-current pb-1 gap-2">
                 <input
                   type="email"
                   required
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
                   placeholder={locale === "en" ? "Email address" : "Correo electrónico"}
-                  className="flex-1 px-4 py-3 border border-brand-line bg-transparent text-sm focus:outline-none focus:border-brand-ink"
+                  className="flex-1 bg-transparent text-sm focus:outline-none placeholder:text-brand-muted py-2"
                   aria-label={locale === "en" ? "Email" : "Correo electrónico"}
                 />
                 <button
                   type="submit"
                   disabled={newsletterStatus === "loading"}
-                  className="btn-primary text-xs"
+                  className="text-xs uppercase tracking-widest font-medium py-2 hover:opacity-70 transition-opacity shrink-0"
                 >
                   {newsletterStatus === "loading" ? "…" : locale === "en" ? "Subscribe" : "Enviar"}
                 </button>
@@ -195,15 +195,27 @@ export default function Footer({ locale = "es" }: FooterProps) {
 
       {/* Bottom bar */}
       <div className="border-t border-brand-line">
-        <div className="max-w-container mx-auto px-6 lg:px-10 py-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-brand-muted">
+        <div className="max-w-container mx-auto px-6 lg:px-10 py-6 text-xs text-brand-muted">
+          {/* Language selector */}
+          <div className="mb-3">
+            <Link
+              href={locale === "en" ? "/" : "/en"}
+              className="inline-flex items-center gap-1 link-hover"
+            >
+              {locale === "en" ? "English" : "Español"}
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
+                <path d="M5 7L1 3h8L5 7z"/>
+              </svg>
+            </Link>
+          </div>
           <p>
             Copyright © {new Date().getFullYear()}, <Link href="/" className="link-hover">Pueblo La Dehesa</Link>.{" "}
             {locale === "en" ? "All rights reserved" : "Todos los derechos reservados"}
           </p>
-          <p>
+          <p className="mt-1">
             {locale === "en" ? "Made by" : "Creado por"}{" "}
-            <a href="https://retarget.cl" target="_blank" rel="noopener" className="link-hover text-brand-ink">
-              Retarget
+            <a href="https://lab51.cl" target="_blank" rel="noopener" className="link-hover text-brand-ink">
+              Lab51
             </a>
           </p>
         </div>
