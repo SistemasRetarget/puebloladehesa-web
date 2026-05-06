@@ -216,25 +216,25 @@ export default async function Contacto({ searchParams }: { searchParams: Promise
         </div>
       </section>
 
-      {/* Trust bar */}
-      <section className="bg-brand-soft py-16">
-        <div className="max-w-5xl mx-auto px-6">
-          <ul className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      {/* Feature bar — matches prod */}
+      <section className="py-section-sm border-t border-brand-line bg-brand-bg">
+        <div className="max-w-container mx-auto px-6 lg:px-10">
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <li>
-              <p className="text-xs uppercase tracking-widest text-brand-muted mb-2">Reserva</p>
-              <p className="font-serif text-base text-brand-ink">Por semanas o meses</p>
+              <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">Reserva</p>
+              <p className="font-serif text-lg text-brand-ink">Arriendos por semanas o meses</p>
             </li>
             <li>
-              <p className="text-xs uppercase tracking-widest text-brand-muted mb-2">Entorno</p>
-              <p className="font-serif text-base text-brand-ink">Barrio seguro</p>
+              <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">Entorno</p>
+              <p className="font-serif text-lg text-brand-ink">Barrio seguro y silencioso</p>
             </li>
             <li>
-              <p className="text-xs uppercase tracking-widest text-brand-muted mb-2">Vista</p>
-              <p className="font-serif text-base text-brand-ink">Cordillera</p>
+              <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">Paisaje</p>
+              <p className="font-serif text-lg text-brand-ink">Vistas a la cordillera</p>
             </li>
             <li>
-              <p className="text-xs uppercase tracking-widest text-brand-muted mb-2">Calidad</p>
-              <p className="font-serif text-base text-brand-ink">Aire limpio</p>
+              <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">Calidad de vida</p>
+              <p className="font-serif text-lg text-brand-ink">Aire limpio y naturaleza</p>
             </li>
           </ul>
         </div>
