@@ -91,6 +91,27 @@ export default function Header({ locale = "es" }: HeaderProps) {
         Ir al contenido
       </a>
 
+      {/* Top language bar — desktop only, above nav */}
+      <div className="hidden lg:flex justify-end px-10 pt-2">
+        <div className="relative">
+          <button
+            onClick={() => setLangOpen(!langOpen)}
+            aria-expanded={langOpen}
+            aria-haspopup="true"
+            className={`text-[10px] uppercase tracking-widest flex items-center gap-1 hover:opacity-70 transition-opacity ${scrolled ? "text-brand-muted" : "text-white/70"}`}
+          >
+            {locale === "en" ? "English" : "Español"}
+            <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor"><path d="M5 7L1 3h8L5 7z"/></svg>
+          </button>
+          {langOpen && (
+            <div className="absolute top-full right-0 mt-1 bg-white shadow-lg border border-brand-line min-w-[120px] py-1 z-50">
+              <Link href="/" className="block px-4 py-2 text-sm text-brand-ink hover:bg-brand-soft" onClick={() => setLangOpen(false)}>Español</Link>
+              <Link href="/en" className="block px-4 py-2 text-sm text-brand-ink hover:bg-brand-soft" onClick={() => setLangOpen(false)}>English</Link>
+            </div>
+          )}
+        </div>
+      </div>
+
       <div className="max-w-container mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-[1fr_auto_1fr] items-center h-20 lg:h-24 gap-4">
           {/* Desktop nav (left column) */}
@@ -151,38 +172,8 @@ export default function Header({ locale = "es" }: HeaderProps) {
             />
           </Link>
 
-          {/* Right side: lang + CTAs + burger */}
+          {/* Right side: CTAs + burger */}
           <div className="flex items-center justify-end gap-3 lg:gap-4">
-            {/* Language switcher */}
-            <div className="hidden md:block relative">
-              <button
-                onClick={() => setLangOpen(!langOpen)}
-                aria-expanded={langOpen}
-                aria-haspopup="true"
-                className="text-xs uppercase tracking-widest py-2 px-3 hover:text-brand-accent"
-              >
-                {locale === "en" ? "English" : "Español"}
-              </button>
-              {langOpen && (
-                <div className="absolute top-full right-0 bg-white shadow-lg border border-brand-line min-w-[140px] py-1 z-50">
-                  <Link
-                    href="/"
-                    className="block px-4 py-2 text-sm text-brand-ink hover:bg-brand-soft"
-                    onClick={() => setLangOpen(false)}
-                  >
-                    Español
-                  </Link>
-                  <Link
-                    href="/en"
-                    className="block px-4 py-2 text-sm text-brand-ink hover:bg-brand-soft"
-                    onClick={() => setLangOpen(false)}
-                  >
-                    English
-                  </Link>
-                </div>
-              )}
-            </div>
-
             {/* Desktop CTAs */}
             <a
               href={bookingUrl}
