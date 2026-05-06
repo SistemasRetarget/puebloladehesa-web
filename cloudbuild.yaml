@@ -33,7 +33,6 @@ steps:
       - '--min-instances=0'
       - '--max-instances=3'
       - '--set-env-vars=NODE_ENV=production,PORT=8080'
-      - '--update-secrets=PAYLOAD_SECRET=puebloladehesa-payload-secret:latest,DATABASE_URL=puebloladehesa-db-url:latest'
 
 images:
   - 'europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puebloladehesa/puebloladehesa-web:$COMMIT_SHA'
