@@ -171,12 +171,12 @@ export default function Nosotros() {
       </section>
 
       {/* Quote Maureen Morrison */}
-      <section className=”bg-brand-soft py-24”>
-        <div className=”max-w-4xl mx-auto px-6 text-center”>
-          <p className=”font-serif text-2xl md:text-3xl lg:text-4xl font-light leading-tight italic”>
-            “Acompañamos cada estadía con atención y cariño, para que desde el primer día se sientan en casa”
+      <section className="bg-brand-soft py-24">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <p className="font-serif text-2xl md:text-3xl lg:text-4xl font-light leading-tight italic">
+            "Acompañamos cada estadía con atención y cariño, para que desde el primer día se sientan en casa"
           </p>
-          <p className=”mt-6 text-sm uppercase tracking-widest text-brand-muted”>
+          <p className="mt-6 text-sm uppercase tracking-widest text-brand-muted">
             Maureen Morrison — Experiencia Pueblo
           </p>
         </div>
