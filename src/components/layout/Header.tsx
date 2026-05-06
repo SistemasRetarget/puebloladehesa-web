@@ -166,7 +166,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
             <img
               src="/logo-pueblo.svg"
               alt="Pueblo La Dehesa"
-              className="h-12 lg:h-14 w-auto flex-shrink-0 transition-[filter] duration-300"
+              className="h-14 lg:h-16 w-auto flex-shrink-0 transition-[filter] duration-300"
               style={{ filter: isLight ? "none" : "brightness(0) invert(1)" }}
             />
           </Link>
