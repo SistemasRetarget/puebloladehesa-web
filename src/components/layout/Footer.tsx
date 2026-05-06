@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 
 type FooterProps = {
@@ -76,11 +75,10 @@ export default function Footer({ locale = "es" }: FooterProps) {
 
       {/* Sección logo centrado — sobre fondo negro, logo versión blanca */}
       <div className="py-16 flex justify-center items-center border-b border-white/10">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src="/media/cdn_shop_files_logo-pueblo-02.svg"
           alt="Pueblo La Dehesa"
-          width={120}
-          height={120}
           className="w-28 h-auto"
         />
       </div>
