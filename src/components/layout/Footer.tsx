@@ -72,7 +72,7 @@ export default function Footer({ locale = "es" }: FooterProps) {
       ];
 
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-black text-white" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
 
       {/* Sección logo centrado — fila propia, fondo negro */}
       <div className="py-16 flex justify-center items-center border-b border-white/10">
