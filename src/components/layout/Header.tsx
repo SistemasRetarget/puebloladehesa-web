@@ -91,7 +91,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
       </a>
 
       {/* Single nav row — h-24, lang selector absolute top-right */}
-      <div className="hidden lg:block absolute top-3 right-10 z-10">
+      <div className="hidden lg:block absolute top-4 right-10 z-10">
         <div className="relative">
           <button
             onClick={() => setLangOpen(!langOpen)}
@@ -112,7 +112,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
       </div>
 
       <div className="max-w-container mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center h-24 gap-4">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center h-28 gap-4">
           {/* Desktop nav (left column) */}
           <nav className="hidden lg:flex items-center gap-7" aria-label="Navegación principal">
             {nav.map((item) => (
