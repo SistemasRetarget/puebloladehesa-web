@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="relative h-screen min-h-[600px] overflow-hidden -mt-20 lg:-mt-[112px]">
+      <section className="relative h-screen min-h-[600px] overflow-hidden -mt-20 lg:-mt-24">
         <img
           src="/amplios_horizontes_1.webp"
           alt="Pueblo La Dehesa"
