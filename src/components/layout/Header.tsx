@@ -56,9 +56,12 @@ export default function Header({ locale = "es" }: HeaderProps) {
   const nav = locale === "en" ? NAV_EN : NAV_ES;
   const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || "https://puebloladehesa.book2dream.com/";
   const [scrolled, setScrolled] = useState(false);
+  const [hovered, setHovered] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+
+  const isLight = scrolled || hovered;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -79,8 +82,10 @@ export default function Header({ locale = "es" }: HeaderProps) {
 
   return (
     <header
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       className={`sticky top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-brand-bg border-b border-brand-line text-brand-ink" : "bg-transparent text-white"
+        isLight ? "bg-brand-bg border-b border-brand-line text-brand-ink" : "bg-transparent text-white"
       }`}
     >
       {/* Skip link */}
@@ -98,7 +103,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
             onClick={() => setLangOpen(!langOpen)}
             aria-expanded={langOpen}
             aria-haspopup="true"
-            className={`text-[10px] uppercase tracking-widest flex items-center gap-1 hover:opacity-70 transition-opacity ${scrolled ? "text-brand-muted" : "text-white/70"}`}
+            className={`text-[10px] uppercase tracking-widest flex items-center gap-1 hover:opacity-70 transition-opacity ${isLight ? "text-brand-muted" : "text-white/70"}`}
           >
             {locale === "en" ? "English" : "Español"}
             <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor"><path d="M5 7L1 3h8L5 7z"/></svg>
@@ -125,7 +130,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
               >
                 <Link
                   href={item.href}
-                  className={`link-hover text-sm tracking-wide py-2 ${scrolled ? "text-brand-ink" : "text-white"}`}
+                  className={`link-hover text-sm tracking-wide py-2 ${isLight ? "text-brand-ink" : "text-white"}`}
                 >
                   {item.label}
                 </Link>
@@ -168,7 +173,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
               src="/logo-pueblo.svg"
               alt="Pueblo La Dehesa"
               className="h-12 lg:h-14 w-auto flex-shrink-0 transition-[filter] duration-300"
-              style={{ filter: scrolled ? "none" : "brightness(0) invert(1)" }}
+              style={{ filter: isLight ? "none" : "brightness(0) invert(1)" }}
             />
           </Link>
 
@@ -188,7 +193,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
               href={locale === "en" ? "/en/contact" : "/contacto"}
               onClick={() => pushEvent("click_contacto", { location: "header" })}
               className={`hidden lg:inline-flex items-center text-xs uppercase tracking-widest px-6 py-3 rounded-full transition-colors border ${
-                scrolled
+                isLight
                   ? "border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-white"
                   : "border-white text-white hover:bg-white hover:text-brand-ink"
               }`}
