@@ -9,7 +9,7 @@ type Props = {
 
 export default function Hero({ title, subtitle, image, imageAlt = "" }: Props) {
   return (
-    <section className="relative h-screen min-h-[600px] overflow-hidden -mt-20 lg:-mt-24">
+    <section className="relative h-screen min-h-[600px] overflow-hidden -mt-20 lg:-mt-[112px]">
       <Image
         src={image}
         alt={imageAlt}

@@ -78,7 +78,7 @@ export default function Header({ locale = "es" }: HeaderProps) {
     <header
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`sticky top-0 z-50 transition-colors duration-[600ms] ${
+      className={`sticky top-0 z-50 transition-colors duration-[1000ms] ${
         isLight ? "bg-brand-bg border-b border-brand-line text-brand-ink" : "bg-transparent text-white"
       }`}
     >
@@ -90,8 +90,8 @@ export default function Header({ locale = "es" }: HeaderProps) {
         Ir al contenido
       </a>
 
-      {/* Language selector — absolutely positioned so it doesn't add to header height */}
-      <div className="hidden lg:block absolute top-3 right-10 z-10">
+      {/* Row 1: language bar — desktop only, h-8 fixed */}
+      <div className="hidden lg:flex justify-end items-center h-8 px-10">
         <div className="relative">
           <button
             onClick={() => setLangOpen(!langOpen)}
@@ -111,8 +111,9 @@ export default function Header({ locale = "es" }: HeaderProps) {
         </div>
       </div>
 
+      {/* Row 2: main nav — h-20 */}
       <div className="max-w-container mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center h-20 lg:h-24 gap-4">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center h-20 gap-4">
           {/* Desktop nav (left column) */}
           <nav className="hidden lg:flex items-center gap-7" aria-label="Navegación principal">
             {nav.map((item) => (
