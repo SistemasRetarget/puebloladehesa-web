@@ -263,7 +263,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 8.5: Vida en Pueblo — 3-photo grid match PROD */}
+      {/* SECTION 8.5: Vida en Pueblo — 2 large images matching PROD */}
       <section className="py-section">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -272,14 +272,12 @@ export default function Home() {
               Espacios pensados para habitar con calma, integrados al paisaje de La Dehesa.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid md:grid-cols-2 gap-4">
             {[
-              { src: "https://puebloladehesa.cl/cdn/shop/files/07A0373_1_9306cd35-d2d4-4c49-b3de-55aa005f487c.webp", alt: "Interior con vista" },
-              { src: "https://puebloladehesa.cl/cdn/shop/files/07A0374_1.webp", alt: "Vista a la cordillera" },
-              { src: "https://puebloladehesa.cl/cdn/shop/files/07A9353_1_1.webp", alt: "Terraza y parque" },
-              { src: "https://puebloladehesa.cl/cdn/shop/files/Masterplan_1.webp", alt: "Masterplan Pueblo La Dehesa" },
+              { src: "https://puebloladehesa.cl/cdn/shop/files/07A0373_1_9306cd35-d2d4-4c49-b3de-55aa005f487c.webp", alt: "Interior con vista a la cordillera" },
+              { src: "https://puebloladehesa.cl/cdn/shop/files/07A9353_1_1.webp", alt: "Terraza y parque en Pueblo La Dehesa" },
             ].map((img, i) => (
-              <div key={i} className="relative aspect-[4/5] overflow-hidden bg-brand-soft group">
+              <div key={i} className="relative aspect-[4/3] overflow-hidden bg-brand-soft group">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={img.src}
@@ -293,26 +291,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 9: Inline contact form — matches prod section 11 */}
+      {/* SECTION 9: Contact form with info column — matches prod section 11 */}
       <section className="py-section">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="text-center mb-10">
-            <h2 className="font-serif text-4xl md:text-5xl font-light text-brand-ink">Estamos aquí para ayudarte</h2>
-            <p className="mt-3 text-brand-muted leading-relaxed">
-              Si quieres conocer más detalles o coordinar una visita, escríbenos.
-            </p>
-          </div>
-          <form action="/api/contact" method="POST" className="grid gap-4">
-            <div className="grid md:grid-cols-2 gap-4">
-              <input name="name" required placeholder="Nombre" className="w-full px-4 py-3 border border-brand-line rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent" />
-              <input name="email" type="email" required placeholder="Correo electrónico" className="w-full px-4 py-3 border border-brand-line rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent" />
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            {/* Left: heading + contact info */}
+            <div>
+              <h2 className="font-serif text-4xl md:text-5xl font-light text-brand-ink mb-6">
+                Estamos aquí para ayudarte
+              </h2>
+              <p className="text-brand-muted leading-relaxed mb-10">
+                Si quieres conocer más detalles o coordinar una visita, escríbenos.
+              </p>
+              <div className="space-y-6 text-brand-muted">
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-brand-ink mb-1">Dirección</p>
+                  <p>Av. Santa Blanca 550, Lo Barnechea,<br />Santiago, Chile</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-brand-ink mb-1">Email</p>
+                  <a href="mailto:contacto@puebloladehesa.cl" className="hover:text-brand-accent transition-colors">
+                    contacto@puebloladehesa.cl
+                  </a>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-brand-ink mb-1">WhatsApp</p>
+                  <a href="https://wa.me/56984148269" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors">
+                    +56 9 8414 8269
+                  </a>
+                </div>
+              </div>
             </div>
-            <input name="phone" type="tel" placeholder="Teléfono" className="w-full px-4 py-3 border border-brand-line rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent" />
-            <textarea name="message" required rows={4} placeholder="Mensaje" className="w-full px-4 py-3 border border-brand-line rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent" />
-            <button type="submit" className="justify-self-start px-8 py-4 rounded-full bg-brand-accent text-white font-medium hover:bg-brand-accent/90 transition-colors">
-              Enviar mensaje
-            </button>
-          </form>
+            {/* Right: form */}
+            <div>
+              <form action="/api/contact" method="POST" className="grid gap-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <input name="name" required placeholder="Nombre" className="w-full px-4 py-3 border border-brand-line rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent" />
+                  <input name="email" type="email" required placeholder="Correo electrónico" className="w-full px-4 py-3 border border-brand-line rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent" />
+                </div>
+                <input name="phone" type="tel" placeholder="Teléfono" className="w-full px-4 py-3 border border-brand-line rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent" />
+                <textarea name="message" required rows={4} placeholder="Mensaje" className="w-full px-4 py-3 border border-brand-line rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent" />
+                <button type="submit" className="justify-self-start px-8 py-4 rounded-full bg-brand-accent text-white font-medium hover:bg-brand-accent/90 transition-colors">
+                  Enviar mensaje
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
 

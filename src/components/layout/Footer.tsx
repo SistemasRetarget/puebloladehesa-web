@@ -74,14 +74,14 @@ export default function Footer({ locale = "es" }: FooterProps) {
   return (
     <footer className="bg-black text-white" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
 
-      {/* Sección logo centrado — fila propia, fondo negro */}
-      <div className="py-16 flex justify-center items-center border-b border-white/10">
+      {/* Sección logo centrado — fondo blanco para logo negro */}
+      <div className="bg-white py-16 flex justify-center items-center border-b border-gray-100">
         <Image
           src="/logo-pueblo.svg"
           alt="Pueblo La Dehesa"
           width={120}
           height={120}
-          className="w-28 h-auto invert"
+          className="w-28 h-auto"
         />
       </div>
 
