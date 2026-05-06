@@ -11,10 +11,8 @@ type FooterProps = {
 export default function Footer({ locale = "es" }: FooterProps) {
   const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contacto@puebloladehesa.com";
   const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "56984148269";
-  const address = process.env.NEXT_PUBLIC_ADDRESS || "Av. Santa Blanca 550, Lo Barnechea, Chile";
   const ig = process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/puebloladehesa/";
   const fb = process.env.NEXT_PUBLIC_FACEBOOK_URL || "https://web.facebook.com/profile.php?id=61570670461777";
-  void address;
 
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterStatus, setNewsletterStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
@@ -74,134 +72,120 @@ export default function Footer({ locale = "es" }: FooterProps) {
       ];
 
   return (
-    <footer className="bg-brand-bg border-t border-brand-line mt-section">
-      {/* Bloque principal: logo + columnas + newsletter (estructura PROD: 4 columnas) */}
-      <div>
-        <div className="max-w-container mx-auto px-6 lg:px-10 py-section-sm">
-          <div className="grid lg:grid-cols-12 gap-10">
-            {/* Logo + dirección */}
-            <div className="lg:col-span-4">
-              <Image
-                src="/logofooter.webp"
-                alt="Pueblo La Dehesa"
-                width={320}
-                height={32}
-                className="h-8 w-auto mb-6"
-              />
-              <p className="text-sm text-brand-muted leading-relaxed">
-                Santa Blanca 550, Lo Barnechea,<br />
-                Región Metropolitana, Chile
-              </p>
-              <p className="text-sm text-brand-muted mt-4">
-                <a href={`mailto:${email}`} onClick={() => pushEvent("click_email", { location: "footer" })} className="link-hover">{email}</a><br />
-                <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener" onClick={() => pushEvent("click_whatsapp", { location: "footer" })} className="link-hover">
-                  +{whatsapp.slice(0, 2)} {whatsapp.slice(2, 3)} {whatsapp.slice(3, 7)} {whatsapp.slice(7)}
-                </a>
-              </p>
-              {/* Redes sociales — orden prod: Facebook primero, luego Instagram */}
-              <div className="mt-6 flex gap-3">
-                <a
-                  href={fb}
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="Facebook"
-                  onClick={() => pushEvent("click_social", { network: "facebook" })}
-                  className="p-2 hover:text-brand-accent transition-colors"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M13 22v-8h3l.5-4H13V7.5c0-1.1.3-2 2-2h2V2c-.4 0-1.8-.1-3.3-.1C10.4 1.9 9 4 9 7v3H6v4h3v8h4z"/>
-                  </svg>
-                </a>
-                <a
-                  href={ig}
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="Instagram"
-                  onClick={() => pushEvent("click_social", { network: "instagram" })}
-                  className="p-2 hover:text-brand-accent transition-colors"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <rect x="3" y="3" width="18" height="18" rx="5" />
-                    <circle cx="12" cy="12" r="4" />
-                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
-                  </svg>
-                </a>
-              </div>
-            </div>
+    <footer className="bg-black text-white">
 
-            {/* Explora */}
-            <div className="lg:col-span-2">
-              <h4 className="text-xs uppercase tracking-widest font-medium mb-4">{locale === "en" ? "Explore" : "Explora"}</h4>
-              <ul className="space-y-2 text-sm text-brand-muted">
-                {exploreLinks.map((l) => (
-                  <li key={l.href}>
-                    <Link href={l.href} className="link-hover">{l.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      {/* Sección logo centrado — fila propia, fondo negro */}
+      <div className="py-16 flex justify-center items-center border-b border-white/10">
+        <Image
+          src="/logo-pueblo.svg"
+          alt="Pueblo La Dehesa"
+          width={120}
+          height={120}
+          className="w-28 h-auto invert"
+        />
+      </div>
 
-            {/* Legal */}
-            <div className="lg:col-span-2">
-              <h4 className="text-xs uppercase tracking-widest font-medium mb-4">{locale === "en" ? "Legal" : "Legal"}</h4>
-              <ul className="space-y-2 text-sm text-brand-muted">
-                {legalLinks.map((l) => (
-                  <li key={l.href}>
-                    <Link href={l.href} className="link-hover">{l.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      {/* Columnas principales */}
+      <div className="max-w-container mx-auto px-6 lg:px-10 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
-            {/* Newsletter */}
-            <div className="lg:col-span-4">
-              <h4 className="text-sm font-medium mb-4">
-                {locale === "en"
-                  ? "Join our newsletter and be the first to know"
-                  : "Únete a nuestro newsletter y sé el primero en enterarte de todo"}
-              </h4>
-              <form onSubmit={submitNewsletter} className="flex items-end border-b border-current pb-1 gap-2">
-                <input
-                  type="email"
-                  required
-                  value={newsletterEmail}
-                  onChange={(e) => setNewsletterEmail(e.target.value)}
-                  placeholder={locale === "en" ? "Email address" : "Correo electrónico"}
-                  className="flex-1 bg-transparent text-sm focus:outline-none placeholder:text-brand-muted py-2"
-                  aria-label={locale === "en" ? "Email" : "Correo electrónico"}
-                />
-                <button
-                  type="submit"
-                  disabled={newsletterStatus === "loading"}
-                  className="text-xs uppercase tracking-widest font-medium py-2 hover:opacity-70 transition-opacity shrink-0"
-                >
-                  {newsletterStatus === "loading" ? "…" : locale === "en" ? "Subscribe" : "Enviar"}
-                </button>
-              </form>
-              {newsletterStatus === "ok" && (
-                <p className="text-xs text-brand-accent mt-2">
-                  {locale === "en" ? "Thanks! You're subscribed." : "¡Gracias! Quedaste suscrito."}
-                </p>
-              )}
-              {newsletterStatus === "error" && (
-                <p className="text-xs text-red-600 mt-2">
-                  {locale === "en" ? "Something went wrong. Try again." : "Algo falló. Intenta de nuevo."}
-                </p>
-              )}
+          {/* Col 1: Dirección + contacto + redes */}
+          <div>
+            <p className="text-sm text-white/70 leading-relaxed">
+              Santa Blanca 550, Lo Barnechea,<br />
+              Región Metropolitana, Chile
+            </p>
+            <p className="text-sm text-white/70 mt-4">
+              <a href={`mailto:${email}`} onClick={() => pushEvent("click_email", { location: "footer" })} className="hover:text-white transition-colors">{email}</a><br />
+              <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener" onClick={() => pushEvent("click_whatsapp", { location: "footer" })} className="hover:text-white transition-colors">
+                +{whatsapp.slice(0, 2)} {whatsapp.slice(2, 3)} {whatsapp.slice(3, 7)} {whatsapp.slice(7)}
+              </a>
+            </p>
+            <div className="mt-6 flex gap-4">
+              <a href={fb} target="_blank" rel="noopener" aria-label="Facebook" onClick={() => pushEvent("click_social", { network: "facebook" })} className="hover:opacity-70 transition-opacity">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12,2C6.477,2,2,6.477,2,12c0,5.013,3.693,9.153,8.505,9.876V14.65H8.031v-2.629h2.474v-1.749c0-2.896,1.411-4.167,3.818-4.167c1.153,0,1.762,0.085,2.051,0.124v2.294h-1.642c-1.022,0-1.379,0.969-1.379,2.061v1.437h2.995l-0.406,2.629h-2.588v7.247C18.235,21.236,22,17.062,22,12C22,6.477,17.523,2,12,2z"/>
+                </svg>
+              </a>
+              <a href={ig} target="_blank" rel="noopener" aria-label="Instagram" onClick={() => pushEvent("click_social", { network: "instagram" })} className="hover:opacity-70 transition-opacity">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                </svg>
+              </a>
             </div>
           </div>
+
+          {/* Col 2: Explora */}
+          <div>
+            <h4 className="text-xs uppercase tracking-widest font-medium mb-5">{locale === "en" ? "Explore" : "Explora"}</h4>
+            <ul className="space-y-3 text-sm text-white/70">
+              {exploreLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="hover:text-white transition-colors">{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 3: Legal */}
+          <div>
+            <h4 className="text-xs uppercase tracking-widest font-medium mb-5">Legal</h4>
+            <ul className="space-y-3 text-sm text-white/70">
+              {legalLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="hover:text-white transition-colors">{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 4: Newsletter */}
+          <div>
+            <h4 className="text-sm font-medium mb-5 leading-snug">
+              {locale === "en"
+                ? "Join our newsletter and be the first to know"
+                : "Únete a nuestro newsletter y sé el primero en enterarte de todo"}
+            </h4>
+            <form onSubmit={submitNewsletter} className="flex items-end border-b border-white/40 pb-1 gap-2">
+              <input
+                type="email"
+                required
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                placeholder={locale === "en" ? "Email address" : "Correo electrónico"}
+                className="flex-1 bg-transparent text-sm text-white focus:outline-none placeholder:text-white/40 py-2"
+                aria-label={locale === "en" ? "Email" : "Correo electrónico"}
+              />
+              <button
+                type="submit"
+                disabled={newsletterStatus === "loading"}
+                className="text-xs uppercase tracking-widest font-medium py-2 hover:opacity-70 transition-opacity shrink-0"
+              >
+                {newsletterStatus === "loading" ? "…" : locale === "en" ? "Subscribe" : "Enviar"}
+              </button>
+            </form>
+            {newsletterStatus === "ok" && (
+              <p className="text-xs text-green-400 mt-2">
+                {locale === "en" ? "Thanks! You're subscribed." : "¡Gracias! Quedaste suscrito."}
+              </p>
+            )}
+            {newsletterStatus === "error" && (
+              <p className="text-xs text-red-400 mt-2">
+                {locale === "en" ? "Something went wrong. Try again." : "Algo falló. Intenta de nuevo."}
+              </p>
+            )}
+          </div>
+
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-brand-line">
-        <div className="max-w-container mx-auto px-6 lg:px-10 py-6 text-xs text-brand-muted">
-          {/* Language selector */}
+      <div className="border-t border-white/10">
+        <div className="max-w-container mx-auto px-6 lg:px-10 py-6 text-xs text-white/50">
           <div className="mb-3">
-            <Link
-              href={locale === "en" ? "/" : "/en"}
-              className="inline-flex items-center gap-1 link-hover"
-            >
+            <Link href={locale === "en" ? "/" : "/en"} className="inline-flex items-center gap-1 hover:text-white transition-colors">
               {locale === "en" ? "English" : "Español"}
               <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
                 <path d="M5 7L1 3h8L5 7z"/>
@@ -209,17 +193,16 @@ export default function Footer({ locale = "es" }: FooterProps) {
             </Link>
           </div>
           <p>
-            Copyright © {new Date().getFullYear()}, <Link href="/" className="link-hover">Pueblo La Dehesa</Link>.{" "}
+            Copyright © {new Date().getFullYear()}, <Link href="/" className="hover:text-white transition-colors">Pueblo La Dehesa</Link>.{" "}
             {locale === "en" ? "All rights reserved" : "Todos los derechos reservados"}
           </p>
           <p className="mt-1">
             {locale === "en" ? "Made by" : "Creado por"}{" "}
-            <a href="https://lab51.cl" target="_blank" rel="noopener" className="link-hover text-brand-ink">
-              Lab51
-            </a>
+            <a href="https://lab51.cl" target="_blank" rel="noopener" className="hover:text-white transition-colors text-white/70">Lab51</a>
           </p>
         </div>
       </div>
+
     </footer>
   );
 }
