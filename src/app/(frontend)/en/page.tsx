@@ -330,29 +330,6 @@ export default function HomeEn() {
         </div>
       </section>
 
-      {/* Feature bar */}
-      <section className="py-section-sm border-t border-brand-line bg-brand-bg">
-        <div className="max-w-container mx-auto px-6 lg:px-10">
-          <ul className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <li>
-              <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">Booking</p>
-              <p className="font-serif text-lg text-brand-ink">Weekly or monthly rentals</p>
-            </li>
-            <li>
-              <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">Setting</p>
-              <p className="font-serif text-lg text-brand-ink">Safe and quiet neighbourhood</p>
-            </li>
-            <li>
-              <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">Landscape</p>
-              <p className="font-serif text-lg text-brand-ink">Views of the Andes</p>
-            </li>
-            <li>
-              <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">Quality of life</p>
-              <p className="font-serif text-lg text-brand-ink">Clean air and nature</p>
-            </li>
-          </ul>
-        </div>
-      </section>
     </>
   );
 }
