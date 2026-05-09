@@ -10,7 +10,7 @@ ARG NEXT_PUBLIC_BUILDER_API_KEY
 
 # Variables de entorno para el build
 ENV PAYLOAD_SECRET=${PAYLOAD_SECRET:-dev-only-secret-change-me}
-ENV DATABASE_URL=${DATABASE_URL:-file:./data/cms.db}
+ENV DATABASE_URL=${DATABASE_URL:-file:/tmp/cms.db}
 ENV NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
 ENV NEXT_PUBLIC_BUILDER_API_KEY=${NEXT_PUBLIC_BUILDER_API_KEY}
 
@@ -33,10 +33,6 @@ RUN mkdir -p /app/public/media
 # Copiar y hacer ejecutable el script de inicio
 COPY start.sh /app/start.sh
 RUN chmod +x /app/start.sh
-
-# Generar migraciones de Payload (schema SQLite) antes del build de Next.js
-# NODE_ENV=development para que payload generate:types funcione
-RUN DATABASE_URL=file:/tmp/cms-build.db PAYLOAD_SECRET=build-only npm run payload migrate:create -- --name init 2>&1 || true
 
 # Build (con NODE_ENV=production para optimización)
 ENV NODE_ENV=production
