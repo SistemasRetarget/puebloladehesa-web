@@ -1,24 +1,17 @@
 import React from "react";
 
 const Logo: React.FC = () => (
-  <div style={{ display: "flex", alignItems: "center", gap: "0.7rem", padding: "0.5rem 0" }}>
-    <div
-      aria-hidden="true"
-      style={{
-        width: 40, height: 40, borderRadius: 10,
-        background: "linear-gradient(135deg, #8b7355 0%, #6b5842 100%)",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        color: "#fff", fontFamily: "Georgia, serif", fontWeight: 700, fontSize: 20,
-        boxShadow: "0 4px 12px -2px rgba(139, 115, 85, 0.4)"
-      }}
-    >
-      P
-    </div>
+  <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", padding: "0.5rem 0" }}>
+    <img
+      src="https://retarget.cl/wp-content/uploads/2026/01/logotipo-scaled.png"
+      alt="Retarget"
+      style={{ height: 36, width: "auto", objectFit: "contain" }}
+    />
     <div style={{ lineHeight: 1.1 }}>
-      <div style={{ fontFamily: "Georgia, serif", fontWeight: 700, fontSize: "1.1rem", color: "#1a1a1a" }}>
+      <div style={{ fontWeight: 700, fontSize: "1rem", color: "#6AB5AF" }}>
         Pueblo La Dehesa
       </div>
-      <div style={{ fontSize: "0.72rem", color: "#8b7355", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 600 }}>
+      <div style={{ fontSize: "0.7rem", color: "#D7632C", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600 }}>
         Panel CMS
       </div>
     </div>

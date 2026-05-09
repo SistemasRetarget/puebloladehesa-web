@@ -5,9 +5,9 @@ const Icon: React.FC = () => (
     aria-hidden="true"
     style={{
       width: 32, height: 32, borderRadius: 8,
-      background: "linear-gradient(135deg, #8b7355 0%, #6b5842 100%)",
+      background: "linear-gradient(135deg, #6AB5AF 0%, #D7632C 100%)",
       display: "flex", alignItems: "center", justifyContent: "center",
-      color: "#fff", fontFamily: "Georgia, serif", fontWeight: 700, fontSize: 16
+      color: "#fff", fontWeight: 700, fontSize: 16
     }}
   >
     P
