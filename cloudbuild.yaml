@@ -19,7 +19,7 @@ steps:
       - '--build-arg'
       - 'PAYLOAD_SECRET=$_PAYLOAD_SECRET'
       - '--build-arg'
-      - 'DATABASE_URL=$_DATABASE_URL'
+      - 'DATABASE_URL=file:/tmp/cms.db'
       - '--build-arg'
       - 'NEXT_PUBLIC_SITE_URL=https://puebloladehesa-web-635392253567.europe-west1.run.app'
       - '--build-arg'
@@ -50,7 +50,7 @@ steps:
       - '--max-instances=3'
       - '--timeout=300'
       - '--cpu-boost'
-      - '--set-env-vars=NODE_ENV=production,NEXT_PUBLIC_BUILDER_API_KEY=20aec2e2db69478da3bc634785cb696c'
+      - '--set-env-vars=NODE_ENV=production,NEXT_PUBLIC_BUILDER_API_KEY=20aec2e2db69478da3bc634785cb696c,DATABASE_URL=file:/tmp/cms.db'
 
 images:
   - 'europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puebloladehesa/puebloladehesa-web:$COMMIT_SHA'
