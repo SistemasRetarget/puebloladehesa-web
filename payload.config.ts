@@ -12,6 +12,12 @@ import { Pages } from "./src/collections/Pages";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Startup diagnostics — visible in Cloud Run Logs Explorer
+console.log("[payload] NODE_ENV:", process.env.NODE_ENV);
+console.log("[payload] PAYLOAD_SECRET:", process.env.PAYLOAD_SECRET ? "SET" : "NOT SET (insecure default)");
+console.log("[payload] DATABASE_URL:", process.env.DATABASE_URL || "(not set — default file:/tmp/cms.db)");
+console.log("[payload] NEXT_PUBLIC_SITE_URL:", process.env.NEXT_PUBLIC_SITE_URL || "(not set — default localhost:3000)");
+
 export default buildConfig({
   admin: {
     user: Users.slug,
