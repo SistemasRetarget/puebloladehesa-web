@@ -2,15 +2,17 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Argumentos para build (recibidos de Railway)
+# Argumentos para build (recibidos de Railway/Cloud Run)
 ARG PAYLOAD_SECRET
 ARG DATABASE_URL
 ARG NEXT_PUBLIC_SITE_URL
+ARG NEXT_PUBLIC_BUILDER_API_KEY
 
 # Variables de entorno para el build
 ENV PAYLOAD_SECRET=${PAYLOAD_SECRET:-dev-only-secret-change-me}
 ENV DATABASE_URL=${DATABASE_URL:-file:./data/cms.db}
 ENV NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+ENV NEXT_PUBLIC_BUILDER_API_KEY=${NEXT_PUBLIC_BUILDER_API_KEY}
 
 # Instalar dependencias del sistema para SQLite
 RUN apk add --no-cache python3 make g++
