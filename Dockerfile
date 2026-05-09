@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:20-slim
 
 WORKDIR /app
 
@@ -14,8 +14,8 @@ ENV DATABASE_URL=${DATABASE_URL:-file:./data/cms.db}
 ENV NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
 ENV NEXT_PUBLIC_BUILDER_API_KEY=${NEXT_PUBLIC_BUILDER_API_KEY}
 
-# Instalar dependencias del sistema para SQLite
-RUN apk add --no-cache python3 make g++
+# Instalar dependencias del sistema para módulos nativos (SQLite, isolated-vm)
+RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt/lists/*
 
 # Copiar package.json
 COPY package*.json ./
