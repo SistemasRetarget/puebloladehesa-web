@@ -34,6 +34,10 @@ RUN mkdir -p /app/public/media
 COPY start.sh /app/start.sh
 RUN chmod +x /app/start.sh
 
+# Generar migraciones de Payload (schema SQLite) antes del build de Next.js
+# NODE_ENV=development para que payload generate:types funcione
+RUN DATABASE_URL=file:/tmp/cms-build.db PAYLOAD_SECRET=build-only npm run payload migrate:create -- --name init 2>&1 || true
+
 # Build (con NODE_ENV=production para optimización)
 ENV NODE_ENV=production
 RUN npm run build
