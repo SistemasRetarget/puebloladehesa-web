@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { BuilderComponent, useIsPreviewing } from '@builder.io/react';
 import { builder } from '@/lib/builder';
+import '@/lib/builder-components'; // Importar registro de componentes client-only
 
 interface BuilderPageProps {
   modelName: string;
@@ -16,34 +17,27 @@ export default function BuilderPage({ modelName, slug = '', fallback }: BuilderP
   const isPreviewing = useIsPreviewing();
 
   useEffect(() => {
-    const fetchContent = async () => {
-      if (!process.env.NEXT_PUBLIC_BUILDER_API_KEY || process.env.NEXT_PUBLIC_BUILDER_API_KEY === 'dev-key-placeholder') {
-        setContent(null);
-        setLoading(false);
-        return;
-      }
+    if (!process.env.NEXT_PUBLIC_BUILDER_API_KEY || process.env.NEXT_PUBLIC_BUILDER_API_KEY === 'dev-key-placeholder') {
+      setLoading(false);
+      return;
+    }
 
-      try {
-        const content = await builder.get(modelName, { query: { 'data.slug': slug } }).promise();
-        setContent(content);
-      } catch (error) {
-        console.warn(`Builder.io ${modelName} not found for slug: ${slug}`, error);
-        setContent(null);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchContent();
+    builder
+      .get(modelName, {
+        userAttributes: { urlPath: slug || '/' },
+        ...(slug ? { query: { 'data.slug': slug } } : {}),
+      })
+      .promise()
+      .then(setContent)
+      .catch(() => setContent(null))
+      .finally(() => setLoading(false));
   }, [modelName, slug]);
 
-  if (loading) {
-    return <div className="p-8 text-center text-gray-500">Cargando contenido...</div>;
-  }
+  if (loading) return null;
 
-  if (content) {
+  if (content || isPreviewing) {
     return <BuilderComponent model={modelName} content={content} />;
   }
 
-  return fallback || null;
+  return <>{fallback}</> || null;
 }
