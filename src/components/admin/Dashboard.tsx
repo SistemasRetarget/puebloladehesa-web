@@ -39,16 +39,12 @@ const Dashboard: React.FC<AdminViewServerProps> = ({ initPageResult }) => {
         ))}
       </div>
 
-      <div style={{ background: "#fff", border: "1px solid #e8dfd0", borderRadius: 12, padding: "1.5rem 1.75rem", marginTop: "1rem" }}>
-        <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.15rem", margin: "0 0 0.75rem", color: "#2c2419" }}>
-          Consejos rápidos
-        </h3>
-        <ul style={{ margin: 0, paddingLeft: "1.2rem", lineHeight: 1.7, color: "#4a3d2c" }}>
-          <li>Usá el selector <strong>ES / EN</strong> arriba a la derecha para editar cada idioma por separado.</li>
-          <li>Podés guardar como <strong>borrador</strong> y publicar después.</li>
-          <li>Las imágenes se redimensionan automáticamente a 3 tamaños (thumbnail, card, hero).</li>
-          <li>Cualquier cambio en una Casa/Página queda versionado y revertible.</li>
-        </ul>
+      <div style={{ marginTop: "2.5rem", textAlign: "center", opacity: 0.5 }}>
+        <img
+          src="https://retarget.cl/wp-content/uploads/2026/01/logotipo-scaled.png"
+          alt="Retarget"
+          style={{ height: 28, width: "auto", objectFit: "contain" }}
+        />
       </div>
     </Gutter>
   );

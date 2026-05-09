@@ -328,6 +328,14 @@ textarea:focus {
   outline: none !important;
 }
 
+/* ── Ocultar botón afterNavLinks del header (Builder está solo en sidebar) ── */
+.nav-toggler,
+.nav__collapse-btn,
+[class*="nav-toggler"],
+[class*="collapse"] {
+  display: none !important;
+}
+
 /* ── STATUS PILLS ────────────────────────────────────────────── */
 .pill--style-success {
   background: #e6f0df !important;
