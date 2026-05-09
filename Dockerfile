@@ -30,6 +30,10 @@ COPY . .
 RUN mkdir -p /app/data
 RUN mkdir -p /app/public/media
 
+# Copiar y hacer ejecutable el script de inicio
+COPY start.sh /app/start.sh
+RUN chmod +x /app/start.sh
+
 # Build (con NODE_ENV=production para optimización)
 ENV NODE_ENV=production
 RUN npm run build
@@ -42,5 +46,5 @@ EXPOSE 8080
 HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
   CMD node -e "require('http').get('http://localhost:8080', (r) => {if (r.statusCode >= 500) throw new Error(r.statusCode)})"
 
-# Start server (payload push:true crea tablas automáticamente al arrancar)
-CMD ["sh", "-c", "npm start -- -p ${PORT:-8080}"]
+# Start server (inicializa DB primero)
+CMD ["/app/start.sh"]
