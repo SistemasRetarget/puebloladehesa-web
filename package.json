@@ -57,6 +57,7 @@
     "node": ">=18.0.0"
   },
   "overrides": {
-    "isolated-vm": "4.7.2"
+    "isolated-vm": "4.7.2",
+    "file-type": "16.5.4"
   }
 }
