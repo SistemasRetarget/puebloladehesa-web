@@ -41,7 +41,8 @@ export default buildConfig({
     outputFile: path.resolve(__dirname, "payload-types.ts")
   },
   db: sqliteAdapter({
-    client: { url: process.env.DATABASE_URL || "file:./data/cms.db" }
+    client: { url: process.env.DATABASE_URL || "file:./data/cms.db" },
+    push: true,
   }),
   sharp,
   localization: {
