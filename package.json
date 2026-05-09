@@ -58,6 +58,6 @@
   },
   "overrides": {
     "isolated-vm": "4.7.2",
-    "file-type": "16.5.4"
+    "file-type": "19.0.0"
   }
 }
