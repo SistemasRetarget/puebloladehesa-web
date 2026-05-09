@@ -1,8 +1,12 @@
 #!/bin/sh
 # Script de inicio para Cloud Run
 
-# Usar NODE_ENV=production para que payload push:true funcione
 export NODE_ENV=production
+export PORT=${PORT:-8080}
 
-# Iniciar servidor - Payload creará tablas automáticamente con push:true
-exec npm start -- -p ${PORT:-8080}
+echo "🚀 Iniciando Pueblo La Dehesa Web..."
+echo "📊 DATABASE_URL: ${DATABASE_URL}"
+echo "🔑 PAYLOAD_SECRET: ${PAYLOAD_SECRET:+SET}"
+echo "🌐 Iniciando servidor Next.js en puerto ${PORT}..."
+
+exec npm start -- -p ${PORT}

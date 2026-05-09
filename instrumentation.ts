@@ -3,15 +3,16 @@ export async function register() {
   console.log("[instrumentation] PAYLOAD_SECRET:", process.env.PAYLOAD_SECRET ? "SET" : "NOT SET");
   console.log("[instrumentation] DATABASE_URL:", process.env.DATABASE_URL || "(not set)");
   console.log("[instrumentation] NEXT_PUBLIC_SITE_URL:", process.env.NEXT_PUBLIC_SITE_URL || "(not set)");
-  console.log("[instrumentation] NEXT_PUBLIC_BUILDER_API_KEY:", process.env.NEXT_PUBLIC_BUILDER_API_KEY ? "SET" : "NOT SET");
 
   if (process.env.NEXT_RUNTIME === "nodejs") {
     try {
-      console.log("[instrumentation] Loading payload config...");
-      const config = await import("@payload-config");
-      console.log("[instrumentation] payload config loaded OK:", typeof config.default);
+      console.log("[instrumentation] Initializing Payload to apply DB schema (push:true)...");
+      const { getPayload } = await import("payload");
+      const { default: config } = await import("@payload-config");
+      await getPayload({ config });
+      console.log("[instrumentation] Payload initialized OK — DB schema applied via push:true");
     } catch (err) {
-      console.error("[instrumentation] ERROR loading payload config:", err);
+      console.error("[instrumentation] ERROR initializing Payload:", err);
     }
   }
 }
