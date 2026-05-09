@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { getPage, listHouses, imageForPage, extractParagraphs } from "@/lib/content";
+import { getPage, listHouses, extractParagraphs } from "@/lib/content";
 import Features from "@/components/sections/Features";
-// import Testimonials from "@/components/Testimonials";
-// import FAQ from "@/components/FAQ";
+import Hero from "@/components/sections/Hero";
+import Narrativa from "@/components/sections/Narrativa";
+import ImageWithText from "@/components/sections/ImageWithText";
+import CTABlock from "@/components/sections/CTABlock";
+import BuilderPage from "@/components/BuilderPage";
 
 export const revalidate = 3600;
 
@@ -26,74 +29,94 @@ export const metadata: Metadata = {
   }
 };
 
-export default function Home() {
-  const home = getPage("es", "home");
-  const houses = listHouses("es");
-  const intro = home ? extractParagraphs(home, 2)[0] : "";
+const CASAS = [
+  {
+    slug: "casa-doble-altura",
+    name: "Casa Doble Altura",
+    specs: "2 HABITACIONES / 2,5 BAÑOS",
+    desc: "Dos niveles y doble altura, pensada para vivir con mayor amplitud y privacidad entre ambientes.",
+    img: "https://puebloladehesa.cl/cdn/shop/files/07A1871_870b59a3-cea5-46af-a04f-16711cf0bdd6_1.webp",
+  },
+  {
+    slug: "casa-parque",
+    name: "Casa Parque",
+    specs: "2 HABITACIONES / 2 BAÑOS",
+    desc: "Un primer piso que se abre al parque, con la terraza como extensión natural de la casa.",
+    img: "https://puebloladehesa.cl/cdn/shop/files/07A9319_9e57ed7b-b137-4536-ae8e-abfc85a8aeec_1.webp",
+  },
+  {
+    slug: "casa-panoramica",
+    name: "Casa Panorámica",
+    specs: "2 HABITACIONES / 2 BAÑOS",
+    desc: "Un segundo piso con vistas abiertas a la cordillera y mayor sensación de perspectiva.",
+    img: "https://puebloladehesa.cl/cdn/shop/files/07A0248.jpg",
+  },
+  {
+    slug: "casa-suite",
+    name: "Casa Suite",
+    specs: "1 HABITACIÓN / 1,5 BAÑOS",
+    desc: "Un dormitorio, con la mayor amplitud interior y una experiencia más abierta y protagónica.",
+    img: "https://puebloladehesa.cl/cdn/shop/files/IMG_0011_1.webp",
+  },
+];
 
+const EXPERIENCIAS = [
+  { src: "https://puebloladehesa.cl/cdn/shop/files/Cabalgata.png", tag: "Naturaleza", title: "Cabalgatas al atardecer" },
+  { src: "https://puebloladehesa.cl/cdn/shop/files/trekking_1.webp", tag: "Naturaleza", title: "Trekking en cordillera" },
+  { src: "https://puebloladehesa.cl/cdn/shop/files/Jardin_07A9818_1.webp", tag: "Pausa", title: "Jardín y silencio" },
+  { src: "https://puebloladehesa.cl/cdn/shop/files/vida_en_comunidad_07A0078_1_7bdc8b09-9b68-4924-a72c-3bea87f72e31.webp", tag: "Comunidad", title: "Vida compartida" },
+];
+
+export default function Home() {
   return (
     <>
-      <section className="relative h-screen min-h-[600px] overflow-hidden -mt-20 lg:-mt-32">
-        <img
-          src="/amplios_horizontes_1.webp"
-          alt="Pueblo La Dehesa"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
-        <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light tracking-tight">
-            Tu refugio en la ciudad
-          </h1>
-          <p className="mt-4 text-sm md:text-base max-w-xl opacity-90">
-            Arriendo de casas amobladas inmersas en la naturaleza con vistas a la cordillera y al valle de la Dehesa.
-          </p>
-        </div>
-      </section>
+      {/* HERO — editable en Builder.io (modelo: pueblo-hero) */}
+      <BuilderPage
+        modelName="pueblo-hero"
+        fallback={
+          <Hero
+            image="/amplios_horizontes_1.webp"
+            imageAlt="Pueblo La Dehesa"
+            title="Tu refugio en la ciudad"
+            subtitle="Arriendo de casas amobladas inmersas en la naturaleza con vistas a la cordillera y al valle de la Dehesa."
+          />
+        }
+      />
 
-      {/* SECTION 2: Rich text — narrativa de marca (matches prod section 3) */}
-      <section className="py-section bg-brand-soft">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-brand-ink leading-tight">
-            Pueblo nace de la idea de volver a lo esencial.
-          </h2>
-          <p className="mt-6 text-brand-muted leading-relaxed text-lg">
-            Un lugar donde la naturaleza, el diseño y la calma se cruzan para crear un nuevo sentido de habitar la ciudad. Aquí cada casa se piensa como un refugio integrado al entorno, con la cordillera como horizonte y el ritmo del valle como telón de fondo.
-          </p>
-        </div>
-      </section>
+      {/* NARRATIVA — editable en Builder.io (modelo: pueblo-narrativa) */}
+      <BuilderPage
+        modelName="pueblo-narrativa"
+        fallback={
+          <Narrativa
+            title="Pueblo nace de la idea de volver a lo esencial."
+            paragraphs={[
+              "Un lugar donde la naturaleza, el diseño y la calma se cruzan para crear un nuevo sentido de habitar la ciudad. Aquí cada casa se piensa como un refugio integrado al entorno, con la cordillera como horizonte y el ritmo del valle como telón de fondo.",
+            ]}
+          />
+        }
+      />
 
-      {/* SECTION 3: Tres Pilares (Features) — matches prod section 4 */}
+      {/* PILARES */}
       <Features locale="es" />
 
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="font-serif text-4xl md:text-5xl mb-6 font-light">Un lugar para quedarte el tiempo que necesites</h2>
-            <div className="space-y-5 text-brand-muted leading-relaxed text-lg">
-              <p>
-                Arriendo de casas amobladas integradas al paisaje, con luz natural y vistas a la cordillera.
-              </p>
-              <p>
-                Como en todo pueblo, hay un punto de encuentro: La Casita, un espacio para un café, algo rico para comer, para trabajar con calma o simplemente cruzarse con otros de manera natural.
-              </p>
-              <p>
-                Con un equipo atento, arriendo flexible y una ubicación privilegiada —cerca de todo, envuelta en silencio— Pueblo propone una forma de vivir simple, conectada y tranquila desde el primer día.
-              </p>
-            </div>
-          </div>
-          <div className="relative h-[480px] overflow-hidden bg-brand-soft hidden md:block">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://puebloladehesa.cl/cdn/shop/files/Locacion_AEREA_1_1_38dd9d39-992c-4897-9b6f-cd9711ae23fb.webp"
-              alt="Vista panorámica del valle de La Dehesa"
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
+      {/* IMAGEN + TEXTO — editable en Builder.io (modelo: pueblo-imagen-texto) */}
+      <BuilderPage
+        modelName="pueblo-imagen-texto"
+        fallback={
+          <ImageWithText
+            image="https://puebloladehesa.cl/cdn/shop/files/Locacion_AEREA_1_1_38dd9d39-992c-4897-9b6f-cd9711af23fb.webp"
+            imageAlt="Vista panorámica del valle de La Dehesa"
+            title="Un lugar para quedarte el tiempo que necesites"
+            paragraphs={[
+              "Arriendo de casas amobladas integradas al paisaje, con luz natural y vistas a la cordillera.",
+              "Como en todo pueblo, hay un punto de encuentro: La Casita, un espacio para un café, algo rico para comer, para trabajar con calma o simplemente cruzarse con otros de manera natural.",
+              "Con un equipo atento, arriendo flexible y una ubicación privilegiada —cerca de todo, envuelta en silencio— Pueblo propone una forma de vivir simple, conectada y tranquila desde el primer día.",
+            ]}
+          />
+        }
+      />
 
-      {/* SECTION 5: Espacios para quedarse — 4 columnas horizontales matching prod */}
+      {/* CASAS */}
       <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="text-center mb-16">
           <h2 className="font-serif text-5xl md:text-6xl mb-4 font-light">Espacios para quedarse</h2>
@@ -102,41 +125,8 @@ export default function Home() {
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            {
-              slug: "casa-doble-altura",
-              name: "Casa Doble Altura",
-              specs: "2 HABITACIONES / 2,5 BAÑOS",
-              desc: "Dos niveles y doble altura, pensada para vivir con mayor amplitud y privacidad entre ambientes.",
-              img: "https://puebloladehesa.cl/cdn/shop/files/07A1871_870b59a3-cea5-46af-a04f-16711cf0bdd6_1.webp",
-            },
-            {
-              slug: "casa-parque",
-              name: "Casa Parque",
-              specs: "2 HABITACIONES / 2 BAÑOS",
-              desc: "Un primer piso que se abre al parque, con la terraza como extensión natural de la casa.",
-              img: "https://puebloladehesa.cl/cdn/shop/files/07A9319_9e57ed7b-b137-4536-ae8e-abfc85a8aeec_1.webp",
-            },
-            {
-              slug: "casa-panoramica",
-              name: "Casa Panorámica",
-              specs: "2 HABITACIONES / 2 BAÑOS",
-              desc: "Un segundo piso con vistas abiertas a la cordillera y mayor sensación de perspectiva.",
-              img: "https://puebloladehesa.cl/cdn/shop/files/07A0248.jpg",
-            },
-            {
-              slug: "casa-suite",
-              name: "Casa Suite",
-              specs: "1 HABITACIÓN / 1,5 BAÑOS",
-              desc: "Un dormitorio, con la mayor amplitud interior y una experiencia más abierta y protagónica.",
-              img: "https://puebloladehesa.cl/cdn/shop/files/IMG_0011_1.webp",
-            },
-          ].map((casa) => (
-            <Link
-              key={casa.slug}
-              href={`/casas/${casa.slug}`}
-              className="group block"
-            >
+          {CASAS.map((casa) => (
+            <Link key={casa.slug} href={`/casas/${casa.slug}`} className="group block">
               <div className="relative aspect-[3/4] overflow-hidden bg-brand-soft mb-5">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -146,15 +136,9 @@ export default function Home() {
                   loading="lazy"
                 />
               </div>
-              <h3 className="font-serif text-2xl font-light text-brand-ink mb-2">
-                {casa.name}
-              </h3>
-              <p className="text-xs uppercase tracking-widest text-brand-muted mb-3">
-                {casa.specs}
-              </p>
-              <p className="text-sm text-brand-muted leading-relaxed mb-4">
-                {casa.desc}
-              </p>
+              <h3 className="font-serif text-2xl font-light text-brand-ink mb-2">{casa.name}</h3>
+              <p className="text-xs uppercase tracking-widest text-brand-muted mb-3">{casa.specs}</p>
+              <p className="text-sm text-brand-muted leading-relaxed mb-4">{casa.desc}</p>
               <span className="inline-flex items-center text-sm text-brand-ink group-hover:text-brand-accent transition-colors">
                 ver más →
               </span>
@@ -163,29 +147,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 6: Promo bar Estadías flexibles — matches prod section 8 */}
-      <section className="py-section bg-brand-ink text-white">
-        <div className="max-w-container mx-auto px-6 lg:px-10">
-          <div className="grid md:grid-cols-[1fr_auto] gap-8 items-center">
-            <div>
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light">Estadías flexibles</h2>
-              <p className="mt-3 text-white/80 text-lg max-w-2xl">
-                Reserva para nuestras estadías de corto, mediano y largo plazo.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/estadias" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-brand-accent text-white font-medium hover:bg-brand-accent/90 transition-colors">
-                Reservar
-              </Link>
-              <Link href="/contacto" className="inline-flex items-center justify-center px-8 py-4 rounded-full border border-white/40 text-white font-medium hover:bg-white/10 transition-colors">
-                Contáctanos
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* CTA ESTADÍAS — editable en Builder.io (modelo: pueblo-cta) */}
+      <BuilderPage
+        modelName="pueblo-cta"
+        fallback={
+          <CTABlock
+            title="Estadías flexibles"
+            description="Reserva para nuestras estadías de corto, mediano y largo plazo."
+            bookingLabel="Reservar"
+            contactLabel="Contáctanos"
+            locale="es"
+          />
+        }
+      />
 
-      {/* SECTION 7: Experiencias que le dan vida a Pueblo — header + carousel */}
+      {/* EXPERIENCIAS */}
       <section className="bg-brand-soft py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-end mb-12">
@@ -207,15 +183,8 @@ export default function Home() {
               Ver todas <span className="text-2xl">→</span>
             </Link>
           </div>
-
-          {/* Carousel grid - 4 cards visibles, match PROD experiencias gallery */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { src: "https://puebloladehesa.cl/cdn/shop/files/Cabalgata.png", tag: "Naturaleza", title: "Cabalgatas al atardecer" },
-              { src: "https://puebloladehesa.cl/cdn/shop/files/trekking_1.webp", tag: "Naturaleza", title: "Trekking en cordillera" },
-              { src: "https://puebloladehesa.cl/cdn/shop/files/Jardin_07A9818_1.webp", tag: "Pausa", title: "Jardín y silencio" },
-              { src: "https://puebloladehesa.cl/cdn/shop/files/vida_en_comunidad_07A0078_1_7bdc8b09-9b68-4924-a72c-3bea87f72e31.webp", tag: "Comunidad", title: "Vida compartida" },
-            ].map((exp, i) => (
+            {EXPERIENCIAS.map((exp, i) => (
               <div key={i} className="relative aspect-[3/4] overflow-hidden bg-brand-soft group">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -231,8 +200,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-
-          {/* Mobile CTA */}
           <div className="mt-10 text-center lg:hidden">
             <Link
               href="/experiencias"
@@ -244,7 +211,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 8: Quote parallax full-width — matches prod */}
+      {/* QUOTE PARALLAX */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -263,7 +230,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 8.5: Vida en Pueblo — 2 large images matching PROD */}
+      {/* VIDA EN PUEBLO */}
       <section className="py-section">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -291,11 +258,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 9: Contact form with info column — matches prod section 11 */}
+      {/* CONTACTO */}
       <section className="py-section">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-start">
-            {/* Left: heading + contact info */}
             <div>
               <h2 className="font-serif text-4xl md:text-5xl font-light text-brand-ink mb-6">
                 Estamos aquí para ayudarte
@@ -322,7 +288,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            {/* Right: form */}
             <div>
               <form action="/api/contact" method="POST" className="grid gap-4">
                 <div className="grid md:grid-cols-2 gap-4">
@@ -339,7 +304,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
     </>
   );
 }
