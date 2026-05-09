@@ -1,16 +1,8 @@
 #!/bin/sh
-# Script de inicio para Cloud Run - inicializa DB y arranca servidor
+# Script de inicio para Cloud Run
 
-echo "🚀 Iniciando Pueblo La Dehesa Web..."
+# Usar NODE_ENV=production para que payload push:true funcione
+export NODE_ENV=production
 
-# Verificar/crear directorio para base de datos
-mkdir -p /tmp
-
-# Inicializar base de datos con payload (crea tablas si no existen)
-echo "📊 Inicializando base de datos..."
-npx payload migrate:create || true
-npx payload migrate || true
-
-# Iniciar servidor Next.js
-echo "🌐 Iniciando servidor..."
+# Iniciar servidor - Payload creará tablas automáticamente con push:true
 exec npm start -- -p ${PORT:-8080}
