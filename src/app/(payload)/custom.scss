@@ -97,16 +97,22 @@ h1, h2, h3, .nav__label {
 }
 
 .login__brand,
-.login h1 {
-  color: var(--brand-ink) !important;
+.login h1,
+.login h2,
+.login h3,
+.template-minimal h1,
+.template-minimal h2 {
+  color: #1a1a1a !important;
   font-size: 1.6rem;
   margin-bottom: 0.4rem;
   font-weight: 700;
 }
 
 .login p,
-.login__wrap > p {
-  color: #555 !important;
+.login__wrap > p,
+.login__wrap p,
+.template-minimal p {
+  color: #333333 !important;
   margin-bottom: 1.8rem;
   font-size: 0.95rem;
 }
@@ -124,9 +130,10 @@ h1, h2, h3, .nav__label {
 .login input[type="text"],
 .login input[type="email"],
 .login input[type="password"],
-.login .field-type input {
-  background: #faf8f5 !important;
-  border: 2px solid #ddd2c0 !important;
+.login .field-type input,
+.template-minimal input {
+  background: #ffffff !important;
+  border: 2px solid #b0ccc9 !important;
   color: #1a1a1a !important;
   padding: 0.85rem 1rem !important;
   border-radius: 8px !important;
@@ -134,10 +141,11 @@ h1, h2, h3, .nav__label {
   transition: all 0.15s ease !important;
 }
 
-.login input:focus {
+.login input:focus,
+.template-minimal input:focus {
   border-color: var(--brand-accent) !important;
   background: #ffffff !important;
-  box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.15) !important;
+  box-shadow: 0 0 0 3px rgba(106, 181, 175, 0.2) !important;
   outline: none !important;
 }
 

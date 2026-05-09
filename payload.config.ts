@@ -36,7 +36,7 @@ export default buildConfig({
         Logo: "@/components/admin/Logo#default",
         Icon: "@/components/admin/Icon#default"
       },
-      Nav: "@/components/admin/BuilderLink#default"
+      afterNavLinks: ["@/components/admin/BuilderLink#default"]
     },
     custom: {},
     theme: "all"
