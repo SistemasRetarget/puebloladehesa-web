@@ -42,5 +42,5 @@ EXPOSE 8080
 HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
   CMD node -e "require('http').get('http://localhost:8080', (r) => {if (r.statusCode >= 500) throw new Error(r.statusCode)})"
 
-# Start con PORT dinámico (Cloud Run inyecta PORT=8080)
-CMD ["sh", "-c", "npm start -- -p ${PORT:-8080}"]
+# Ejecutar migraciones y arrancar server (Cloud Run inyecta PORT=8080)
+CMD ["sh", "-c", "npx payload migrate && npm start -- -p ${PORT:-8080}"]
