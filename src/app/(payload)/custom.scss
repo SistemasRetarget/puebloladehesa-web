@@ -336,6 +336,46 @@ textarea:focus {
   display: none !important;
 }
 
+/* ── DROPDOWN / SELECT OPTIONS ───────────────────────────────── */
+.rs__option,
+.react-select__option,
+[class*="rs__option"],
+[class*="option"] {
+  background: #1a3533 !important;
+  color: #e0f2f0 !important;
+}
+
+.rs__option:hover,
+.rs__option--is-focused,
+.react-select__option--is-focused,
+[class*="rs__option"]:hover,
+[class*="option--is-focused"] {
+  background: #6AB5AF !important;
+  color: #ffffff !important;
+}
+
+.rs__option--is-selected,
+.react-select__option--is-selected,
+[class*="option--is-selected"] {
+  background: #D7632C !important;
+  color: #ffffff !important;
+}
+
+.rs__menu,
+.react-select__menu,
+[class*="rs__menu"],
+[class*="__menu"] {
+  background: #1a3533 !important;
+  border: 1px solid rgba(106, 181, 175, 0.3) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4) !important;
+}
+
+.rs__control,
+[class*="rs__control"] {
+  background: #ffffff !important;
+  border-color: #b0ccc9 !important;
+}
+
 /* ── STATUS PILLS ────────────────────────────────────────────── */
 .pill--style-success {
   background: #e6f0df !important;
