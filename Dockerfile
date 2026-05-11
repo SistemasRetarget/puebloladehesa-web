@@ -36,6 +36,22 @@ fs.writeFileSync(p,c);\
 console.log('undici patch applied');\
 "
 
+# Patch payload loadEnv.js: tsx transforma 'import X from Y' a require(Y).default,
+# pero @next/env es CJS sin .default. Cambiamos a 'import * as' para evitar el wrap.
+RUN node -e "\
+const fs=require('fs'),p='node_modules/payload/dist/bin/loadEnv.js';\
+let c=fs.readFileSync(p,'utf8');\
+c=c.replace(\
+  'import nextEnvImport from',\
+  'import * as nextEnvImport from'\
+).replace(\
+  'const { loadEnvConfig } = nextEnvImport;',\
+  'const { loadEnvConfig } = nextEnvImport?.default ?? nextEnvImport;'\
+);\
+fs.writeFileSync(p,c);\
+console.log('payload loadEnv patch applied');\
+"
+
 # Copiar código fuente
 COPY . .
 
