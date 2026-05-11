@@ -1,7 +1,6 @@
 #!/bin/sh
 # Script de inicio para Cloud Run
 
-export NODE_ENV=production
 export PORT=${PORT:-8080}
 
 echo "🚀 Iniciando Pueblo La Dehesa Web..."

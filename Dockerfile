@@ -33,9 +33,8 @@ RUN mkdir -p /app/public/media
 COPY start.sh /app/start.sh
 RUN chmod +x /app/start.sh
 
-# Build (con NODE_ENV=production para optimización)
-ENV NODE_ENV=production
-RUN npm run build
+# Build con optimizaciones de producción (NODE_ENV solo para el build, no persiste en runtime)
+RUN NODE_ENV=production npm run build
 
 # Exponer puerto (Railway usa PORT env variable)
 # Cloud Run requiere puerto 8080
