@@ -19,25 +19,12 @@ steps:
       - '--build-arg'
       - 'PAYLOAD_SECRET=$_PAYLOAD_SECRET'
       - '--build-arg'
-      - 'DATABASE_URL=file:/tmp/cms.db'
+      - 'DATABASE_URL=postgresql://placeholder/placeholder'
       - '--build-arg'
       - 'NEXT_PUBLIC_SITE_URL=https://puebloladehesa-web-635392253567.europe-west1.run.app'
       - '--build-arg'
       - 'NEXT_PUBLIC_BUILDER_API_KEY=20aec2e2db69478da3bc634785cb696c'
       - '.'
-
-  # Verificar que init-db.mjs crea tablas correctamente dentro del contenedor
-  - name: 'gcr.io/cloud-builders/docker'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        docker run --rm \
-          -e DATABASE_URL=file:/tmp/test.db \
-          -e PAYLOAD_SECRET=test-only \
-          -e NODE_ENV=production \
-          europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puebloladehesa-web/puebloladehesa-web:$COMMIT_SHA \
-          node /app/scripts/init-db.mjs
 
   # Push ambos tags
   - name: 'gcr.io/cloud-builders/docker'
@@ -63,7 +50,9 @@ steps:
       - '--max-instances=3'
       - '--timeout=300'
       - '--cpu-boost'
-      - '--set-env-vars=NODE_ENV=production,NEXT_PUBLIC_BUILDER_API_KEY=20aec2e2db69478da3bc634785cb696c,DATABASE_URL=file:/tmp/cms.db,NEXT_PUBLIC_SITE_URL=https://puebloladehesa-web-635392253567.europe-west1.run.app,PAYLOAD_SECRET=$_PAYLOAD_SECRET'
+      - '--set-env-vars=NODE_ENV=production,NEXT_PUBLIC_BUILDER_API_KEY=20aec2e2db69478da3bc634785cb696c'
+      - '--set-secrets=DATABASE_URL=puebloladehesa-db-url:latest'
+      - '--add-cloudsql-instances=$PROJECT_ID:europe-west1:puebloladehesa-postgres'
 
 images:
   - 'europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puebloladehesa-web/puebloladehesa-web:$COMMIT_SHA'

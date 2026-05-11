@@ -10,11 +10,11 @@ ARG NEXT_PUBLIC_BUILDER_API_KEY
 
 # Variables de entorno para el build
 ENV PAYLOAD_SECRET=${PAYLOAD_SECRET:-dev-only-secret-change-me}
-ENV DATABASE_URL=${DATABASE_URL:-file:/tmp/cms.db}
+ENV DATABASE_URL=${DATABASE_URL:-postgresql://localhost/puebloladehesa_dev}
 ENV NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
 ENV NEXT_PUBLIC_BUILDER_API_KEY=${NEXT_PUBLIC_BUILDER_API_KEY}
 
-# Instalar dependencias del sistema para módulos nativos (SQLite, isolated-vm)
+# Instalar dependencias del sistema para módulos nativos (isolated-vm)
 RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt/lists/*
 
 # Copiar package.json
@@ -26,8 +26,7 @@ RUN npm install && npm cache clean --force
 # Copiar código fuente
 COPY . .
 
-# Crear directorios para datos persistentes
-RUN mkdir -p /app/data
+# Crear directorio para media uploads
 RUN mkdir -p /app/public/media
 
 # Copiar y hacer ejecutable el script de inicio

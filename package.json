@@ -24,6 +24,7 @@
   "dependencies": {
     "@builder.io/react": "^9.4.0",
     "@builder.io/sdk": "^6.3.0",
+    "@payloadcms/db-postgres": "^3.84.1",
     "@payloadcms/db-sqlite": "^3.83.0",
     "@payloadcms/next": "^3.83.0",
     "@payloadcms/richtext-lexical": "^3.83.0",
