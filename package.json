@@ -24,8 +24,7 @@
   "dependencies": {
     "@builder.io/react": "^9.4.0",
     "@builder.io/sdk": "^6.3.0",
-    "@payloadcms/db-postgres": "^3.84.1",
-    "@payloadcms/db-sqlite": "^3.83.0",
+    "@payloadcms/db-postgres": "^3.83.0",
     "@payloadcms/next": "^3.83.0",
     "@payloadcms/richtext-lexical": "^3.83.0",
     "@payloadcms/ui": "^3.83.0",
@@ -41,7 +40,6 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "10.4.19",
-    "better-sqlite3": "^12.9.0",
     "cross-env": "^7.0.3",
     "eslint": "8.57.0",
     "eslint-config-next": "~15.4.11",
