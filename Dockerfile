@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt
 COPY package*.json ./
 
 # Instalar TODAS las dependencias (incluyendo devDependencies para build)
-RUN npm install && npm cache clean --force
+RUN npm install --legacy-peer-deps && npm cache clean --force
 
 # Copiar código fuente
 COPY . .
