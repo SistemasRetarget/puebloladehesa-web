@@ -51,6 +51,7 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URL || "postgresql://localhost/puebloladehesa_dev",
     },
+    push: true,
   }),
   sharp,
   localization: {
