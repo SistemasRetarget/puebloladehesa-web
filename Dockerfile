@@ -23,6 +23,19 @@ COPY package*.json ./
 # Instalar TODAS las dependencias (incluyendo devDependencies para build)
 RUN npm install --legacy-peer-deps && npm cache clean --force
 
+# Patch undici: new CacheStorage(kConstruct) falla en Node 20.18 cuando tsx
+# duplica el kConstruct Symbol entre contextos de módulo. Wrap en try-catch.
+RUN node -e "\
+const fs=require('fs'),p='node_modules/undici/index.js';\
+let c=fs.readFileSync(p,'utf8');\
+c=c.replace(\
+  'module.exports.caches = new CacheStorage(kConstruct)',\
+  'try{module.exports.caches=new CacheStorage(kConstruct)}catch(e){module.exports.caches=null}'\
+);\
+fs.writeFileSync(p,c);\
+console.log('undici patch applied');\
+"
+
 # Copiar código fuente
 COPY . .
 
