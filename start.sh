@@ -12,7 +12,7 @@ echo "🔑 PAYLOAD_SECRET: ${PAYLOAD_SECRET:+SET}"
 # explícitamente antes de que next start lo fuerce a production.
 echo "⚙️  Inicializando schema PostgreSQL..."
 NODE_ENV=development NODE_OPTIONS="--no-deprecation --require /app/scripts/patch-globals.cjs" node_modules/.bin/payload migrate:create --name initial 2>&1 || true
-NODE_ENV=development NODE_OPTIONS="--no-deprecation --require /app/scripts/patch-globals.cjs" node_modules/.bin/payload migrate 2>&1 || true
+NODE_ENV=development NODE_OPTIONS="--no-deprecation --require /app/scripts/patch-globals.cjs --import tsx/esm" node_modules/.bin/payload migrate 2>&1 || true
 echo "✅ Schema listo"
 
 echo "🌐 Iniciando servidor Next.js en puerto ${PORT}..."
