@@ -328,11 +328,12 @@ textarea:focus {
   outline: none !important;
 }
 
-/* ── Ocultar botón afterNavLinks del header (Builder está solo en sidebar) ── */
+/* ── Ocultar SOLO botón de colapsar sidebar (selector específico) ── */
 .nav-toggler,
 .nav__collapse-btn,
-[class*="nav-toggler"],
-[class*="collapse"] {
+button[class*="nav-toggler"],
+button[aria-label="Collapse navigation"],
+button[aria-label="Toggle navigation"] {
   display: none !important;
 }
 
@@ -465,4 +466,104 @@ textarea:focus {
   font-size: 0.85rem;
   color: #4a9993;
   margin: 0;
+}
+
+/* ── LABELS DE CAMPO — contraste alto en fondo oscuro ─────────── */
+label,
+.field-label,
+.label,
+[class*="field-label"],
+[class*="label__label"],
+[class*="Label"],
+.field-type > label,
+.field-type > div > label,
+.array-field__row-header,
+.collapsible__header,
+.group-field__title {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+}
+
+/* Requerido asterisco */
+.required,
+[class*="required"] {
+  color: #ff8a65 !important;
+}
+
+/* Descripción de campo (texto pequeño bajo el input) */
+.field-description,
+[class*="field-description"] {
+  color: rgba(200, 220, 218, 0.7) !important;
+  font-size: 0.8rem;
+}
+
+/* ── BOTONES — versión mejorada ────────────────────────────────── */
+/* Publish / Save — primary */
+.btn--style-primary,
+button[class*="btn--style-primary"] {
+  background: linear-gradient(135deg, #D7632C 0%, #c0501f 100%) !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 0.6rem 1.2rem !important;
+  letter-spacing: 0.01em !important;
+  box-shadow: 0 2px 8px rgba(215, 99, 44, 0.35) !important;
+  transition: all 0.15s ease !important;
+}
+
+.btn--style-primary:hover {
+  background: linear-gradient(135deg, #c0501f 0%, #a8441a 100%) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px rgba(215, 99, 44, 0.45) !important;
+}
+
+/* Save Draft — secondary */
+.btn--style-secondary,
+button[class*="btn--style-secondary"] {
+  background: rgba(255,255,255,0.08) !important;
+  border: 1.5px solid rgba(106, 181, 175, 0.5) !important;
+  color: #a8dbd7 !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  padding: 0.6rem 1.2rem !important;
+  transition: all 0.15s ease !important;
+}
+
+.btn--style-secondary:hover {
+  background: rgba(106, 181, 175, 0.15) !important;
+  border-color: var(--brand-accent) !important;
+  color: #ffffff !important;
+}
+
+/* Pill / tag buttons (pequeños) */
+.btn--size-small {
+  border-radius: 6px !important;
+  font-size: 0.8rem !important;
+}
+
+/* Botón destructivo (Delete) */
+.btn--style-error,
+button[class*="style-error"] {
+  background: linear-gradient(135deg, #c0392b 0%, #a93226 100%) !important;
+  border: none !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(192, 57, 43, 0.35) !important;
+}
+
+/* Dropdown button (Publish changes ▼) */
+.popup-button-list__button,
+[class*="popup-button"] {
+  background: rgba(255,255,255,0.06) !important;
+  border-color: rgba(106,181,175,0.3) !important;
+  color: #c8e8e5 !important;
+  border-radius: 6px !important;
+}
+
+.popup-button-list__button:hover,
+[class*="popup-button"]:hover {
+  background: rgba(106, 181, 175, 0.15) !important;
+  color: #ffffff !important;
 }
