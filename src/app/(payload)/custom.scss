@@ -468,7 +468,33 @@ button[aria-label="Toggle navigation"] {
   margin: 0;
 }
 
-/* ── LABELS DE CAMPO — contraste alto en fondo oscuro ─────────── */
+/* ── EMPTY STATE / NO RESULTS — texto negro sobre fondo blanco ── */
+.no-results,
+[class*="no-results"],
+[class*="empty-view"],
+[class*="empty-state"],
+[class*="list-controls"] p,
+[class*="list-header"] p,
+[class*="collection-list"] p,
+[class*="DefaultListView"] p {
+  color: #1a1a1a !important;
+}
+
+/* Área de contenido principal (fondo claro) — texto siempre oscuro */
+main p,
+main h1,
+main h2,
+main h3,
+main h4,
+main span:not([class*="nav"]):not([class*="btn"]),
+.render-title,
+[class*="render-title"],
+[class*="content-wrap"] p,
+[class*="content-wrap"] span {
+  color: #1a1a1a;
+}
+
+/* ── LABELS DE CAMPO — contraste alto en formularios ─────────── */
 label,
 .field-label,
 .label,
@@ -480,7 +506,7 @@ label,
 .array-field__row-header,
 .collapsible__header,
 .group-field__title {
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #1a1a1a !important;
   font-weight: 500;
 }
 

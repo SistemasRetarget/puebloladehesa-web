@@ -99,15 +99,26 @@ const BUILDER_MODELS = [
   'pueblo-contacto', 'pueblo-temporada', 'pueblo-mensual', 'pueblo-ubicacion',
   'pueblo-pueblito', 'pueblo-la-casita', 'pueblo-departamento-amoblado',
 ];
+let builderWarnings = 0;
 for (const model of BUILDER_MODELS) {
-  await check(`Builder.io modelo "${model}" accesible`, async () => {
-    const url = `https://cdn.builder.io/api/v3/content/${model}?apiKey=${BUILDER_KEY}&limit=1`;
+  const url = `https://cdn.builder.io/api/v3/content/${model}?apiKey=${BUILDER_KEY}&limit=1`;
+  try {
     const res = await fetch(url, { signal: AbortSignal.timeout(10000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     if (!('results' in data)) throw new Error('Respuesta inesperada');
-    if (data.results.length === 0) throw new Error(`⚠️ Modelo existe pero sin contenido — crear en builder.io/content`);
-  });
+    if (data.results.length === 0) {
+      // Modelo existe en Builder.io pero sin contenido todavía — warning, no falla
+      console.log(`  ⚠️  Builder.io "${model}": modelo OK, sin contenido aún (páginas usan fallback)`);
+      builderWarnings++;
+    } else {
+      console.log(`  ✅ Builder.io "${model}": ${data.results.length} entradas`);
+      passed++;
+    }
+  } catch (e) {
+    console.log(`  ❌ Builder.io "${model}": ${e.message}`);
+    failed++;
+  }
 }
 
 // ─── SEO crítico ──────────────────────────────────────────────────────────
