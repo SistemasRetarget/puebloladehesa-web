@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { shopifyImages } from "@/lib/shopify-images";
+import BuilderPage from '@/components/BuilderPage';
 
 export const revalidate = 3600;
 
@@ -44,7 +45,10 @@ const INSPIRACION = [
 
 export default function Nosotros() {
   return (
-    <>
+    <BuilderPage
+      modelName="pueblo-nosotros"
+      fallback={
+        <>
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-20 lg:-mt-24">
         <Image
@@ -206,6 +210,8 @@ export default function Nosotros() {
           </div>
         </div>
       </section>
-    </>
+        </>
+      }
+    />
   );
 }

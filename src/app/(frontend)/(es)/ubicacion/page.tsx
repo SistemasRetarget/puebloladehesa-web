@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import BuilderPage from '@/components/BuilderPage';
 
 export const revalidate = 3600;
 
@@ -68,7 +69,10 @@ const NEARBY_PLACES = [
 
 export default function Ubicacion() {
   return (
-    <>
+    <BuilderPage
+      modelName="pueblo-ubicacion"
+      fallback={
+        <>
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-20 lg:-mt-24">
         <Image
@@ -213,6 +217,8 @@ export default function Ubicacion() {
           Reservar Ahora
         </a>
       </section>
-    </>
+        </>
+      }
+    />
   );
 }

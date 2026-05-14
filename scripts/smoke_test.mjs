@@ -93,7 +93,12 @@ await check('API key válida (content API responde)', async () => {
   const data = await res.json();
   if (!('results' in data)) throw new Error('Respuesta inesperada de Builder.io');
 });
-const BUILDER_MODELS = ['pueblo-hero', 'pueblo-narrativa', 'pueblo-imagen-texto', 'pueblo-cta'];
+const BUILDER_MODELS = [
+  'pueblo-hero', 'pueblo-narrativa', 'pueblo-imagen-texto', 'pueblo-cta',
+  'pueblo-casas', 'pueblo-nosotros', 'pueblo-experiencias', 'pueblo-estadias',
+  'pueblo-contacto', 'pueblo-temporada', 'pueblo-mensual', 'pueblo-ubicacion',
+  'pueblo-pueblito', 'pueblo-la-casita', 'pueblo-departamento-amoblado',
+];
 for (const model of BUILDER_MODELS) {
   await check(`Builder.io modelo "${model}" accesible`, async () => {
     const url = `https://cdn.builder.io/api/v3/content/${model}?apiKey=${BUILDER_KEY}&limit=1`;

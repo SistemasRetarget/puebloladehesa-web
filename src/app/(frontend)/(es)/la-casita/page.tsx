@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import BuilderPage from '@/components/BuilderPage';
 
 export const revalidate = 3600;
 
@@ -20,7 +21,10 @@ export const metadata: Metadata = {
 
 export default function LaCasita() {
   return (
-    <>
+    <BuilderPage
+      modelName="pueblo-la-casita"
+      fallback={
+        <>
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-20 lg:-mt-24">
         <img
@@ -191,6 +195,8 @@ export default function LaCasita() {
           </a>
         </div>
       </section>
-    </>
+        </>
+      }
+    />
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { listHouses, imageForPage } from "@/lib/content";
+import BuilderPage from '@/components/BuilderPage';
 
 export const revalidate = 3600;
 
@@ -57,7 +58,10 @@ export default function EstadiasPrincipal() {
   const houses = listHouses("es");
 
   return (
-    <>
+    <BuilderPage
+      modelName="pueblo-estadias"
+      fallback={
+        <>
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-20 lg:-mt-24">
         <Image
@@ -225,6 +229,8 @@ export default function EstadiasPrincipal() {
           </a>
         </div>
       </section>
-    </>
+        </>
+      }
+    />
   );
 }

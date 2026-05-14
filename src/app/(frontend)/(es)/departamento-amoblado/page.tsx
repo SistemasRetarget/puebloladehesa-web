@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { shopifyImages } from "@/lib/shopify-images";
+import BuilderPage from '@/components/BuilderPage';
 
 export const revalidate = 3600;
 
@@ -18,7 +19,10 @@ export const metadata: Metadata = {
 
 export default function DepartamentoAmoblado() {
   return (
-    <>
+    <BuilderPage
+      modelName="pueblo-departamento-amoblado"
+      fallback={
+        <>
       <section className="relative h-[60vh] min-h-[450px] overflow-hidden -mt-20 lg:-mt-24">
         <Image src={shopifyImages.casaPanoramica.hero} alt="Departamento Amoblado" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
@@ -102,6 +106,8 @@ export default function DepartamentoAmoblado() {
           </Link>
         </div>
       </section>
-    </>
+        </>
+      }
+    />
   );
 }

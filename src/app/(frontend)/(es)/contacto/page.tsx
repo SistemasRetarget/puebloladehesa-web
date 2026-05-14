@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BuilderPage from '@/components/BuilderPage';
 
 export const metadata: Metadata = {
   title: "Contacto | Pueblo La Dehesa",
@@ -19,7 +20,10 @@ export default async function Contacto({ searchParams }: { searchParams: Promise
   const wa = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "56984046200";
 
   return (
-    <>
+    <BuilderPage
+      modelName="pueblo-contacto"
+      fallback={
+        <>
       {/* Hero */}
       <section className="relative h-[40vh] min-h-[300px] overflow-hidden -mt-20 lg:-mt-24 bg-brand-ink">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-ink via-brand-accent/30 to-brand-ink" />
@@ -239,6 +243,8 @@ export default async function Contacto({ searchParams }: { searchParams: Promise
           </ul>
         </div>
       </section>
-    </>
+        </>
+      }
+    />
   );
 }
