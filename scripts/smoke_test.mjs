@@ -93,11 +93,17 @@ await check('API key válida (content API responde)', async () => {
   const data = await res.json();
   if (!('results' in data)) throw new Error('Respuesta inesperada de Builder.io');
 });
-await check('Builder.io modelo "page" accesible', async () => {
-  const url = `https://cdn.builder.io/api/v3/content/page?apiKey=${BUILDER_KEY}&userAttributes.urlPath=/&limit=1`;
-  const res = await fetch(url, { signal: AbortSignal.timeout(10000) });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-});
+const BUILDER_MODELS = ['pueblo-hero', 'pueblo-narrativa', 'pueblo-imagen-texto', 'pueblo-cta'];
+for (const model of BUILDER_MODELS) {
+  await check(`Builder.io modelo "${model}" accesible`, async () => {
+    const url = `https://cdn.builder.io/api/v3/content/${model}?apiKey=${BUILDER_KEY}&limit=1`;
+    const res = await fetch(url, { signal: AbortSignal.timeout(10000) });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    if (!('results' in data)) throw new Error('Respuesta inesperada');
+    if (data.results.length === 0) throw new Error(`⚠️ Modelo existe pero sin contenido — crear en builder.io/content`);
+  });
+}
 
 // ─── SEO crítico ──────────────────────────────────────────────────────────
 console.log('\n🔍 SEO:');
