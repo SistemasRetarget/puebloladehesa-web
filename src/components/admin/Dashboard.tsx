@@ -4,12 +4,12 @@ import type { AdminViewServerProps } from "payload";
 import CacheButton from "@/components/admin/CacheButton";
 
 const SHORTCUTS = [
-  { href: "/admin/collections/houses", title: "Casas", desc: "Fichas de casas, galerías y descripciones", icon: "\u{1F3E1}" },
-  { href: "/admin/collections/pages", title: "Páginas", desc: "Home, Nosotros, Experiencias, Contacto", icon: "\u{1F4C4}" },
-  { href: "/admin/collections/media", title: "Biblioteca de imágenes", desc: "Sube fotos y vincúlalas a casas o páginas", icon: "\u{1F5BC}" },
-  { href: "/admin/collections/users", title: "Usuarios", desc: "Administradores y editores del sitio", icon: "\u{1F464}" },
-  { href: "/", title: "Ver sitio público", desc: "Abre el sitio en otra pestaña", icon: "\u{1F310}" },
-  { href: "/api/graphql-playground", title: "GraphQL", desc: "Consola para desarrolladores", icon: "\u26A1" }
+  { href: "/admin/collections/houses",  title: "Casas",                  desc: "Fichas, galerías y descripciones",            icon: "🏡" },
+  { href: "/admin/collections/pages",   title: "Páginas",                desc: "Home, Nosotros, Experiencias, Contacto",      icon: "📄" },
+  { href: "/admin/collections/media",   title: "Imágenes",               desc: "Sube fotos y vincúlalas al sitio",            icon: "🖼" },
+  { href: "/admin/collections/users",   title: "Usuarios",               desc: "Administradores y editores",                  icon: "👤" },
+  { href: "/",                          title: "Ver sitio",              desc: "Abre el sitio público en otra pestaña",       icon: "🌐" },
+  { href: "/api/graphql-playground",    title: "GraphQL",                desc: "Consola para desarrolladores",                icon: "⚡" },
 ];
 
 const Dashboard: React.FC<AdminViewServerProps> = ({ initPageResult }) => {
@@ -21,18 +21,24 @@ const Dashboard: React.FC<AdminViewServerProps> = ({ initPageResult }) => {
       <div className="pld-welcome">
         <h2>Hola, {userName}</h2>
         <p>
-          Bienvenido al panel de administración de Pueblo La Dehesa. Desde aquí podés editar casas,
-          páginas y subir imágenes. Los cambios se reflejan en el sitio automáticamente.
+          Panel de administración de Pueblo La Dehesa. Editá casas,
+          páginas e imágenes — los cambios se reflejan en el sitio al guardar.
         </p>
       </div>
 
-      <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.3rem", marginBottom: "1rem", color: "#2c2419" }}>
+      <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.1rem", marginBottom: "0.875rem", color: "#2c1f0e", fontWeight: 600 }}>
         Accesos rápidos
       </h3>
 
       <div className="pld-shortcuts">
         {SHORTCUTS.map((s) => (
-          <a key={s.href} href={s.href} className="pld-shortcut" target={s.href.startsWith("/admin") ? "_self" : "_blank"} rel="noopener">
+          <a
+            key={s.href}
+            href={s.href}
+            className="pld-shortcut"
+            target={s.href.startsWith("/admin") ? "_self" : "_blank"}
+            rel="noopener"
+          >
             <span className="pld-shortcut__icon" aria-hidden="true">{s.icon}</span>
             <div className="pld-shortcut__title">{s.title}</div>
             <p className="pld-shortcut__desc">{s.desc}</p>
@@ -40,21 +46,17 @@ const Dashboard: React.FC<AdminViewServerProps> = ({ initPageResult }) => {
         ))}
       </div>
 
-      <div style={{ marginTop: "2rem", paddingTop: "1.5rem", borderTop: "1px solid rgba(0,0,0,0.08)" }}>
-        <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.1rem", marginBottom: "0.75rem", color: "#2c2419" }}>
-          Caché del sitio
-        </h3>
-        <p style={{ fontSize: "0.85rem", color: "#666", marginBottom: "1rem" }}>
-          Fuerza la actualización de todas las páginas en el servidor. Útil si un cambio no se refleja en el sitio.
-        </p>
+      <div className="pld-cache-section">
+        <h3>Caché del sitio</h3>
+        <p>Forzá la actualización de todas las páginas. Útil si un cambio no se refleja todavía.</p>
         <CacheButton />
       </div>
 
-      <div style={{ marginTop: "2.5rem", textAlign: "center", opacity: 0.5 }}>
+      <div className="pld-footer">
         <img
           src="https://retarget.cl/wp-content/uploads/2026/01/logotipo-scaled.png"
           alt="Retarget"
-          style={{ height: 28, width: "auto", objectFit: "contain" }}
+          style={{ height: 26, width: "auto", objectFit: "contain" }}
         />
       </div>
     </Gutter>
