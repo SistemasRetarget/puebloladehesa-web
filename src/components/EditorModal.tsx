@@ -15,13 +15,26 @@ export default function EditorModal() {
 
   useEffect(() => {
     setIsMounted(true);
-    // Detectar si estamos en modo editor
-    const editMode = searchParams?.get('edit') === '1' || localStorage.getItem('editor-mode') === 'true';
-    setIsEditor(editMode);
 
     // Detectar tema actual
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     setIsDark(prefersDark);
+
+    // Override via query param o localStorage
+    if (searchParams?.get('edit') === '1' || localStorage.getItem('editor-mode') === 'true') {
+      setIsEditor(true);
+      return;
+    }
+
+    // Detectar sesión activa de Payload — si está logueado, mostrar el modal
+    fetch('/api/users/me', { credentials: 'include' })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data?.user) setIsEditor(true);
+      })
+      .catch(() => {
+        // No logueado o error — no mostrar
+      });
   }, [searchParams]);
 
   if (!isMounted) return null;
