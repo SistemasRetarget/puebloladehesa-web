@@ -15,6 +15,17 @@ export const Pages: CollectionConfig = {
   access: { read: () => true },
   versions: { drafts: true },
   fields: [
+    // — ACCIONES (banner naranja, primero) ──────────────────────────────
+    {
+      name: "actions",
+      type: "ui",
+      admin: {
+        components: {
+          Field: "@/components/admin/PageActions#default"
+        }
+      }
+    },
+
     // — IDENTIDAD ────────────────────────────────────────────────────────
     {
       name: "title",
@@ -36,17 +47,6 @@ export const Pages: CollectionConfig = {
       type: "text",
       required: true,
       admin: { description: "URL en el sitio. Ej: /, /casas, /contacto" }
-    },
-
-    // — ACCIONES (UI custom) ────────────────────────────────────────────
-    {
-      name: "actions",
-      type: "ui",
-      admin: {
-        components: {
-          Field: "@/components/admin/PageActions#default"
-        }
-      }
     },
 
     // — BUILDER.IO ──────────────────────────────────────────────────────
