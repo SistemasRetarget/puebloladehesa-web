@@ -295,12 +295,29 @@ button[aria-label="Toggle navigation"] { display: none !important; }
 .step-nav__home,
 [class*="step-nav__home"] {
   flex-shrink: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 0 !important;
+  overflow: visible !important;
 }
 
-.step-nav__home span,
-[class*="step-nav__home"] span {
+.step-nav__home > span,
+[class*="step-nav__home"] > span {
   display: inline-flex !important;
   align-items: center !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  overflow: visible !important;
+  white-space: nowrap !important;
+}
+
+.step-nav__home a,
+[class*="step-nav__home"] a {
+  display: inline-flex !important;
+  align-items: center !important;
+  overflow: visible !important;
 }
 
 /* Separador "/" del breadcrumb — más espacio */
