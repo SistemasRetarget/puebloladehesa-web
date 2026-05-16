@@ -50,7 +50,7 @@ def Image(src, alt="", styles_lg=None, styles_md=None, styles_sm=None, fit="cove
 
 def Video(src, poster=None, styles_lg=None):
     return Element(
-        styles_lg={"position":"absolute","top":"0","left":"0","width":"100%","height":"100%", **(styles_lg or {})},
+        styles_lg={"position":"absolute","top":"0","left":"0","width":"100%","height":"100%","zIndex":"1", **(styles_lg or {})},
         component={"name":"Video","options":{
             "video":src, "posterImage":poster,
             "autoPlay":True, "muted":True, "loop":True,
@@ -68,7 +68,7 @@ def hero_section():
         children=[
             Video(VIDEO_URL, POSTER_URL),
             Box(styles_lg={"position":"absolute","top":"0","left":"0","right":"0","bottom":"0",
-                "background":"linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%)",
+                "background":"linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%)",
                 "zIndex":"2"}),
             Box(styles_lg={"position":"relative","zIndex":"3","height":"100%","display":"flex","flexDirection":"column",
                 "alignItems":"center","justifyContent":"flex-end","textAlign":"center",
@@ -165,7 +165,7 @@ def casas_section():
         Box(link_url=f"/casas/{c['slug']}",
             styles_lg={"display":"block","textDecoration":"none","color":"inherit"},
             children=[
-                Box(styles_lg={"position":"relative","aspectRatio":"3/4","overflow":"hidden","backgroundColor":"#F5F1EA","marginBottom":"20px"},
+                Box(styles_lg={"position":"relative","aspectRatio":"2/3","overflow":"hidden","backgroundColor":"#F5F1EA","marginBottom":"20px"},
                     children=[Image(c["img"], c["name"])]),
                 Text(c["name"], tag="h3", styles_lg={"fontFamily":"'Cormorant Garamond', serif","fontSize":"24px","fontWeight":"300","marginBottom":"8px"}),
                 Text(c["specs"], styles_lg={"fontSize":"11px","letterSpacing":"2px","color":"#6B6B6B","marginBottom":"12px","textTransform":"uppercase"}),
@@ -226,11 +226,11 @@ def experiencias_section():
         ("Comunidad","Vida compartida", f"{CDN}/vida_en_comunidad_07A0078_1_7bdc8b09-9b68-4924-a72c-3bea87f72e31.webp"),
     ]
     cards = [
-        Box(styles_lg={"position":"relative","aspectRatio":"3/4","overflow":"hidden","backgroundColor":"#F5F1EA"},
+        Box(styles_lg={"position":"relative","aspectRatio":"2/3","overflow":"hidden","backgroundColor":"#F5F1EA"},
             children=[
                 Image(img, title),
                 Box(styles_lg={"position":"absolute","bottom":"0","left":"0","right":"0","padding":"16px",
-                    "background":"linear-gradient(to top, rgba(0,0,0,0.8), transparent)"},
+                    "background":"linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.5))"},
                     children=[
                         Text(tag_, styles_lg={"fontSize":"10px","letterSpacing":"2px","color":"rgba(255,255,255,0.8)","textTransform":"uppercase","margin":"0 0 4px"}),
                         Text(title, tag="p", styles_lg={"fontFamily":"'Cormorant Garamond', serif","fontSize":"18px","color":"white","fontWeight":"300","lineHeight":"1.2","margin":"0"})
