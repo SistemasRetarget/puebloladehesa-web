@@ -645,3 +645,63 @@ button[class*="style-error"] {
   background: rgba(106, 181, 175, 0.15) !important;
   color: #ffffff !important;
 }
+
+/* ── KEBAB MENU (3 puntos) — doc header ─────────────────────── */
+/* El botón ⋮ junto a "Publish changes" */
+.doc-controls__controls > button:last-child,
+.doc-controls [class*="menu-btn"],
+[class*="doc-controls"] button[aria-label],
+button[class*="popup-button-trigger"],
+[class*="more-options"] button,
+.popup__trigger button {
+  background: rgba(255,255,255,0.1) !important;
+  color: #e0f2f0 !important;
+  border: 1.5px solid rgba(106,181,175,0.4) !important;
+  border-radius: 6px !important;
+  padding: 0.5rem 0.7rem !important;
+}
+
+/* Opciones del popup (Copy to locale, Create New, Duplicate, Delete) */
+[class*="popup-button-list"],
+.popup-button-list {
+  background: #1a3533 !important;
+  border: 1px solid rgba(106,181,175,0.3) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4) !important;
+}
+
+[class*="popup-button-list"] button,
+.popup-button-list button,
+[class*="popup-button-list"] li button {
+  color: #e0f2f0 !important;
+  background: transparent !important;
+  padding: 0.6rem 1rem !important;
+  width: 100% !important;
+  text-align: left !important;
+}
+
+[class*="popup-button-list"] button:hover,
+.popup-button-list button:hover {
+  background: rgba(106,181,175,0.2) !important;
+  color: #ffffff !important;
+}
+
+/* Delete — rojo visible */
+[class*="popup-button-list"] button[class*="danger"],
+[class*="popup-button-list"] button:last-child {
+  color: #ff8a75 !important;
+}
+
+/* Labels de campo — fondo oscuro, texto claro */
+.field-label,
+[class*="field-label"],
+label[class*="Label"] {
+  color: #a8dbd7 !important;
+}
+
+/* Descripción de campo — visible */
+[class*="field-description"],
+.field-description {
+  color: #7ab5b0 !important;
+  font-size: 0.8rem !important;
+}
