@@ -44,7 +44,7 @@ def Image(src, alt="", styles_lg=None, styles_md=None, styles_sm=None, fit="cove
         component={"name":"Image", "options":{
             "image":src, "altText":alt,
             "backgroundSize":fit, "backgroundPosition":"center",
-            "lazy":True, "fitContent":False, "aspectRatio":None
+            "lazy":True, "fitContent":False
         }}
     )
 
