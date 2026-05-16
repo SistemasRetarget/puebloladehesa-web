@@ -50,7 +50,7 @@ export default function Nosotros() {
       fallback={
         <>
       {/* Hero */}
-      <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-20 lg:-mt-24">
+      <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-56">
         <Image
           src={shopifyImages.nosotrosHero}
           alt="Pueblo La Dehesa - Nosotros"

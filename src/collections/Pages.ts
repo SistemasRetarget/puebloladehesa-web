@@ -15,17 +15,6 @@ export const Pages: CollectionConfig = {
   access: { read: () => true },
   versions: { drafts: true },
   fields: [
-    // — ACCIONES (banner naranja, primero) ──────────────────────────────
-    {
-      name: "actions",
-      type: "ui",
-      admin: {
-        components: {
-          Field: "@/components/admin/PageActions#default"
-        }
-      }
-    },
-
     // — IDENTIDAD ────────────────────────────────────────────────────────
     {
       name: "title",
