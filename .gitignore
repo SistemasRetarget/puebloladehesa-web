@@ -29,3 +29,4 @@ node_modules/
 out/
 # Media optimizada (se regenera con npm run optimize-images)
 public/media/
+tsconfig.tsbuildinfo
