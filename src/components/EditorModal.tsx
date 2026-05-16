@@ -70,6 +70,7 @@ export default function EditorModal() {
       {/* Icono flotante */}
       <button
         onClick={() => setIsOpen(!isOpen)}
+        className={isOpen ? '' : 'pld-editor-fab'}
         style={{
           width: 56,
           height: 56,
@@ -83,8 +84,8 @@ export default function EditorModal() {
           color: '#fff',
           fontSize: 24,
           boxShadow: '0 4px 12px rgba(215, 99, 44, 0.3)',
-          animation: isOpen ? 'none' : 'pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-          transition: 'all 0.3s ease',
+          transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+          position: 'relative',
         }}
         title="Editor"
       >
@@ -201,9 +202,29 @@ export default function EditorModal() {
       )}
 
       <style>{`
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.7; }
+        @keyframes pld-fab-ring {
+          0% {
+            box-shadow:
+              0 4px 12px rgba(215, 99, 44, 0.3),
+              0 0 0 0 rgba(215, 99, 44, 0.45);
+          }
+          70% {
+            box-shadow:
+              0 4px 12px rgba(215, 99, 44, 0.3),
+              0 0 0 14px rgba(215, 99, 44, 0);
+          }
+          100% {
+            box-shadow:
+              0 4px 12px rgba(215, 99, 44, 0.3),
+              0 0 0 0 rgba(215, 99, 44, 0);
+          }
+        }
+        .pld-editor-fab {
+          animation: pld-fab-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .pld-editor-fab:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 18px rgba(215, 99, 44, 0.42) !important;
         }
         @keyframes slideUp {
           from { opacity: 0; transform: translateY(10px); }
