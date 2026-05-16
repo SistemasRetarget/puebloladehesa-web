@@ -165,7 +165,7 @@ def casas_section():
         Box(link_url=f"/casas/{c['slug']}",
             styles_lg={"display":"block","textDecoration":"none","color":"inherit"},
             children=[
-                Box(styles_lg={"position":"relative","aspectRatio":"1/1","overflow":"hidden","backgroundColor":"#F5F1EA","marginBottom":"20px"},
+                Box(styles_lg={"position":"relative","overflow":"hidden","backgroundColor":"#F5F1EA","marginBottom":"20px"},
                     children=[Image(c["img"], c["name"])]),
                 Text(c["name"], tag="h3", styles_lg={"fontFamily":"'Cormorant Garamond', serif","fontSize":"24px","fontWeight":"300","marginBottom":"8px"}),
                 Text(c["specs"], styles_lg={"fontSize":"11px","letterSpacing":"2px","color":"#6B6B6B","marginBottom":"12px","textTransform":"uppercase"}),
@@ -226,7 +226,7 @@ def experiencias_section():
         ("Comunidad","Vida compartida", f"{CDN}/vida_en_comunidad_07A0078_1_7bdc8b09-9b68-4924-a72c-3bea87f72e31.webp"),
     ]
     cards = [
-        Box(styles_lg={"position":"relative","aspectRatio":"1/1","overflow":"hidden","backgroundColor":"#F5F1EA"},
+        Box(styles_lg={"position":"relative","overflow":"hidden","backgroundColor":"#F5F1EA"},
             children=[
                 Image(img, title),
                 Box(styles_lg={"position":"absolute","bottom":"0","left":"0","right":"0","padding":"16px",
