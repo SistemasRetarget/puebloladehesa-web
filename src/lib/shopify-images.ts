@@ -56,8 +56,9 @@ export const shopifyImages = {
   vidaComunidad: "https://puebloladehesa.cl/cdn/shop/files/vida_en_comunidad_07A0078_1_7bdc8b09-9b68-4924-a72c-3bea87f72e31.webp",
 
   // Nosotros (About page)
-  nosotrosHero: "https://puebloladehesa.cl/cdn/shop/files/13-SJEvsinba-5926_459bc3b3-d100-475d-9bf3-1fb4303ac966.png",
+  nosotrosHero: "https://puebloladehesa.cl/cdn/shop/files/Captura_de_pantalla_2025-12-24_a_la_s_11.31.38_a.m._1398x1680.png",
   nosotrosEsencial: "https://puebloladehesa.cl/cdn/shop/files/Inmersion_naturaleza_07A8225.png",
+  nosotrosMaureen: "https://puebloladehesa.cl/cdn/shop/files/Maureen_Morrison_2025-12-18_at_20.34.05.jpg",
 
   // Logo
   logo: "https://puebloladehesa.cl/cdn/shop/files/logofooter_6d4c3b15-e6fb-49e5-a8aa-cacf91689084_1.webp",

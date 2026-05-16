@@ -10,8 +10,9 @@ CDN = "https://puebloladehesa.cl/cdn/shop/files"
 
 # Imágenes — deben coincidir EXACTAMENTE con src/lib/shopify-images.ts
 IMAGES = {
-    "nosotros_hero": f"{CDN}/13-SJEvsinba-5926_459bc3b3-d100-475d-9bf3-1fb4303ac966.png",
+    "nosotros_hero":     f"{CDN}/Captura_de_pantalla_2025-12-24_a_la_s_11.31.38_a.m._1398x1680.png",
     "nosotros_esencial": f"{CDN}/Inmersion_naturaleza_07A8225.png",
+    "nosotros_maureen":  f"{CDN}/Maureen_Morrison_2025-12-18_at_20.34.05.jpg",
 }
 
 # ─── HELPERS ─────────────────────────────────────────────────────────────
@@ -294,9 +295,9 @@ def create_model():
         return False
 
 def upload_to_builder():
-    # Crear modelo si no existe
-    if not create_model():
-        return
+    # El modelo pueblo-nosotros ya existe en Builder.io (creado desde el dashboard)
+    # La API de Builder.io no permite crear modelos via API privada
+    print(f"ℹ️  Usando modelo existente: {MODEL_NAME}")
 
     payload = build_content()
 
