@@ -2,7 +2,7 @@
 import urllib.request, json, sys
 
 PAYLOAD_URL = "https://puebloladehesa-web-635392253567.europe-west1.run.app"
-EMAIL    = "sistemas@retarget.cl"
+EMAIL    = "admin@puebloladehesa.cl"   # AJUSTAR si es otro
 PASSWORD = sys.argv[1] if len(sys.argv) > 1 else None
 
 BUILDER_CONTENT_ID = "668bd74ea6e34efabbedaa7b4926d32f"  # Home content en Builder
