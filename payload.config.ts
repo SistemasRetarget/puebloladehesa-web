@@ -39,7 +39,7 @@ export default buildConfig({
       afterNavLinks: ["@/components/admin/BuilderLink#default"]
     },
     custom: {},
-    theme: "all"
+    theme: "light"
   },
   collections: [Users, Media, Houses, Pages],
   editor: lexicalEditor({}),
