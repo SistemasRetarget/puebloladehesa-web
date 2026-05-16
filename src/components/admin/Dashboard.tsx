@@ -26,7 +26,7 @@ const Dashboard: React.FC<AdminViewServerProps> = ({ initPageResult }) => {
         </p>
       </div>
 
-      <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.1rem", marginBottom: "0.875rem", color: "#2c1f0e", fontWeight: 600 }}>
+      <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.1rem", marginBottom: "0.875rem", fontWeight: 600 }}>
         Accesos rápidos
       </h3>
 
