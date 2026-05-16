@@ -1,25 +1,33 @@
 'use client'
 
-import { useFormFields } from '@payloadcms/ui'
+import { useDocumentInfo } from '@payloadcms/ui'
 
 /**
  * UI field para la collection `Pages`.
  * Muestra dos botones de acción:
  *   1. Ver landing — abre la URL en el sitio
  *   2. Editar landing visualmente — abre el editor de Builder.io
- *
- * Lee los campos `route` y `builderContentId` del formulario actual.
  */
 export default function PageActions() {
-  // useFormFields permite reaccionar a cambios de campos vecinos
-  const route = useFormFields(([fields]) => fields?.route?.value as string | undefined)
-  const contentId = useFormFields(([fields]) => fields?.builderContentId?.value as string | undefined)
-  const modelName = useFormFields(([fields]) => (fields?.builderModelName?.value as string) || 'pueblo-home')
+  let route: string | undefined
+  let contentId: string | undefined
+  let modelName = 'pueblo-home'
 
-  // URL del QA (en prod: leer de env)
-  const siteBase = typeof window !== 'undefined' && window.location.hostname.includes('localhost')
-    ? 'http://localhost:3000'
-    : 'https://puebloladehesa-web-635392253567.europe-west1.run.app'
+  try {
+    // useDocumentInfo expone los datos guardados del documento actual
+    const info = useDocumentInfo() as any
+    const data = info?.savedDocumentData || info?.docPermissions?.fields || {}
+    route = data.route
+    contentId = data.builderContentId
+    if (data.builderModelName) modelName = data.builderModelName
+  } catch (e) {
+    // En caso de error, el botón "Editar" sigue funcionando con el listado del modelo
+  }
+
+  const siteBase =
+    typeof window !== 'undefined' && window.location.hostname.includes('localhost')
+      ? 'http://localhost:3000'
+      : 'https://puebloladehesa-web-635392253567.europe-west1.run.app'
 
   const viewUrl = route ? `${siteBase}${route}` : null
   const editUrl = contentId
@@ -46,10 +54,7 @@ export default function PageActions() {
           textDecoration: 'none',
           opacity: viewUrl ? 1 : 0.4,
           pointerEvents: viewUrl ? 'auto' : 'none',
-          transition: 'background 0.15s ease',
         }}
-        onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--theme-elevation-150)')}
-        onMouseLeave={(e) => (e.currentTarget.style.background = 'var(--theme-elevation-100)')}
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
@@ -74,10 +79,7 @@ export default function PageActions() {
           fontSize: 13,
           fontWeight: 500,
           textDecoration: 'none',
-          transition: 'background 0.15s ease',
         }}
-        onMouseEnter={(e) => (e.currentTarget.style.background = '#A8451A')}
-        onMouseLeave={(e) => (e.currentTarget.style.background = '#C8551F')}
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M12 20h9" />

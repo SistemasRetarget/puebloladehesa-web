@@ -3,8 +3,8 @@ import type { CollectionConfig } from "payload";
 export const Pages: CollectionConfig = {
   slug: "pages",
   labels: {
-    singular: { es: "Página", en: "Page" },
-    plural:   { es: "Páginas", en: "Pages" }
+    singular: "Página",
+    plural: "Páginas"
   },
   admin: {
     useAsTitle: "title",
@@ -44,7 +44,7 @@ export const Pages: CollectionConfig = {
       type: "ui",
       admin: {
         components: {
-          Field: "@/components/admin/PageActions"
+          Field: "@/components/admin/PageActions#default"
         }
       }
     },
@@ -68,7 +68,7 @@ export const Pages: CollectionConfig = {
     {
       name: "meta",
       type: "group",
-      label: { es: "SEO", en: "SEO" },
+      label: "SEO",
       localized: true,
       fields: [
         {
