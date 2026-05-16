@@ -8,6 +8,7 @@ import { Users } from "./src/collections/Users";
 import { Media } from "./src/collections/Media";
 import { Houses } from "./src/collections/Houses";
 import { Pages } from "./src/collections/Pages";
+import { Settings } from "./src/collections/Settings";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -41,7 +42,7 @@ export default buildConfig({
     custom: {},
     theme: "light"
   },
-  collections: [Users, Media, Houses, Pages],
+  collections: [Users, Media, Houses, Pages, Settings],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || "dev-only-secret-change-me",
   typescript: {

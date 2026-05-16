@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import Analytics from "@/components/Analytics";
 import MetaPixel from "@/components/MetaPixel";
+import TrackingProvider from "@/components/TrackingProvider";
 import ConsentBanner from "@/components/ConsentBanner";
 import JsonLd from "@/components/JsonLd";
 import EditorModal from "@/components/EditorModal";
@@ -70,6 +71,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
     <>
       <Analytics />
       <MetaPixel />
+      <TrackingProvider />
       <JsonLd data={organizationSchema()} />
       <JsonLd data={localBusinessSchema()} />
       {children}
