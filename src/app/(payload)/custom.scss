@@ -377,11 +377,63 @@ button[aria-label="Toggle navigation"] {
   border-color: #b0ccc9 !important;
 }
 
-/* ── STATUS PILLS ────────────────────────────────────────────── */
+/* ── STATUS PILLS + PUBLISHED TOGGLE ────────────────────────── */
 .pill--style-success {
   background: #e6f0df !important;
   color: #2d5320 !important;
   font-weight: 600;
+}
+
+/* Pill genérico — siempre texto visible */
+.pill,
+[class*="pill"],
+[class*="Pill"] {
+  color: #1a1a1a !important;
+}
+
+/* Published badge en tabla (boolean cell) */
+.table td .checkbox,
+.table td [class*="checkbox"],
+.table td [class*="Checkbox"] {
+  background: #e6f0df !important;
+  border: 1.5px solid #4a7c3a !important;
+  border-radius: 6px !important;
+}
+
+/* Toggle "Published" — checked (true) */
+.table td input[type="checkbox"]:checked,
+.table td [class*="checkbox--checked"],
+[class*="cell"] [class*="checked"] {
+  background: #4a7c3a !important;
+  accent-color: #4a7c3a;
+}
+
+/* Botones acción en tabla (dropdown, edit, etc.) */
+.table td button,
+.table td a[class*="btn"] {
+  color: #1a3533 !important;
+  font-weight: 600 !important;
+}
+
+/* Label Published (texto arriba de la columna) */
+.table th:has(> [class*="published"]),
+.table th[class*="published"],
+td[class*="published"] {
+  color: #1a1a1a !important;
+}
+
+/* SelectRow checkbox en tabla — visible */
+.table td:first-child input[type="checkbox"] {
+  accent-color: #D7632C;
+  width: 18px;
+  height: 18px;
+}
+
+/* Fila activa/seleccionada — texto contraste alto */
+.table tbody tr[aria-selected="true"] td,
+.table tbody tr.row--selected td {
+  color: #0f1f1e !important;
+  background: rgba(106, 181, 175, 0.12) !important;
 }
 
 /* ── BANNER personalizado dashboard ──────────────────────────── */
