@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Analytics from "@/components/Analytics";
 import MetaPixel from "@/components/MetaPixel";
 import ConsentBanner from "@/components/ConsentBanner";
 import JsonLd from "@/components/JsonLd";
+import EditorModal from "@/components/EditorModal";
 import { organizationSchema, localBusinessSchema } from "@/lib/schema";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://puebloladehesa.cl";
@@ -72,6 +74,9 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
       <JsonLd data={localBusinessSchema()} />
       {children}
       <ConsentBanner />
+      <Suspense fallback={null}>
+        <EditorModal />
+      </Suspense>
     </>
   );
 }
