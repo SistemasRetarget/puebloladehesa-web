@@ -275,6 +275,11 @@ button[aria-label="Toggle navigation"] { display: none !important; }
 [class*="step-nav"] {
   color: var(--pld-text-3) !important;
   font-size: 0.85rem;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.55rem !important;
+  flex-wrap: nowrap !important;
+  min-width: 0 !important;
 }
 
 .step-nav a,
@@ -282,9 +287,60 @@ button[aria-label="Toggle navigation"] { display: none !important; }
   color: var(--pld-text-2) !important;
   text-decoration: none;
   transition: color var(--pld-t-fast) var(--pld-ease);
+  white-space: nowrap;
 }
 
 .step-nav a:hover { color: var(--pld-blue) !important; }
+
+.step-nav__home,
+[class*="step-nav__home"] {
+  flex-shrink: 0 !important;
+}
+
+.step-nav__home span,
+[class*="step-nav__home"] span {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+/* Separador "/" del breadcrumb — más espacio */
+.step-nav::after,
+.step-nav__home + *::before,
+[class*="step-nav"] [class*="separator"] {
+  margin: 0 0.5rem !important;
+  color: var(--pld-text-3) !important;
+  opacity: 0.6;
+}
+
+/* Botón "← Admin" del Icon component */
+.pld-back-admin {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+  background: var(--pld-surface);
+  border: 1.5px solid var(--pld-border);
+  color: var(--pld-text);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform var(--pld-t-fast) var(--pld-ease),
+    border-color var(--pld-t-fast) var(--pld-ease),
+    color var(--pld-t-fast) var(--pld-ease),
+    background var(--pld-t-fast) var(--pld-ease);
+}
+
+.pld-back-admin:hover {
+  transform: translateX(-2px);
+  border-color: var(--pld-orange);
+  color: var(--pld-orange);
+  background: var(--pld-orange-soft);
+}
 
 /* ════════════════════════════════════════════════════════════════════
    ÁREA PRINCIPAL
