@@ -1,7 +1,6 @@
 import React from "react";
 import { Gutter } from "@payloadcms/ui";
 import type { AdminViewServerProps } from "payload";
-import CacheButton from "@/components/admin/CacheButton";
 
 const SHORTCUTS = [
   { href: "/admin/collections/houses",  title: "Casas",                  desc: "Fichas, galerías y descripciones",            icon: "🏡" },
@@ -49,7 +48,6 @@ const Dashboard: React.FC<AdminViewServerProps> = ({ initPageResult }) => {
       <div className="pld-cache-section">
         <h3>Caché del sitio</h3>
         <p>Forzá la actualización de todas las páginas. Útil si un cambio no se refleja todavía.</p>
-        <CacheButton />
       </div>
 
       <div className="pld-footer">
