@@ -55,7 +55,6 @@ const nextConfig = {
       {
         source: "/((?!admin|api).*)",
         headers: [
-          { key: "X-Frame-Options", value: "DENY" },
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
@@ -64,16 +63,16 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://cdn.builder.io https://builder.io",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.builder.io",
               "font-src 'self' https://fonts.gstatic.com data:",
-              "img-src 'self' data: blob: https://puebloladehesa.cl https://cdn.shopify.com https://www.google-analytics.com https://www.googletagmanager.com https://www.facebook.com",
-              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://connect.facebook.net https://www.facebook.com",
-              "frame-src 'self' https://www.google.com https://www.googletagmanager.com",
+              "img-src 'self' data: blob: https://puebloladehesa.cl https://cdn.shopify.com https://www.google-analytics.com https://www.googletagmanager.com https://www.facebook.com https://cdn.builder.io",
+              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://connect.facebook.net https://www.facebook.com https://cdn.builder.io https://builder.io",
+              "frame-src 'self' https://www.google.com https://www.googletagmanager.com https://builder.io https://*.builder.io",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
-              "frame-ancestors 'none'",
+              "frame-ancestors 'self' https://builder.io https://*.builder.io",
               "upgrade-insecure-requests"
             ].join("; ")
           }
