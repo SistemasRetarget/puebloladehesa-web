@@ -43,12 +43,12 @@
   --pld-warning:      #f59e0b;
   --pld-warning-soft: #fef3c7;
 
-  /* Nav sidebar — oscuro cálido */
-  --pld-nav-bg:       #1c1209;
-  --pld-nav-bg-2:     #261910;
-  --pld-nav-text:     #c8b898;
-  --pld-nav-text-hl:  #fafafa;
-  --pld-nav-divider:  rgba(255,255,255,0.06);
+  /* Nav sidebar — negro con texto blanco */
+  --pld-nav-bg:       #0a0a0a;
+  --pld-nav-bg-2:     #141414;
+  --pld-nav-text:     #e5e5e5;
+  --pld-nav-text-hl:  #ffffff;
+  --pld-nav-divider:  rgba(255,255,255,0.08);
 
   /* ── Shadows modernas — multi-layer, soft ─────────── */
   --pld-shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
@@ -245,7 +245,7 @@ h1, h2, h3, h4 {
 
 .nav-group__label,
 .nav__label {
-  color: #7a6045 !important;
+  color: #8a8a8a !important;
   font-size: 0.68rem !important;
   text-transform: uppercase;
   letter-spacing: 0.14em;
