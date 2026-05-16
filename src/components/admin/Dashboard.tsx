@@ -1,6 +1,7 @@
 import React from "react";
 import { Gutter } from "@payloadcms/ui";
 import type { AdminViewServerProps } from "payload";
+import CacheButton from "@/components/admin/CacheButton";
 
 const SHORTCUTS = [
   { href: "/admin/collections/houses", title: "Casas", desc: "Fichas de casas, galerías y descripciones", icon: "\u{1F3E1}" },
@@ -37,6 +38,16 @@ const Dashboard: React.FC<AdminViewServerProps> = ({ initPageResult }) => {
             <p className="pld-shortcut__desc">{s.desc}</p>
           </a>
         ))}
+      </div>
+
+      <div style={{ marginTop: "2rem", paddingTop: "1.5rem", borderTop: "1px solid rgba(0,0,0,0.08)" }}>
+        <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.1rem", marginBottom: "0.75rem", color: "#2c2419" }}>
+          Caché del sitio
+        </h3>
+        <p style={{ fontSize: "0.85rem", color: "#666", marginBottom: "1rem" }}>
+          Fuerza la actualización de todas las páginas en el servidor. Útil si un cambio no se refleja en el sitio.
+        </p>
+        <CacheButton />
       </div>
 
       <div style={{ marginTop: "2.5rem", textAlign: "center", opacity: 0.5 }}>
