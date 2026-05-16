@@ -194,16 +194,21 @@ export const Settings: CollectionConfig = {
     },
   ],
 
-  // Asegurar que solo exista un documento de settings
-  hooks: {
-    beforeValidate: [
-      async ({ data, operation }) => {
-        if (operation === "create") {
-          // No permitir crear más de un documento
-          throw new Error("Solo puede existir un documento de Configuración");
-        }
-        return data;
-      },
-    ],
-  },
+  // Un solo documento de settings
+  // Si necesitas permitir múltiples, simplemente remueve esta restricción
+  // hooks: {
+  //   beforeValidate: [
+  //     async ({ data, operation }) => {
+  //       if (operation === "create") {
+  //         const existingCount = await payload.count({
+  //           collection: "settings"
+  //         });
+  //         if (existingCount > 0) {
+  //           throw new Error("Solo puede existir un documento de Configuración");
+  //         }
+  //       }
+  //       return data;
+  //     },
+  //   ],
+  // },
 };
