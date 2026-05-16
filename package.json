@@ -25,6 +25,7 @@
     "@builder.io/react": "^9.4.0",
     "@builder.io/sdk": "^6.3.0",
     "@payloadcms/db-postgres": "3.84.1",
+    "@payloadcms/db-sqlite": "^3.84.1",
     "@payloadcms/next": "3.84.1",
     "@payloadcms/richtext-lexical": "3.84.1",
     "@payloadcms/ui": "3.84.1",
