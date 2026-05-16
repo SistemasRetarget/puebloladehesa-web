@@ -1130,6 +1130,26 @@ label,
   box-shadow: 0 0 0 4px var(--pld-blue-glow) !important;
 }
 
+/* Ocultar icono de lupa dentro de inputs de búsqueda */
+.search-filter svg,
+[class*="search-filter"] svg,
+.list-controls__search svg,
+.search-filter__icon,
+[class*="search-icon"],
+[class*="SearchIcon"],
+.search-icon,
+[class*="search-filter"] .icon--search,
+.icon--search {
+  display: none !important;
+}
+
+/* Restaurar padding-left del input ya que no hay icono */
+.search-filter input,
+[class*="search-filter"] input,
+.list-controls__search input {
+  padding-left: 0.95rem !important;
+}
+
 /* ════════════════════════════════════════════════════════════════════
    TOOLTIPS
    ════════════════════════════════════════════════════════════════════ */
