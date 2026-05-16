@@ -81,12 +81,6 @@ export const Pages: CollectionConfig = {
           type: "textarea",
           maxLength: 200,
           admin: { description: "Descripción para Google (150–160 caracteres ideal)" }
-        },
-        {
-          name: "ogImage",
-          type: "upload",
-          relationTo: "media",
-          admin: { description: "Imagen para compartir en redes sociales" }
         }
       ]
     },
