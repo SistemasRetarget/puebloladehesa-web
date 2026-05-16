@@ -52,7 +52,7 @@ export default function Nosotros() {
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-20 lg:-mt-24">
         <Image
-          src="https://puebloladehesa.cl/cdn/shop/files/13-SJEvsinba-5926_459bc3b3-d100-475d-9bf3-1fb4303ac966.png"
+          src={shopifyImages.nosotrosHero}
           alt="Pueblo La Dehesa - Nosotros"
           fill
           priority
@@ -99,7 +99,7 @@ export default function Nosotros() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
             <Image
-              src="https://puebloladehesa.cl/cdn/shop/files/Inmersion_naturaleza_07A8225.png"
+              src={shopifyImages.nosotrosEsencial}
               alt="Volver a lo esencial"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"

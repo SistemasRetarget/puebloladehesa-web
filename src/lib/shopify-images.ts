@@ -54,7 +54,11 @@ export const shopifyImages = {
   arriendoFlexible: "https://puebloladehesa.cl/cdn/shop/files/Arriendo_flexible_y_sin_ataduras_07A0374_1_1_9e1c59b4-d381-446d-aa82-afe0d283b9c7.webp",
   seguridad: "https://puebloladehesa.cl/cdn/shop/files/seguridad_y_confianza_07A9597_1_bb4787db-6cd4-46f1-a31f-d924fa2a12d8.webp",
   vidaComunidad: "https://puebloladehesa.cl/cdn/shop/files/vida_en_comunidad_07A0078_1_7bdc8b09-9b68-4924-a72c-3bea87f72e31.webp",
-  
+
+  // Nosotros (About page)
+  nosotrosHero: "https://puebloladehesa.cl/cdn/shop/files/13-SJEvsinba-5926_459bc3b3-d100-475d-9bf3-1fb4303ac966.png",
+  nosotrosEsencial: "https://puebloladehesa.cl/cdn/shop/files/Inmersion_naturaleza_07A8225.png",
+
   // Logo
   logo: "https://puebloladehesa.cl/cdn/shop/files/logofooter_6d4c3b15-e6fb-49e5-a8aa-cacf91689084_1.webp",
   favicon: "https://puebloladehesa.cl/cdn/shop/files/favicon-02.png",

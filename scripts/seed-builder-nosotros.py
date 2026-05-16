@@ -8,6 +8,12 @@ PREVIEW_URL = "https://puebloladehesa-web-635392253567.europe-west1.run.app"
 
 CDN = "https://puebloladehesa.cl/cdn/shop/files"
 
+# Imágenes — deben coincidir EXACTAMENTE con src/lib/shopify-images.ts
+IMAGES = {
+    "nosotros_hero": f"{CDN}/13-SJEvsinba-5926_459bc3b3-d100-475d-9bf3-1fb4303ac966.png",
+    "nosotros_esencial": f"{CDN}/Inmersion_naturaleza_07A8225.png",
+}
+
 # ─── HELPERS ─────────────────────────────────────────────────────────────
 def el_id(): return f"builder-{uuid.uuid4().hex[:14]}"
 
@@ -53,7 +59,7 @@ def hero_section():
         styles_md={"marginTop":"-128px"},
         children=[
             Box(styles_lg={"position":"absolute","top":"0","left":"0","right":"0","bottom":"0"},
-                children=[Image(f"{CDN}/13-SJEvsinba-5926_459bc3b3-d100-475d-9bf3-1fb4303ac966.png", "Pueblo La Dehesa - Nosotros")]),
+                children=[Image(IMAGES["nosotros_hero"], "Pueblo La Dehesa - Nosotros")]),
             Box(styles_lg={"position":"absolute","top":"0","left":"0","right":"0","bottom":"0",
                 "background":"linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.6) 100%)",
                 "zIndex":"1"}),
@@ -113,7 +119,7 @@ def volver_esencial_section():
         styles_sm={"padding":"64px 16px"},
         children=[
             Box(styles_lg={"aspectRatio":"4/5","position":"relative","overflow":"hidden","borderRadius":"8px"},
-                children=[Image(f"{CDN}/Inmersion_naturaleza_07A8225.png", "Volver a lo esencial")]),
+                children=[Image(IMAGES["nosotros_esencial"], "Volver a lo esencial")]),
             Box(children=[
                 Text("Volver a lo esencial", tag="h2",
                     styles_lg={"fontFamily":"'Cormorant Garamond', serif","fontSize":"48px","fontWeight":"300","lineHeight":"1.15","marginBottom":"32px"},
