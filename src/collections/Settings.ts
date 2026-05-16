@@ -41,20 +41,7 @@ export const Settings: CollectionConfig = {
           placeholder: "G-XXXXXXXXXX",
           admin: {
             description:
-              "Measurement ID de Google Analytics 4. Ej: G-XXXXXXXXXX. Se usa si GTM no está configurado.",
-          },
-        },
-        {
-          name: "trackingDescription",
-          type: "ui",
-          admin: {
-            components: {
-              Field: () =>
-                `<div style="padding: 12px; background: #f5f1ea; border-radius: 6px; font-size: 13px; color: #666; margin-bottom: 16px;">
-                  <strong>Información:</strong> Los cambios aquí se reflejan automáticamente en el sitio (sin necesidad de redeploy).
-                  GTM es prioritario — si está configurado, GA4 solo se usa como fallback.
-                </div>`,
-            },
+              "Measurement ID de GA4. Ej: G-XXXXXXXXXX. Solo se usa si GTM no está configurado. Los cambios se reflejan automáticamente sin redeploy.",
           },
         },
       ],
