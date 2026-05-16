@@ -18,17 +18,24 @@ export default function CacheButton() {
   }
 
   const label = {
-    idle: '🔄 Purgar cache del sitio',
-    loading: '⏳ Purgando...',
-    ok: '✅ Cache limpiado',
-    error: '❌ Error al purgar',
+    idle: 'Purgar caché del sitio',
+    loading: 'Purgando…',
+    ok: 'Caché limpiada',
+    error: 'Error al purgar',
   }[status];
 
   const bg = {
     idle: '#D7632C',
-    loading: '#b8501f',
-    ok: '#4a7c3a',
-    error: '#c0392b',
+    loading: '#b85424',
+    ok: '#16a34a',
+    error: '#dc2626',
+  }[status];
+
+  const shadow = {
+    idle: '0 2px 6px rgba(215,99,44,0.22), 0 1px 2px rgba(215,99,44,0.1)',
+    loading: '0 1px 3px rgba(184,84,36,0.18)',
+    ok: '0 2px 6px rgba(22,163,74,0.22)',
+    error: '0 2px 6px rgba(220,38,38,0.22)',
   }[status];
 
   return (
@@ -37,18 +44,41 @@ export default function CacheButton() {
       disabled={status === 'loading'}
       style={{
         background: bg,
-        color: '#fff',
+        color: '#ffffff',
         border: 'none',
-        borderRadius: 8,
-        padding: '0.75rem 1.5rem',
-        fontSize: '0.95rem',
+        borderRadius: 10,
+        padding: '0.7rem 1.4rem',
+        fontSize: '0.875rem',
         fontWeight: 600,
+        letterSpacing: '0.005em',
         cursor: status === 'loading' ? 'not-allowed' : 'pointer',
-        transition: 'background 0.2s',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+        transition: 'transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease',
+        boxShadow: shadow,
+        opacity: status === 'loading' ? 0.85 : 1,
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif',
+        lineHeight: 1.3,
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '0.5rem',
+      }}
+      onMouseEnter={(e) => {
+        if (status !== 'loading') {
+          e.currentTarget.style.transform = 'translateY(-1px)';
+          e.currentTarget.style.boxShadow = '0 6px 18px rgba(215,99,44,0.32), 0 2px 4px rgba(215,99,44,0.1)';
+        }
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'translateY(0)';
+        e.currentTarget.style.boxShadow = shadow;
       }}
     >
-      {label}
+      <span aria-hidden="true" style={{ fontSize: '0.95rem', lineHeight: 1 }}>
+        {status === 'idle' && '↻'}
+        {status === 'loading' && '⏳'}
+        {status === 'ok' && '✓'}
+        {status === 'error' && '✕'}
+      </span>
+      <span>{label}</span>
     </button>
   );
 }
